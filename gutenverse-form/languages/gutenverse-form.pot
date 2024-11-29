@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 1.1.2\n"
+"Project-Id-Version: Gutenverse Form 1.1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-11-15T06:38:41+00:00\n"
+"POT-Creation-Date: 2024-11-29T02:56:51+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -247,8 +247,8 @@ msgstr ""
 msgid "%s ago"
 msgstr ""
 
-#: lib/framework/helper.php:1131
-#: lib/framework/helper.php:1150
+#: lib/framework/helper.php:1142
+#: lib/framework/helper.php:1161
 msgid "Forbidden Access"
 msgstr ""
 
@@ -873,6 +873,89 @@ msgid "Hover Box Shadow"
 msgstr ""
 
 #: assets/js/blocks.js:2
+msgid "Show Icon"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Icon Alignment"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Icon Type"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Icon Size"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Set Lazy Load"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Image Alt"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Image Width"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Image Height"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Padding"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Margin"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Icon Rotate"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Color Mode"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Normal Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Normal Background Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Icon Color Gradient"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Icon Background Gradient"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Hover Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Hover Background Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Focus Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Focus Background Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
 msgid "Date Range"
 msgstr ""
 
@@ -902,6 +985,38 @@ msgstr ""
 
 #: assets/js/blocks.js:2
 msgid "Maximum Length"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Wrapper Margin"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Checkbox Link Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Checkbox Link Typography"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "GDPR Label"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "GDPR Default Value"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Will not show on editor, only in frontend"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "GDPR Form Value"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Value that will be recorded in Form Action"
 msgstr ""
 
 #: assets/js/blocks.js:2
@@ -1077,10 +1192,6 @@ msgid "Set Width"
 msgstr ""
 
 #: assets/js/blocks.js:2
-msgid "Show Icon"
-msgstr ""
-
-#: assets/js/blocks.js:2
 msgid "Before"
 msgstr ""
 
@@ -1090,10 +1201,6 @@ msgstr ""
 
 #: assets/js/blocks.js:2
 msgid "Icon Spacing"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Icon Size"
 msgstr ""
 
 #: assets/js/blocks.js:2
@@ -2930,10 +3037,6 @@ msgid "Bring to Front"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
-msgid "Color Mode"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
 msgid "Gradient Angle"
 msgstr ""
 
@@ -3323,14 +3426,6 @@ msgstr ""
 
 #: lib/framework/assets/js/core.js:2
 msgid "Ensure key variables remain dynamic, including links to pages or posts, titles, and meta information."
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Margin"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Padding"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
@@ -4083,6 +4178,7 @@ msgstr ""
 #: block/form-input-checkbox/block.json
 #: block/form-input-date/block.json
 #: block/form-input-email/block.json
+#: block/form-input-gdpr/block.json
 #: block/form-input-multiselect/block.json
 #: block/form-input-number/block.json
 #: block/form-input-radio/block.json
@@ -4118,6 +4214,7 @@ msgstr ""
 #: block/form-input-checkbox/block.json
 #: block/form-input-date/block.json
 #: block/form-input-email/block.json
+#: block/form-input-gdpr/block.json
 #: block/form-input-multiselect/block.json
 #: block/form-input-number/block.json
 #: block/form-input-radio/block.json
@@ -4133,6 +4230,7 @@ msgstr ""
 #: block/form-input-checkbox/block.json
 #: block/form-input-date/block.json
 #: block/form-input-email/block.json
+#: block/form-input-gdpr/block.json
 #: block/form-input-multiselect/block.json
 #: block/form-input-number/block.json
 #: block/form-input-radio/block.json
@@ -4164,6 +4262,16 @@ msgstr ""
 #: block/form-input-email/block.json
 msgctxt "block description"
 msgid "Gutenverse Input Email"
+msgstr ""
+
+#: block/form-input-gdpr/block.json
+msgctxt "block title"
+msgid "GDPR gdpr"
+msgstr ""
+
+#: block/form-input-gdpr/block.json
+msgctxt "block description"
+msgid "Gutenverse Input GDPR gdpr"
 msgstr ""
 
 #: block/form-input-multiselect/block.json

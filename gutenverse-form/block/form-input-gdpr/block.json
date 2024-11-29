@@ -1,8 +1,8 @@
 {
     "apiVersion": 2,
-    "name": "gutenverse/form-input-email",
-    "title": "Email Input",
-    "description": "Gutenverse Input Email",
+    "name": "gutenverse/form-input-gdpr",
+    "title": "GDPR gdpr",
+    "description": "Gutenverse Input GDPR gdpr",
     "category": "gutenverse-form",
     "allowCopyStyle": true,
     "attributes": {
@@ -17,6 +17,10 @@
             "type": "boolean",
             "default": true
         },
+        "inputPlaceholder": {
+            "type": "string",
+            "default": "Text Placeholder"
+        },
         "showHelper": {
             "type": "boolean",
             "default": true
@@ -27,7 +31,8 @@
         },
         "position": {
             "type": "string",
-            "default": "top"
+            "default": "top",
+            "copyStyle": true
         },
         "labelWidth": {
             "type": "object",
@@ -180,117 +185,75 @@
         },
         "inputLabel": {
             "type": "string",
-            "default": "Email"
-        },
-        "inputPlaceholder": {
-            "type": "string",
-            "default": "Email Placeholder"
+            "default": "GDPR Agreement"
         },
         "inputName": {
             "type": "string",
-            "default": "input-email"
+            "default": "input-gdpr"
+        },
+        "displayBlock": {
+            "type": "string",
+            "default": "default"
+        },
+        "wrapperMargin": {
+            "type": "object",
+            "copyStyle": true
+        },
+        "gdprSize": {
+            "type": "string",
+            "copyStyle": true
+        },
+        "gdprSpace": {
+            "type": "string",
+            "copyStyle": true
+        },
+        "gdprLabelColor": {
+            "type": "object",
+            "copyStyle": true
+        },
+        "gdprTypography": {
+            "type": "object",
+            "copyStyle": true
+        },
+        "gdprLinkColor": {
+            "type": "object",
+            "copyStyle": true
+        },
+        "gdprLinkTypography": {
+            "type": "object",
+            "copyStyle": true
+        },
+        "gdprValue": {
+            "type": "boolean",
+            "default": false
+        },
+        "gdprLabel": {
+            "type": "string",
+            "default": "Yes, I Agree"
+        },
+        "gdprFormValue": {
+            "type": "string",
+            "default": "Yes, I Agree"
+        },
+        "gdprColor": {
+            "type": "object",
+            "copyStyle": true
+        },
+        "gdprActiveColor": {
+            "type": "object",
+            "copyStyle": true
         },
         "required": {
             "type": "boolean",
             "default": false
         },
-        "validationType": {
-            "type": "string",
-            "default": "none"
-        },
-        "validationMin": {
-            "type": "number"
-        },
-        "validationMax": {
-            "type": "number"
+        "labelRequireColor": {
+            "type": "object",
+            "copyStyle": true
         },
         "validationWarning": {
             "type": "string",
             "default": "Input Invalid"
-        },
-        "inputPadding": {
-            "type": "object",
-            "copyStyle": true
-        },
-        "inputMargin": {
-            "type": "object",
-            "copyStyle": true
-        },
-        "inputColor": {
-            "type": "object",
-            "copyStyle": true
-        },
-        "placeholderColor": {
-            "type": "object",
-            "copyStyle": true
-        },
-        "inputTypography": {
-            "type": "object",
-            "copyStyle": true
-        },
-        "inputColorNormal": {
-            "type": "object",
-            "copyStyle": true
-        },
-        "inputBorderNormal": {
-            "type": "object",
-            "copyStyle": true
-        },
-        "inputBorderNormalResponsive": {
-            "type": "object",
-            "migrate": {
-                "attr": "inputBorderNormal",
-                "type": "border"
-            },
-            "copyStyle": true
-        },
-        "inputColorHover": {
-            "type": "object",
-            "copyStyle": true
-        },
-        "inputBorderHover": {
-            "type": "object",
-            "copyStyle": true
-        },
-        "inputBorderHoverResponsive": {
-            "type": "object",
-            "migrate": {
-                "attr": "inputBorderHover",
-                "type": "border"
-            },
-            "copyStyle": true
-        },
-        "inputColorFocus": {
-            "type": "object",
-            "copyStyle": true
-        },
-        "inputBorderFocus": {
-            "type": "object",
-            "copyStyle": true
-        },
-        "inputBorderFocusResponsive": {
-            "type": "object",
-            "migrate": {
-                "attr": "inputBorderFocus",
-                "type": "border"
-            },
-            "copyStyle": true
-        },
-        "inputBgColorNormal": {
-            "type": "object",
-            "copyStyle": true
-        },
-        "inputBgColorHover": {
-            "type": "object",
-            "copyStyle": true
-        },
-        "inputBgColorFocus": {
-            "type": "object",
-            "copyStyle": true
-        },
-        "labelRequireColor": {
-            "type": "object",
-            "copyStyle": true
         },
         "transform": {
             "type": "object",
@@ -300,178 +263,10 @@
             "type": "object",
             "copyStyle": true
         },
-        "inputAreaBoxShadow": {
-            "type": "object",
-            "copyStyle": true
-        },
-        "inputAreaBoxShadowHover": {
-            "type": "object",
-            "copyStyle": true
-        },
         "condition": {
             "type": "object",
             "default": {}
-        },
-        "iconAlignment": {
-            "type": "string",
-            "default": "left"
-        },
-        "iconType": {
-			"type": "string",
-			"default": "icon"
-		},
-		"icon": {
-			"type": "string",
-			"default": "gtn gtn-email-light"
-		},
-		"iconSize": {
-			"type": "object",
-			"default": {
-				"Desktop": 20
-			},
-			"copyStyle": true
-		},
-        "imageHeight": {
-			"type" : "object",
-			"copyStyle": true,
-            "default": {
-                "Desktop": 20
-            }
-		},
-		"imageWidth": {
-			"type" : "object",
-			"copyStyle": true,
-            "default": {
-                "Desktop": 20
-            }
-		},
-		"image": {
-			"type": "object"
-		},
-		"imageAlt": {
-			"type": "string"
-		},
-		"imageFit": {
-			"type" : "string"
-		},
-        "lazyLoad": {
-			"type" : "boolean",
-			"copyStyle": true
-		},
-        "containerBoxShadowHover": {
-			"type": "object",
-			"copyStyle": true
-		},
-        "useIcon": {
-            "type": "boolean",
-            "default": false,
-            "copyStyle": true
-        },
-		"iconPadding": {
-			"type": "object",
-			"copyStyle": true
-		},
-		"iconMargin": {
-			"type": "object",
-			"copyStyle": true
-		},
-		"iconRotate": {
-			"type": "object",
-			"copyStyle": true
-		},
-		"iconStyleMode": {
-			"type": "string",
-			"copyStyle": true
-		},
-		"iconColor": {
-			"type": "object",
-			"copyStyle": true
-		},
-		"iconBgColor": {
-			"type": "object",
-			"copyStyle": true
-		},
-		"iconBackground": {
-			"type": "object",
-			"copyStyle": true
-		},
-        "iconColorGradient": {
-			"type": "object",
-			"copyStyle": true,
-            "default": {
-                "type": "gradient",
-                "gradientColor": [
-                    {
-                        "active": false,
-                        "color": "rgb(49, 207, 180)",
-                        "id": 1,
-                        "offset": "0.000"
-                    },
-                    {
-                        "active": true,
-                        "color": "rgb(126, 32, 207)",
-                        "id": 2,
-                        "offset": "1.000"
-                    }
-                ]
-            }
-		},
-		"iconBorder": {
-			"type": "object",
-			"copyStyle": true
-		},
-		"iconBoxShadow": {
-			"type": "object",
-			"copyStyle": true
-		},
-		"iconHoverColor": {
-			"type": "object",
-			"copyStyle": true
-		},
-		"iconHoverBgColor": {
-			"type": "object",
-			"copyStyle": true
-		},
-        "iconColorGradientHover": {
-			"type": "object",
-			"copyStyle": true
-		},
-		"iconBackgroundHover": {
-			"type": "object",
-			"copyStyle": true
-		},
-		"iconBorderHover": {
-			"type": "object",
-			"copyStyle": true
-		},
-		"iconBoxShadowHover": {
-			"type": "object",
-			"copyStyle": true
-		},
-		"iconFocusColor": {
-			"type": "object",
-			"copyStyle": true
-		},
-		"iconFocusBgColor": {
-			"type": "object",
-			"copyStyle": true
-		},
-        "iconColorGradientFocus": {
-			"type": "object",
-			"copyStyle": true
-		},
-		"iconBackgroundFocus": {
-			"type": "object",
-			"copyStyle": true
-		},
-		"iconBorderFocus": {
-			"type": "object",
-			"copyStyle": true
-		},
-		"iconBoxShadowFocus": {
-			"type": "object",
-			"copyStyle": true
-		}
+        }
     },
     "supports": {
         "className": false
