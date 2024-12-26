@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 1.1.5\n"
+"Project-Id-Version: Gutenverse Form 1.1.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-12T02:17:51+00:00\n"
+"POT-Creation-Date: 2024-12-26T05:10:52+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -260,16 +260,16 @@ msgstr ""
 msgid "Enter"
 msgstr ""
 
-#: lib/framework/includes/block/class-post-abstract.php:159
+#: lib/framework/includes/block/class-post-abstract.php:161
 msgid " - Updated on "
 msgstr ""
 
-#: lib/framework/includes/block/class-post-abstract.php:728
+#: lib/framework/includes/block/class-post-abstract.php:742
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Prev"
 msgstr ""
 
-#: lib/framework/includes/block/class-post-abstract.php:763
+#: lib/framework/includes/block/class-post-abstract.php:777
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Next"
 msgstr ""
@@ -375,44 +375,44 @@ msgstr ""
 msgid "Google"
 msgstr ""
 
-#: lib/framework/includes/class-fonts.php:1643
-#: lib/framework/includes/class-fonts.php:1666
+#: lib/framework/includes/class-fonts.php:1908
+#: lib/framework/includes/class-fonts.php:1931
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 msgid "Normal"
 msgstr ""
 
-#: lib/framework/includes/class-fonts.php:1644
+#: lib/framework/includes/class-fonts.php:1909
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 msgid "Bold"
 msgstr ""
 
-#: lib/framework/includes/class-fonts.php:1667
+#: lib/framework/includes/class-fonts.php:1932
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 msgid "Italic"
 msgstr ""
 
-#: lib/framework/includes/class-fonts.php:1680
+#: lib/framework/includes/class-fonts.php:1945
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 msgid "Uppercase"
 msgstr ""
 
-#: lib/framework/includes/class-fonts.php:1681
+#: lib/framework/includes/class-fonts.php:1946
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 msgid "Capitalize"
 msgstr ""
 
-#: lib/framework/includes/class-fonts.php:1682
+#: lib/framework/includes/class-fonts.php:1947
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 msgid "Lowercase"
 msgstr ""
 
-#: lib/framework/includes/class-fonts.php:1683
+#: lib/framework/includes/class-fonts.php:1948
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 msgid "None"
@@ -2644,6 +2644,10 @@ msgstr ""
 
 #: lib/framework/assets/js/core.js:2
 msgid "Background Color"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Use Featured Image"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
