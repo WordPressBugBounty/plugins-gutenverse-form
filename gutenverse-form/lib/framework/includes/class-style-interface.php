@@ -2281,6 +2281,28 @@ abstract class Style_Interface {
 	}
 
 	/**
+	 * Handle Text Stroke
+	 *
+	 * @param array $value Value of Box Shadow.
+	 *
+	 * @return string|null
+	 */
+	public function handle_text_stroke( $value ) {
+		$style = '';
+		if ( isset( $value['color'] ) ) {
+			$style .= $this->handle_color( $value['color'], '-webkit-text-stroke-color' );
+			$style .= $this->handle_color( $value['color'], 'stroke-color' );
+		}
+
+		if ( isset( $value['width'] ) ) {
+			$style .= $this->handle_unit_point( $value['width'], '-webkit-text-stroke-width' );
+			$style .= $this->handle_unit_point( $value['width'], 'stroke-width' );
+		}
+
+		return $style;
+	}
+
+	/**
 	 * Handle Dimension
 	 *
 	 * @param array   $attribute Value of Point.
