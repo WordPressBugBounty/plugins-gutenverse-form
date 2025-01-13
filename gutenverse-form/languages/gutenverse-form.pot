@@ -1,15 +1,15 @@
-# Copyright (C) 2024 Jegstudio
+# Copyright (C) 2025 Jegstudio
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 1.1.7\n"
+"Project-Id-Version: Gutenverse Form 1.1.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-27T01:43:56+00:00\n"
+"POT-Creation-Date: 2025-01-13T02:03:17+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -53,6 +53,7 @@ msgstr ""
 
 #: includes/class-entries.php:331
 #: includes/class-form.php:62
+#: lib/framework/assets/js/core.js:2
 msgid "Title"
 msgstr ""
 
@@ -264,12 +265,12 @@ msgstr ""
 msgid " - Updated on "
 msgstr ""
 
-#: lib/framework/includes/block/class-post-abstract.php:742
+#: lib/framework/includes/block/class-post-abstract.php:743
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Prev"
 msgstr ""
 
-#: lib/framework/includes/block/class-post-abstract.php:777
+#: lib/framework/includes/block/class-post-abstract.php:778
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Next"
 msgstr ""
@@ -284,81 +285,81 @@ msgstr ""
 msgid "Gutenverse Wrapper"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:270
-#: lib/framework/includes/class-dashboard.php:272
+#: lib/framework/includes/class-dashboard.php:271
 #: lib/framework/includes/class-dashboard.php:273
+#: lib/framework/includes/class-dashboard.php:274
 msgid "unknown"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:275
+#: lib/framework/includes/class-dashboard.php:276
 #: lib/framework/assets/js/dashboard.js:2
 msgid "by"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:327
 #: lib/framework/includes/class-dashboard.php:328
+#: lib/framework/includes/class-dashboard.php:329
 #: lib/framework/includes/class-frontend-toolbar.php:124
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Gutenverse"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:346
 #: lib/framework/includes/class-dashboard.php:347
-#: lib/framework/includes/class-frontend-toolbar.php:193
+#: lib/framework/includes/class-dashboard.php:348
+#: lib/framework/includes/class-frontend-toolbar.php:194
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Dashboard"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:356
 #: lib/framework/includes/class-dashboard.php:357
+#: lib/framework/includes/class-dashboard.php:358
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Ecosystem"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:367
 #: lib/framework/includes/class-dashboard.php:368
-#: lib/framework/includes/class-frontend-toolbar.php:211
+#: lib/framework/includes/class-dashboard.php:369
+#: lib/framework/includes/class-frontend-toolbar.php:212
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Theme List"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:378
 #: lib/framework/includes/class-dashboard.php:379
+#: lib/framework/includes/class-dashboard.php:380
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Blocks"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:388
 #: lib/framework/includes/class-dashboard.php:389
-#: lib/framework/includes/class-frontend-toolbar.php:220
+#: lib/framework/includes/class-dashboard.php:390
+#: lib/framework/includes/class-frontend-toolbar.php:221
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Settings"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:398
 #: lib/framework/includes/class-dashboard.php:399
-#: lib/framework/includes/class-frontend-toolbar.php:229
+#: lib/framework/includes/class-dashboard.php:400
+#: lib/framework/includes/class-frontend-toolbar.php:230
 #: lib/framework/assets/js/dashboard.js:2
 msgid "System Status"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:408
 #: lib/framework/includes/class-dashboard.php:409
-#: lib/framework/includes/class-frontend-toolbar.php:238
+#: lib/framework/includes/class-dashboard.php:410
+#: lib/framework/includes/class-frontend-toolbar.php:239
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Update Notice"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:419
 #: lib/framework/includes/class-dashboard.php:420
+#: lib/framework/includes/class-dashboard.php:421
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Upgrade to PRO"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:432
 #: lib/framework/includes/class-dashboard.php:433
+#: lib/framework/includes/class-dashboard.php:434
 msgid "Gutenverse Themes"
 msgstr ""
 
@@ -422,51 +423,51 @@ msgstr ""
 msgid "Gutenverse Admin"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:168
+#: lib/framework/includes/class-frontend-toolbar.php:169
 msgid "Gutenverse PRO"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:202
+#: lib/framework/includes/class-frontend-toolbar.php:203
 msgid "Block List"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:249
+#: lib/framework/includes/class-frontend-toolbar.php:250
 msgid "Template Editor"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:257
+#: lib/framework/includes/class-frontend-toolbar.php:258
 msgid "All Template"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:266
+#: lib/framework/includes/class-frontend-toolbar.php:267
 msgid "Template Part"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:275
+#: lib/framework/includes/class-frontend-toolbar.php:276
 msgid "Got Question?"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:287
+#: lib/framework/includes/class-frontend-toolbar.php:288
 msgid "Rate Us ★★★★★"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:299
+#: lib/framework/includes/class-frontend-toolbar.php:300
 msgid "Help/Documentation"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:320
+#: lib/framework/includes/class-frontend-toolbar.php:321
 msgid "Not a Block Themes"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:339
+#: lib/framework/includes/class-frontend-toolbar.php:340
 msgid "Edit Template: "
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:354
+#: lib/framework/includes/class-frontend-toolbar.php:355
 msgid "Included Template Part"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:364
+#: lib/framework/includes/class-frontend-toolbar.php:365
 msgid "Edit: "
 msgstr ""
 
@@ -2623,6 +2624,18 @@ msgid "Input in miliseconds (ms). Later will be converted into second (s)"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
+msgid "Desktop"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Tablet"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Phone"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
 msgid "Image & Color"
 msgstr ""
 
@@ -2632,6 +2645,10 @@ msgstr ""
 
 #: lib/framework/assets/js/core.js:2
 msgid "Video"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Slide Show"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
@@ -2861,15 +2878,83 @@ msgid "Background Fallback"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
-msgid "Desktop"
+msgid "Image"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
-msgid "Tablet"
+msgid "Infinite Loop"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
-msgid "Phone"
+msgid "Image Display Duration"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Transition"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "fade"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Slide Right"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Slide Left"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Slide Top"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Slide Down"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Transition Duration"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Image Display Duration value will be used if Transition Duration value is higher"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Background Size"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Background Repeat"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Repeat Y"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Repeat X"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Round"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Ken Burns Effect"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Direction"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "In"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Out"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
@@ -3281,11 +3366,11 @@ msgid "Scale"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
-msgid "Round"
+msgid "Space"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
-msgid "Space"
+msgid "Pick Date"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
@@ -4318,7 +4403,7 @@ msgstr ""
 
 #: block/form-input-gdpr/block.json
 msgctxt "block title"
-msgid "GDPR gdpr"
+msgid "GDPR Input"
 msgstr ""
 
 #: block/form-input-gdpr/block.json
