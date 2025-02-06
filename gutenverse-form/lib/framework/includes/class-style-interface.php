@@ -1755,7 +1755,7 @@ abstract class Style_Interface {
 						'selector'       => $selector,
 						'property'       => function ( $value ) {
 
-							$bg_attachment = 'background-attachment: scroll';
+							$bg_attachment = 'background-attachment: scrolll;';
 
 							if ( is_bool( $value ) || '1' === $value ) {
 								$fixed = ( $value || '1' === $value ) ? 'fixed' : 'scroll';
@@ -1899,7 +1899,7 @@ abstract class Style_Interface {
 					$styles[ $device ] = '';
 				}
 
-				if ( ! empty( $prop['value'][ $device ] ) ) {
+				if ( ! gutenverse_truly_empty( $prop['value'][ $device ] ) ) {
 					if ( is_array( $prop['value'][ $device ] ) ) {
 						if ( gutenverse_truly_empty( $prop['value'][ $device ]['point'] ) || gutenverse_truly_empty( $prop['value'][ $device ]['unit'] ) ) {
 							continue;
