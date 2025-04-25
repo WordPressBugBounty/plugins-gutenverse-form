@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 1.1.9\n"
+"Project-Id-Version: Gutenverse Form 2.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-06T06:05:20+00:00\n"
+"POT-Creation-Date: 2025-04-25T08:25:12+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -275,8 +275,8 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: lib/framework/includes/class-api.php:894
-#: lib/framework/includes/class-api.php:1047
+#: lib/framework/includes/class-api.php:897
+#: lib/framework/includes/class-api.php:1050
 #: lib/framework/assets/js/components.js:2
 msgid "All"
 msgstr ""
@@ -317,49 +317,42 @@ msgstr ""
 msgid "Ecosystem"
 msgstr ""
 
+#: lib/framework/includes/class-dashboard.php:367
 #: lib/framework/includes/class-dashboard.php:368
-#: lib/framework/includes/class-dashboard.php:369
-#: lib/framework/includes/class-frontend-toolbar.php:212
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Theme List"
-msgstr ""
-
-#: lib/framework/includes/class-dashboard.php:379
-#: lib/framework/includes/class-dashboard.php:380
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Blocks"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:389
-#: lib/framework/includes/class-dashboard.php:390
-#: lib/framework/includes/class-frontend-toolbar.php:221
+#: lib/framework/includes/class-dashboard.php:377
+#: lib/framework/includes/class-dashboard.php:378
+#: lib/framework/includes/class-frontend-toolbar.php:212
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Settings"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:399
-#: lib/framework/includes/class-dashboard.php:400
-#: lib/framework/includes/class-frontend-toolbar.php:230
+#: lib/framework/includes/class-dashboard.php:387
+#: lib/framework/includes/class-dashboard.php:388
+#: lib/framework/includes/class-frontend-toolbar.php:221
 #: lib/framework/assets/js/dashboard.js:2
 msgid "System Status"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:409
-#: lib/framework/includes/class-dashboard.php:410
-#: lib/framework/includes/class-frontend-toolbar.php:239
+#: lib/framework/includes/class-dashboard.php:397
+#: lib/framework/includes/class-dashboard.php:398
+#: lib/framework/includes/class-frontend-toolbar.php:230
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Update Notice"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:420
-#: lib/framework/includes/class-dashboard.php:421
+#: lib/framework/includes/class-dashboard.php:408
+#: lib/framework/includes/class-dashboard.php:409
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Upgrade to PRO"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:433
-#: lib/framework/includes/class-dashboard.php:434
+#: lib/framework/includes/class-dashboard.php:421
+#: lib/framework/includes/class-dashboard.php:422
 msgid "Gutenverse Themes"
 msgstr ""
 
@@ -431,43 +424,43 @@ msgstr ""
 msgid "Block List"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:250
+#: lib/framework/includes/class-frontend-toolbar.php:241
 msgid "Template Editor"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:258
+#: lib/framework/includes/class-frontend-toolbar.php:249
 msgid "All Template"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:267
+#: lib/framework/includes/class-frontend-toolbar.php:258
 msgid "Template Part"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:276
+#: lib/framework/includes/class-frontend-toolbar.php:267
 msgid "Got Question?"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:288
+#: lib/framework/includes/class-frontend-toolbar.php:279
 msgid "Rate Us ★★★★★"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:300
+#: lib/framework/includes/class-frontend-toolbar.php:291
 msgid "Help/Documentation"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:321
+#: lib/framework/includes/class-frontend-toolbar.php:312
 msgid "Not a Block Themes"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:340
+#: lib/framework/includes/class-frontend-toolbar.php:331
 msgid "Edit Template: "
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:355
+#: lib/framework/includes/class-frontend-toolbar.php:346
 msgid "Included Template Part"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:365
+#: lib/framework/includes/class-frontend-toolbar.php:356
 msgid "Edit: "
 msgstr ""
 
@@ -1654,6 +1647,14 @@ msgid "Edit Form"
 msgstr ""
 
 #: lib/framework/assets/js/blocks.js:2
+msgid "Force Column 100%"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "This will force the column width to be 100%."
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
 msgid "Column Width"
 msgstr ""
 
@@ -1684,14 +1685,6 @@ msgid "Layouts"
 msgstr ""
 
 #: lib/framework/assets/js/blocks.js:2
-msgid "Cursor Effect"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "Background Effect"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
 msgid "Background Overlay"
 msgstr ""
 
@@ -1703,6 +1696,14 @@ msgstr ""
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 msgid "Typography"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "Cursor Effect"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "Background Effect"
 msgstr ""
 
 #: lib/framework/assets/js/blocks.js:2
@@ -1811,14 +1812,6 @@ msgstr ""
 
 #: lib/framework/assets/js/blocks.js:2
 msgid "Container Width"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "Wrap Column 100%"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "If the current wrap is unchecked, it will use the higher resolution's wrap value."
 msgstr ""
 
 #: lib/framework/assets/js/blocks.js:2
@@ -1994,6 +1987,337 @@ msgid "Position"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
+msgid "If recovery doesn't work, you can try reseting your template. Visit this All template Link to reset Template."
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Reset Template"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Copy Style"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Gutenverse \"%s\" Style Copied"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Paste Style"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Gutenverse Style Pasted"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Failed! Please paste style to same block type"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Failed to Paste Style"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Unable to read Paste Style"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Import Section Notice"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "We can't import content because the Post Content is missing from your Template. Would you like to switch to Post View instead in order to import the content?"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Keep Import"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Dismiss"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Upgrade To PRO"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Activate License"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Renew License"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Fetching Data"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Importing Assets"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Deploying Content"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Manage Required Plugin"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Import this page"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Importing "
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Plugin Requirements"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "There is plugin need to be installed or updated for this layout work correctly."
+msgid_plural "There are %s plugins need to be installed or updated for this layout work correctly."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Manage Plugin Requirement →"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "View Demo"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "by "
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Liked"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Like"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "No Result Found"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "It seems we can't find any results based on your search."
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Installing Plugin"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Disabling Plugin"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Deleting Plugin"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Activating Plugin"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Go to Plugin Page"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Install Plugin"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Update & Activate Plugin"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Activate Plugin"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Update Plugin"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Installed & Activated"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Installed version %s"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Required version %s or later"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Attention!"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Please refresh this page after install or update plugin"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Plugin Requirement"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Please install or update and activate these missing requirements plugin for this section or layout to work correctly. We recommend to backup your site before install/update plugin listed below."
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Load More"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Search Layout"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Licenses"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Categories"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Color"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Welcome to Gutenverse Library"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Discover "
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid " Premium Themes "
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid " and Sections You Never Meet Before!"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Pro"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Free"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "PRO"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Back to %s"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Back to Layouts"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Import this section"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Preview Section"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Import on Progress"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Missing Requirement"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Click for more detail"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "There is plugin need to be installed or updated for this section work correctly."
+msgid_plural "There are %s plugins need to be installed or updated for this section work correctly."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Back to sections"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Back to Favorite Layout"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Back to Favorite sections"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Library"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Layout"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Section"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Import Failed!"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Sections"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Favorite"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Updating ..."
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Gutenverse Library"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
 msgid "Current color and font variables are tied to your current active theme."
 msgstr ""
 
@@ -2012,7 +2336,32 @@ msgid "Font Variable"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
-msgid "Delete Color Variable"
+#: lib/framework/assets/js/core.js:2
+msgid "Color Picker"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Color Slug"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Unlock to edit slug"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Color Slug Edit is Locked"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Warning: Changing this will cause all assigned blocks to lose their color. Only proceed if you fully understand the consequences."
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Unlock Slug"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Delete Color Variable?"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
@@ -2021,11 +2370,6 @@ msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 msgid "Delete"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Color Picker"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
@@ -2048,20 +2392,12 @@ msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
-msgid "Theme Colors"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
 msgid "Default Colors"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
-msgid "Delete Font Variable"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "You are about to delete one of your Font Variable. If you are assign this variable to blocks, it will lost the typography."
+#: lib/framework/assets/js/core.js:2
+msgid "Theme Colors"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
@@ -2124,6 +2460,26 @@ msgid "Letter Spacing"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
+msgid "Typography Slug"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Font Slug Edit is Locked"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Warning: All blocks assigned to this will lose their font. Only unlock if you understand the consequences"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Delete Font Variable?"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "You are about to delete one of your Font Variable. If you are assign this variable to blocks, it will lost the typography."
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 msgid "Variable Font"
 msgstr ""
@@ -2166,324 +2522,7 @@ msgid "Add Font"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Upgrade To PRO"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Activate License"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Renew License"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Fetching Data"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Importing Assets"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Deploying Content"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Manage Required Plugin"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Import this page"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Importing "
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Activate"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Themes"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "You already install the themes, you can get all template by activating this themes."
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Activate Themes"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Install"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "For Free"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Check out and install our fully supported Full Site Editing (FSE) themes."
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Install Themes"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Plugin Requirements"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "There is plugin need to be installed or updated for this layout work correctly."
-msgid_plural "There are %s plugins need to be installed or updated for this layout work correctly."
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Manage Plugin Requirement →"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "View Demo"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "by "
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Liked"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Like"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "No Result Found"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "It seems we can't find any results based on your search."
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Installing Plugin"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Disabling Plugin"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Deleting Plugin"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Activating Plugin"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Go to Plugin Page"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Install Plugin"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Update & Activate Plugin"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Activate Plugin"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Update Plugin"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Installed & Activated"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Installed version %s"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Required version %s or later"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Attention!"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Please refresh this page after install or update plugin"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Plugin Requirement"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Please install or update and activate these missing requirements plugin for this section or layout to work correctly. We recommend to backup your site before install/update plugin listed below."
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Load More"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Search Layout"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Licenses"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Categories"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Color"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Welcome to Gutenverse Library"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Discover "
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid " Premium Themes "
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid " and Sections You Never Meet Before!"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Pro"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Free"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "PRO"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Back to %s"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Back to Layouts"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Import this section"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Import on Progress"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Missing Requirement"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Click for more detail"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "There is plugin need to be installed or updated for this section work correctly."
-msgid_plural "There are %s plugins need to be installed or updated for this section work correctly."
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Back to sections"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Back to Favorite Layout"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Library"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Layout"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Section"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Import Failed!"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Sections"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Favorite"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Populating Library . . ."
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Gutenverse Library"
+msgid "%s Block%s Recovered"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
@@ -2504,10 +2543,6 @@ msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 msgid "OK"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Dismiss"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
@@ -2535,47 +2570,24 @@ msgid "Coming Soon"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
-msgid "If recovery doesn't work, you can try reseting your template. Visit this All template Link to reset Template."
+msgid "You are on Show Template mode. Click to go into Content Editing."
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
-msgid "Reset Template"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Copy Style"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Gutenverse \"%s\" Style Copied"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Paste Style"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Gutenverse Style Pasted"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Failed! Please paste style to same block type"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Failed to Paste Style"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Unable to read Paste Style"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "%s Block%s Recovered"
+msgid "You are currently in Content Editing mode. Click to go to Show Template mode."
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
 msgid "Remove item"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Copied..."
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Click to Copy Element Id"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
@@ -2591,12 +2603,19 @@ msgid "Unlink"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
-msgid "Click to Copy Element Id"
+msgid "Please Update Your Theme"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Copied..."
+msgid "This warning means your theme isn't compatible with the latest Gutenverse version. If no update of the theme is available, please contact our support team."
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "I Understand"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Do not show again"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
@@ -3122,6 +3141,10 @@ msgid "Flip"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
+msgid "Invert"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
 msgid "Bring to Front"
 msgstr ""
 
@@ -3327,10 +3350,6 @@ msgstr ""
 
 #: lib/framework/assets/js/core.js:2
 msgid "900"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Location"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
@@ -3602,6 +3621,10 @@ msgid "Align"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
+msgid "Location"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
 msgid "Spacing Horizontal"
 msgstr ""
 
@@ -3715,78 +3738,6 @@ msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Check Now"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Theme Activated"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Theme Installed"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Install Failed"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Manage Plugin"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Activating"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Installing"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Templates"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "DRAFT"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Active Theme"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "%s - Plugin Requirement"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Please install or update and activate these missing requirements plugin for this themes to work correctly. We recommend to backup your site before install/update plugin listed below."
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "No result found!"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "It seems we can’t find any results based on your search."
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Show All Themes"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Discover themes for Gutenverse"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Search Theme..."
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Explore "
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid " For Your Multipurpose Business"
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2

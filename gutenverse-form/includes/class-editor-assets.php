@@ -27,6 +27,7 @@ class Editor_Assets {
 	 * Enqueue scripts
 	 */
 	public function enqueue_scripts() {
+		// Register & Enqueue Style.
 		wp_enqueue_style(
 			'gutenverse-form-blocks',
 			GUTENVERSE_FORM_URL . '/assets/css/blocks.css',
