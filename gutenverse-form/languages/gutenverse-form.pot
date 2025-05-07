@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 2.0.0\n"
+"Project-Id-Version: Gutenverse Form 2.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-25T08:25:12+00:00\n"
+"POT-Creation-Date: 2025-05-07T08:19:07+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -285,74 +285,81 @@ msgstr ""
 msgid "Gutenverse Wrapper"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:271
-#: lib/framework/includes/class-dashboard.php:273
+#: lib/framework/includes/class-dashboard.php:272
 #: lib/framework/includes/class-dashboard.php:274
+#: lib/framework/includes/class-dashboard.php:275
 msgid "unknown"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:276
+#: lib/framework/includes/class-dashboard.php:277
 #: lib/framework/assets/js/dashboard.js:2
 msgid "by"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:328
 #: lib/framework/includes/class-dashboard.php:329
+#: lib/framework/includes/class-dashboard.php:330
 #: lib/framework/includes/class-frontend-toolbar.php:124
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Gutenverse"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:347
 #: lib/framework/includes/class-dashboard.php:348
-#: lib/framework/includes/class-frontend-toolbar.php:194
+#: lib/framework/includes/class-dashboard.php:349
+#: lib/framework/includes/class-frontend-toolbar.php:196
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Dashboard"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:357
 #: lib/framework/includes/class-dashboard.php:358
+#: lib/framework/includes/class-dashboard.php:359
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Ecosystem"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:367
-#: lib/framework/includes/class-dashboard.php:368
+#: lib/framework/includes/class-dashboard.php:369
+#: lib/framework/includes/class-dashboard.php:370
+#: lib/framework/includes/class-frontend-toolbar.php:206
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Theme List"
+msgstr ""
+
+#: lib/framework/includes/class-dashboard.php:380
+#: lib/framework/includes/class-dashboard.php:381
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Blocks"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:377
-#: lib/framework/includes/class-dashboard.php:378
-#: lib/framework/includes/class-frontend-toolbar.php:212
+#: lib/framework/includes/class-dashboard.php:390
+#: lib/framework/includes/class-dashboard.php:391
+#: lib/framework/includes/class-frontend-toolbar.php:225
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Settings"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:387
-#: lib/framework/includes/class-dashboard.php:388
-#: lib/framework/includes/class-frontend-toolbar.php:221
+#: lib/framework/includes/class-dashboard.php:400
+#: lib/framework/includes/class-dashboard.php:401
+#: lib/framework/includes/class-frontend-toolbar.php:234
 #: lib/framework/assets/js/dashboard.js:2
 msgid "System Status"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:397
-#: lib/framework/includes/class-dashboard.php:398
-#: lib/framework/includes/class-frontend-toolbar.php:230
+#: lib/framework/includes/class-dashboard.php:410
+#: lib/framework/includes/class-dashboard.php:411
+#: lib/framework/includes/class-frontend-toolbar.php:243
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Update Notice"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:408
-#: lib/framework/includes/class-dashboard.php:409
+#: lib/framework/includes/class-dashboard.php:421
+#: lib/framework/includes/class-dashboard.php:422
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Upgrade to PRO"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:421
-#: lib/framework/includes/class-dashboard.php:422
+#: lib/framework/includes/class-dashboard.php:434
+#: lib/framework/includes/class-dashboard.php:435
 msgid "Gutenverse Themes"
 msgstr ""
 
@@ -420,47 +427,47 @@ msgstr ""
 msgid "Gutenverse PRO"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:203
+#: lib/framework/includes/class-frontend-toolbar.php:216
 msgid "Block List"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:241
+#: lib/framework/includes/class-frontend-toolbar.php:254
 msgid "Template Editor"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:249
+#: lib/framework/includes/class-frontend-toolbar.php:262
 msgid "All Template"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:258
+#: lib/framework/includes/class-frontend-toolbar.php:271
 msgid "Template Part"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:267
+#: lib/framework/includes/class-frontend-toolbar.php:280
 msgid "Got Question?"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:279
+#: lib/framework/includes/class-frontend-toolbar.php:292
 msgid "Rate Us ★★★★★"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:291
+#: lib/framework/includes/class-frontend-toolbar.php:304
 msgid "Help/Documentation"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:312
+#: lib/framework/includes/class-frontend-toolbar.php:325
 msgid "Not a Block Themes"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:331
+#: lib/framework/includes/class-frontend-toolbar.php:344
 msgid "Edit Template: "
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:346
+#: lib/framework/includes/class-frontend-toolbar.php:359
 msgid "Included Template Part"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:356
+#: lib/framework/includes/class-frontend-toolbar.php:369
 msgid "Edit: "
 msgstr ""
 
@@ -2040,16 +2047,19 @@ msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid "Upgrade To PRO"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid "Activate License"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid "Renew License"
 msgstr ""
 
@@ -2078,6 +2088,40 @@ msgid "Importing "
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Activate"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Themes"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "You already install the themes, you can get all template by activating this themes."
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Activate Themes"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Install"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "For Free"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Check out and install our fully supported Full Site Editing (FSE) themes."
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Install Themes"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
 msgid "Plugin Requirements"
 msgstr ""
 
@@ -2088,11 +2132,13 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid "Manage Plugin Requirement →"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid "View Demo"
 msgstr ""
 
@@ -2138,10 +2184,12 @@ msgid "Activating Plugin"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid "Go to Plugin Page"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid "Install Plugin"
 msgstr ""
 
@@ -2161,30 +2209,37 @@ msgid "Update Plugin"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid "Installed & Activated"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid "Installed version %s"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid "Required version %s or later"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid "Attention!"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid "Please refresh this page after install or update plugin"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid "Plugin Requirement"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid "Please install or update and activate these missing requirements plugin for this section or layout to work correctly. We recommend to backup your site before install/update plugin listed below."
 msgstr ""
 
@@ -2218,6 +2273,7 @@ msgid "Discover "
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid " Premium Themes "
 msgstr ""
 
@@ -2268,6 +2324,7 @@ msgid "Click for more detail"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid "There is plugin need to be installed or updated for this section work correctly."
 msgid_plural "There are %s plugins need to be installed or updated for this section work correctly."
 msgstr[0] ""
@@ -2299,6 +2356,14 @@ msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 msgid "Import Failed!"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "You are on Show Template mode. Click to go into Content Editing."
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "You are currently in Content Editing mode. Click to go to Show Template mode."
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
@@ -2567,14 +2632,6 @@ msgstr ""
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Coming Soon"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "You are on Show Template mode. Click to go into Content Editing."
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "You are currently in Content Editing mode. Click to go to Show Template mode."
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
@@ -4238,6 +4295,78 @@ msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
 msgid " by Using Gutenverse PRO!"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Theme Activated"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Theme Installed"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Install Failed"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Manage Plugin"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Activating"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Installing"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Templates"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "DRAFT"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Active Theme"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "%s - Plugin Requirement"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Please install or update and activate these missing requirements plugin for this themes to work correctly. We recommend to backup your site before install/update plugin listed below."
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "No result found!"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "It seems we can’t find any results based on your search."
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Show All Themes"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Discover themes for Gutenverse"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Search Theme..."
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Explore "
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid " For Your Multipurpose Business"
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
