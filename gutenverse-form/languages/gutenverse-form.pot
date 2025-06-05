@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 2.0.4\n"
+"Project-Id-Version: Gutenverse Form 2.0.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-19T07:23:06+00:00\n"
+"POT-Creation-Date: 2025-06-05T08:31:47+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -554,185 +554,6 @@ msgid "Update Gutenverse Now!"
 msgstr ""
 
 #: assets/js/blocks.js:2
-msgid "Error Example"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Show Error Notice Example inside the Editor."
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Alignment"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Align Left"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Align Center"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Align Right"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Background Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Text Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Typography"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Padding"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Margin"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/blocks.js:2
-msgid "Border"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Box Shadow"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Choose Form Action"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Hide After Submit"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Redirect To"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Example"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Show Success Notice Example inside the Editor."
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Background Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Text Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Typography"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Padding"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Margin"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Form Setting"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Notice Styling"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Notice Styling"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/blocks.js:2
-msgid "Sticky"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/blocks.js:2
-msgid "Background"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/blocks.js:2
-msgid "Masking"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/blocks.js:2
-msgid "Display"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/blocks.js:2
-msgid "Animation Effects"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/blocks.js:2
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Transform"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/blocks.js:2
-msgid "Mouse Move Effect"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/blocks.js:2
-msgid "Spacing"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "How to use form builder"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Adding inputs"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Click the + symbol on form builder block, then search for inputs you need (\"checkbox\", \"text\", \"email\", etc). Also don't forget to add \"submit button\""
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Creating your form setting"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "You need to create a form first from your \"Dashboard -> Form.\""
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Selecting your form setting"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "In the \"Form Setting\" below, you can click \"Choose Form Action\" and type your form's name to search it."
-msgstr ""
-
-#: assets/js/blocks.js:2
 msgid "Option Display"
 msgstr ""
 
@@ -826,7 +647,179 @@ msgstr ""
 
 #: assets/js/blocks.js:2
 #: lib/framework/assets/js/blocks.js:2
+msgid "Background"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/blocks.js:2
+msgid "Border"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/blocks.js:2
+msgid "Masking"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/blocks.js:2
+msgid "Display"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/blocks.js:2
 msgid "Positioning"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/blocks.js:2
+msgid "Animation Effects"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/blocks.js:2
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Transform"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/blocks.js:2
+msgid "Mouse Move Effect"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/blocks.js:2
+msgid "Spacing"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Button Alignment"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Align Left"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Align Center"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Align Right"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/blocks.js:2
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Default"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Info"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Warning"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Danger"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Extra Small"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Small"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Medium"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Large"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Extra Large"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Set Width"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Show Icon"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Before"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "After"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Icon Spacing"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Icon Size"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Button Padding"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Loading Icon Size"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Loading Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Box Shadow"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Button"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Style"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Loading Indicator"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Button Background"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Button Border"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Choose Icon"
 msgstr ""
 
 #: assets/js/blocks.js:2
@@ -874,19 +867,11 @@ msgid "Hover Box Shadow"
 msgstr ""
 
 #: assets/js/blocks.js:2
-msgid "Show Icon"
-msgstr ""
-
-#: assets/js/blocks.js:2
 msgid "Icon Alignment"
 msgstr ""
 
 #: assets/js/blocks.js:2
 msgid "Icon Type"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Icon Size"
 msgstr ""
 
 #: assets/js/blocks.js:2
@@ -957,23 +942,15 @@ msgid "Focus Background Color"
 msgstr ""
 
 #: assets/js/blocks.js:2
-msgid "Date Range"
+msgid "Min Number"
 msgstr ""
 
 #: assets/js/blocks.js:2
-msgid "Date Format"
+msgid "Max Number"
 msgstr ""
 
 #: assets/js/blocks.js:2
-msgid "Set Minimum date"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Set Maximum date"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Input Settings"
+msgid "Number Step"
 msgstr ""
 
 #: assets/js/blocks.js:2
@@ -989,35 +966,11 @@ msgid "Maximum Length"
 msgstr ""
 
 #: assets/js/blocks.js:2
-msgid "Wrapper Margin"
+msgid "Phone Pattern"
 msgstr ""
 
 #: assets/js/blocks.js:2
-msgid "Checkbox Link Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Checkbox Link Typography"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "GDPR Label"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "GDPR Default Value"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Will not show on editor, only in frontend"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "GDPR Form Value"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Value that will be recorded in Form Action"
+msgid "Put your telephone number pattern to give clue to your user"
 msgstr ""
 
 #: assets/js/blocks.js:2
@@ -1090,46 +1043,6 @@ msgid "Selected Style"
 msgstr ""
 
 #: assets/js/blocks.js:2
-msgid "Min Number"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Max Number"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Number Step"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Radio Size"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Radio Space"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Radio Label Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Radio Typography"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Radio Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Radio Active Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Radio Options"
-msgstr ""
-
-#: assets/js/blocks.js:2
 msgid "Input Text Color Normal"
 msgstr ""
 
@@ -1194,108 +1107,6 @@ msgid "Options Wrapper Style"
 msgstr ""
 
 #: assets/js/blocks.js:2
-msgid "Button Alignment"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/blocks.js:2
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Default"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Info"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Warning"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Danger"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Extra Small"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Small"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Medium"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Large"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Extra Large"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Set Width"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Before"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "After"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Icon Spacing"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Button Padding"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Loading Icon Size"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Loading Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Button"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Style"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Loading Indicator"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Button Background"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Button Border"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Choose Icon"
-msgstr ""
-
-#: assets/js/blocks.js:2
 msgid "OFF Text"
 msgstr ""
 
@@ -1336,19 +1147,224 @@ msgid "On Text Color"
 msgstr ""
 
 #: assets/js/blocks.js:2
-msgid "Phone Pattern"
+msgid "Error Example"
 msgstr ""
 
 #: assets/js/blocks.js:2
-msgid "Put your telephone number pattern to give clue to your user"
+msgid "Show Error Notice Example inside the Editor."
 msgstr ""
 
 #: assets/js/blocks.js:2
-msgid "Textarea height"
+msgid "Success Alignment"
 msgstr ""
 
 #: assets/js/blocks.js:2
-msgid "Textarea height in px unit"
+msgid "Error Background Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Text Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Typography"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Padding"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Margin"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Choose Form Action"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Hide After Submit"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Redirect To"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Example"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Show Success Notice Example inside the Editor."
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Background Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Text Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Typography"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Padding"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Margin"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Form Setting"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Notice Styling"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Notice Styling"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/blocks.js:2
+msgid "Sticky"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "How to use form builder"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Adding inputs"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Click the + symbol on form builder block, then search for inputs you need (\"checkbox\", \"text\", \"email\", etc). Also don't forget to add \"submit button\""
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Creating your form setting"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "You need to create a form first from your \"Dashboard -> Form.\""
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Selecting your form setting"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "In the \"Form Setting\" below, you can click \"Choose Form Action\" and type your form's name to search it."
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Wrapper Margin"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Checkbox Link Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Checkbox Link Typography"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "GDPR Label"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "GDPR Default Value"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Will not show on editor, only in frontend"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "GDPR Form Value"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Value that will be recorded in Form Action"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Radio Size"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Radio Space"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Radio Label Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Radio Typography"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Radio Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Radio Active Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Radio Options"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Helper Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Helper Typography"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Helper Padding"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Warning Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Warning Typography"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Label Width"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Label Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Title Typography"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Label Padding"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Label Margin"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Require Indicator Color"
 msgstr ""
 
 #: assets/js/blocks.js:2
@@ -1361,6 +1377,34 @@ msgstr ""
 
 #: assets/js/blocks.js:2
 msgid "Please put input element inside Form Builder"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Date Range"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Date Format"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Set Minimum date"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Set Maximum date"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Input Settings"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Textarea height"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Textarea height in px unit"
 msgstr ""
 
 #: assets/js/blocks.js:2
@@ -1397,50 +1441,6 @@ msgstr ""
 
 #: assets/js/blocks.js:2
 msgid "This will be identifier used in your entries, make sure the name is unique."
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Label Width"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Label Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Title Typography"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Label Padding"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Label Margin"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Require Indicator Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Helper Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Helper Typography"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Helper Padding"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Warning Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Warning Typography"
 msgstr ""
 
 #: assets/js/dashboard.js:1
@@ -1714,82 +1714,6 @@ msgid "Edit Form"
 msgstr ""
 
 #: lib/framework/assets/js/blocks.js:2
-msgid "Force Column 100%"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "This will force the column width to be 100%."
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "Column Width"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "Vertical Align"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "Horizontal Align"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "Column Order"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Blur"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "Blur Hover"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-#: lib/framework/assets/js/components.js:2
-msgid "Layouts"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "Background Overlay"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "Pointer Event"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Typography"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "Cursor Effect"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "Background Effect"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "Background Animation"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "Advanced Animation"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "Remove Column"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
-msgid "Add Column"
-msgstr ""
-
-#: lib/framework/assets/js/blocks.js:2
 msgid "Back"
 msgstr ""
 
@@ -1947,6 +1871,10 @@ msgid "Bottom"
 msgstr ""
 
 #: lib/framework/assets/js/blocks.js:2
+msgid "Vertical Align"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
 msgid "Space Between"
 msgstr ""
 
@@ -1992,7 +1920,29 @@ msgid "Please Select Column for your Section."
 msgstr ""
 
 #: lib/framework/assets/js/blocks.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Blur"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "Blur Hover"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+#: lib/framework/assets/js/components.js:2
+msgid "Layouts"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
 msgid "Structure"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "Cursor Effect"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "Background Effect"
 msgstr ""
 
 #: lib/framework/assets/js/blocks.js:2
@@ -2005,6 +1955,56 @@ msgstr ""
 
 #: lib/framework/assets/js/blocks.js:2
 msgid "Shape Divider Animated"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "Advanced Animation"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "Background Overlay"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "Pointer Event"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Typography"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "Add Column"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "Force Column 100%"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "This will force the column width to be 100%."
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "Column Width"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "Horizontal Align"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "Column Order"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "Background Animation"
+msgstr ""
+
+#: lib/framework/assets/js/blocks.js:2
+msgid "Remove Column"
 msgstr ""
 
 #: lib/framework/assets/js/blocks.js:2
@@ -2469,72 +2469,11 @@ msgid "Font Variable"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Color Picker"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Color Slug"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Unlock to edit slug"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Color Slug Edit is Locked"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Warning: Changing this will cause all assigned blocks to lose their color. Only proceed if you fully understand the consequences."
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Unlock Slug"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Delete Color Variable?"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "You are about to delete one of your Color Variable. If you are assign this color variable to blocks, it will lost the color."
+msgid "Edit"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 msgid "Delete"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Variable Color"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Custom Colors"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Empty Variable Color"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Add Color"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Default Colors"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-#: lib/framework/assets/js/core.js:2
-msgid "Theme Colors"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Edit"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
@@ -2597,6 +2536,10 @@ msgid "Typography Slug"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
+msgid "Unlock to edit slug"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
 msgid "Font Slug Edit is Locked"
 msgstr ""
 
@@ -2605,11 +2548,68 @@ msgid "Warning: All blocks assigned to this will lose their font. Only unlock if
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
+msgid "Unlock Slug"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
 msgid "Delete Font Variable?"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 msgid "You are about to delete one of your Font Variable. If you are assign this variable to blocks, it will lost the typography."
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Color Picker"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Color Slug"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Color Slug Edit is Locked"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Warning: Changing this will cause all assigned blocks to lose their color. Only proceed if you fully understand the consequences."
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Delete Color Variable?"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "You are about to delete one of your Color Variable. If you are assign this color variable to blocks, it will lost the color."
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Variable Color"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Custom Colors"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Empty Variable Color"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Add Color"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Default Colors"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Theme Colors"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
@@ -2703,16 +2703,16 @@ msgid "Coming Soon"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
-msgid "Remove item"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Copied..."
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
 msgid "Click to Copy Element Id"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Remove item"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
@@ -2780,6 +2780,72 @@ msgid "Phone"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
+msgid "Gradient Color"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid ""
+"Drag a circle outside the box to remove it. \n"
+"You can't remove if there are only two left."
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Gradient Type"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Linear"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Radial"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Angle"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Radial Position"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Center Center"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Center Left"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Center Right"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Top Center"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Top Left"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Top Right"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Bottom Center"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Bottom Left"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Bottom Right"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
 msgid "Image & Color"
 msgstr ""
 
@@ -2821,38 +2887,6 @@ msgstr ""
 
 #: lib/framework/assets/js/core.js:2
 msgid "Center center"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Center Left"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Center Right"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Top Center"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Top Left"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Top Right"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Bottom Center"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Bottom Left"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Bottom Right"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
@@ -2957,40 +2991,6 @@ msgstr ""
 
 #: lib/framework/assets/js/core.js:2
 msgid "Fixed Background"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Gradient Color"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid ""
-"Drag a circle outside the box to remove it. \n"
-"You can't remove if there are only two left."
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Gradient Type"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Linear"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Radial"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Angle"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Radial Position"
-msgstr ""
-
-#: lib/framework/assets/js/core.js:2
-msgid "Center Center"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
@@ -3679,6 +3679,10 @@ msgstr ""
 
 #: lib/framework/assets/js/core.js:2
 msgid "Z Index"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Background Transition"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
