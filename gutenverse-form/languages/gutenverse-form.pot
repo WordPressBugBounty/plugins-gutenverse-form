@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 2.0.5\n"
+"Project-Id-Version: Gutenverse Form 2.0.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-06-05T08:31:47+00:00\n"
+"POT-Creation-Date: 2025-06-16T08:38:53+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -1043,70 +1043,6 @@ msgid "Selected Style"
 msgstr ""
 
 #: assets/js/blocks.js:2
-msgid "Input Text Color Normal"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Input Text Color Hover"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Options Padding"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Options Margin"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Options Typography"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Options Text Color Selected"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Options Wrapper Padding"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Options Wrapper Margin"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Wrapper Background"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Wrapper Border"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Wrapper Box Shadow"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Wrapper Background Hover"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Wrapper Border Hover"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Wrapper Box Shadow Hover"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Options Style"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Options Wrapper Style"
-msgstr ""
-
-#: assets/js/blocks.js:2
 msgid "OFF Text"
 msgstr ""
 
@@ -1365,6 +1301,106 @@ msgstr ""
 
 #: assets/js/blocks.js:2
 msgid "Require Indicator Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Input Text Color Normal"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Input Text Color Hover"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Options Padding"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Options Margin"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Options Typography"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Options Text Color Selected"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Options Wrapper Padding"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Options Wrapper Margin"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Wrapper Background"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Wrapper Border"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Wrapper Box Shadow"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Wrapper Background Hover"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Wrapper Border Hover"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Wrapper Box Shadow Hover"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Use Custom Dropdown Icon"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Check this to change dropdown icon"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Icon Open"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Open Icon Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Open Icon Size"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Icon Close"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Close Icon Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Close Icon Size"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Dropdown"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Options Style"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Options Wrapper Style"
 msgstr ""
 
 #: assets/js/blocks.js:2
