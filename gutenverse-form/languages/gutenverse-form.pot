@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 2.1.1\n"
+"Project-Id-Version: Gutenverse Form 2.1.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-08-04T07:29:03+00:00\n"
+"POT-Creation-Date: 2025-08-18T01:30:52+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -3748,6 +3748,14 @@ msgstr ""
 
 #: lib/framework/assets/js/core.js:2
 msgid "Ensure key variables remain dynamic, including links to pages or posts, titles, and meta information."
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Unlock Header Filter"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Add a filter button next to the Header Title of the Module, which users can use to filter the content displayed this Module. You can add filters based on Category, Tags, or Author."
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
