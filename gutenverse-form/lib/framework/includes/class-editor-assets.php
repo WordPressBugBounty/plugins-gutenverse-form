@@ -37,6 +37,30 @@ class Editor_Assets {
 	 * Register Javascript Script
 	 */
 	public function register_script() {
+		wp_enqueue_style( 'gutenverse-remove-default-style', get_stylesheet_uri() );
+
+		$settings = get_option( 'gutenverse-settings' );
+		$default  = '';
+
+		if ( ! isset( $settings['frontend_settings']['remove_template_part_margin'] ) || $settings['frontend_settings']['remove_template_part_margin'] ) {
+			$default = '
+				.wp-block-template-part {
+					margin-block-start: 0!important;
+					margin-block-end: 0!important;
+				}
+			';
+		}
+
+		$enqueue_default = apply_filters(
+			'gutenverse_remove_default_style',
+			$default,
+			$settings
+		);
+
+		if ( ! empty( $enqueue_default ) ) {
+			wp_add_inline_style( 'gutenverse-remove-default-style', $enqueue_default );
+		}
+
 		// Register & Enqueue Style.
 		wp_enqueue_style(
 			'gutenverse-editor-style',
@@ -117,13 +141,27 @@ class Editor_Assets {
 		$config['clientUrl']           = get_site_url();
 		$config['activeTheme']         = get_option( 'stylesheet' );
 		$config['supportGlobalImport'] = $this->check_theme_support_global();
-		$config['showThemeList']       = apply_filters( 'gutenverse_show_theme_list', true );
+		$config['defaultImageLoad']    = $this->get_default_image_load_option();
 
 		if ( defined( 'GUTENVERSE' ) ) {
 			$config['oldImagePlaceholder'] = plugins_url( GUTENVERSE ) . '/assets/img/img-placeholder.jpg';
 		}
 
 		return apply_filters( 'gutenverse_block_config', $config );
+	}
+
+	/**
+	 * Get default image load setting.
+	 */
+	private function get_default_image_load_option() {
+		$options = get_option( 'gutenverse-settings' );
+		if ( isset( $options['performance']['default_image_load'] ) ) {
+			$default_image_load = $options['performance']['default_image_load'];
+			if ( ! empty( $default_image_load ) ) {
+				return $default_image_load;
+			}
+		}
+		return 'eager';
 	}
 
 	/**
@@ -203,6 +241,12 @@ class Editor_Assets {
 			GUTENVERSE_FRAMEWORK_URL_PATH . '/assets/dist/toolbar.css',
 			array(),
 			GUTENVERSE_FRAMEWORK_VERSION
+		);
+		wp_enqueue_style(
+			'gutenverse-google-fonts-host-grostesk',
+			'https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap',
+			false,
+			1
 		);
 	}
 }

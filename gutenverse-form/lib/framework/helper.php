@@ -6,6 +6,71 @@
  * @since 1.0.0
  * @package gutenverse-framework
  */
+if ( ! function_exists( 'gutenverse_is_svg_safe' ) ) {
+	/**
+	 * Sanitizer SVG Content
+	 *
+	 * @return mixed
+	 */
+	function gutenverse_is_svg_safe( $svg ) {
+		libxml_use_internal_errors( true );
+
+		// Prevent XXE attacks
+		$svg = preg_replace( '/<!DOCTYPE.+?>/i', '', $svg );
+
+		$dom = new DOMDocument();
+
+		if ( ! $dom->loadXML( $svg, LIBXML_NONET | LIBXML_NOENT | LIBXML_COMPACT ) ) {
+			return false;
+		}
+
+		$xpath = new DOMXPath( $dom );
+
+		/**
+		 * ❌ Forbidden SVG elements
+		 */
+		$forbidden_tags = array(
+			'script',
+			'foreignObject',
+			'iframe',
+			'object',
+			'embed',
+			'audio',
+			'video',
+		);
+
+		foreach ( $forbidden_tags as $tag ) {
+			if ( $xpath->query( '//*[local-name()="' . $tag . '"]' )->length > 0 ) {
+				return false;
+			}
+		}
+
+		/**
+		 * ❌ Forbidden attributes
+		 * - Event handlers (onload, onclick, etc)
+		 * - javascript: URLs
+		 */
+		foreach ( $xpath->query( '//@*' ) as $attr ) {
+			if (
+			preg_match( '/^on/i', $attr->nodeName ) ||
+			preg_match( '/javascript:/i', $attr->nodeValue )
+			) {
+				return false;
+			}
+		}
+
+		/**
+		 * ❌ Disallow external references
+		 */
+		foreach ( $xpath->query( '//@*' ) as $attr ) {
+			if ( preg_match( '/^(https?:)?\/\//i', trim( $attr->nodeValue ) ) ) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+}
 
 if ( ! function_exists( 'gutenverse_get_event_banner' ) ) {
 	/**
@@ -14,6 +79,13 @@ if ( ! function_exists( 'gutenverse_get_event_banner' ) ) {
 	 * @return mixed
 	 */
 	function gutenverse_get_event_banner() {
+		$data = get_transient( 'gutenverse_banner_cache' );
+		if ( $data ) {
+			if ( ! $data->banner || ! $data->bannerLibrary || ! $data->url || ! $data->expired ) {
+				return null;
+			}
+			return $data;
+		}
 		$response = wp_remote_request(
 			GUTENVERSE_FRAMEWORK_LIBRARY_URL . 'wp-json/gutenverse-banner/v1/bannerdata',
 			array(
@@ -29,6 +101,7 @@ if ( ! function_exists( 'gutenverse_get_event_banner' ) ) {
 		if ( ! $data->banner || ! $data->bannerLibrary || ! $data->url || ! $data->expired ) {
 			return null;
 		}
+		set_transient( 'gutenverse_banner_cache', $data, 3 * HOUR_IN_SECONDS );
 		return $data;
 	}
 }
@@ -407,11 +480,12 @@ if ( ! function_exists( 'gutenverse_get_json' ) ) {
 	 * @param string $path .
 	 */
 	function gutenverse_get_json( $path ) {
-		ob_start();
-		include $path;
-		$data = ob_get_clean();
-
-		return json_decode( $data, true );
+		if ( file_exists( $path ) ) {
+			// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+			$data = file_get_contents( $path );
+			return json_decode( $data, true );
+		}
+		return array();
 	}
 }
 
@@ -439,6 +513,7 @@ if ( ! function_exists( 'gutenverse_header_font' ) ) {
 		$upload_path   = wp_upload_dir();
 		$upload_url    = $upload_path['baseurl'];
 		$custom_family = array();
+
 		foreach ( gutenverse_secure_iterable( $font_families ) as $font ) {
 			$family = $font['value'];
 			$type   = $font['type'];
@@ -456,14 +531,13 @@ if ( ! function_exists( 'gutenverse_header_font' ) ) {
 		}
 
 		$google_fonts = gutenverse_google_font_params( $families );
-
 		if ( ! empty( $google_fonts ) ) {
 			$font_url = add_query_arg(
 				array(
 					'family'  => join( '|', $google_fonts ),
 					'display' => 'swap',
 				),
-				'//fonts.googleapis.com/css'
+				'https://fonts.googleapis.com/css'
 			);
 
 			// Enqueue google font.
@@ -498,9 +572,21 @@ if ( ! function_exists( 'gutenverse_google_font_params' ) ) {
 	 * @return array
 	 */
 	function gutenverse_google_font_params( $families ) {
-		$result = array();
+		$result      = array();
+		$font_system = array(
+			'Arial',
+			'Tahoma',
+			'Verdana',
+			'Helvetica',
+			'Times New Roman',
+			'Trebuchet MS',
+			'Georgia',
+		);
 
 		foreach ( $families as $family => $weights ) {
+			if ( in_array( $family, $font_system ) ) {
+				continue;
+			}
 			$defaults = array( '400', '400italic', '700', '700italic' );
 			$weights  = array_merge(
 				$defaults,
@@ -558,6 +644,29 @@ if ( ! function_exists( 'gutenverse_css_path' ) ) {
 		$upload_dir  = wp_upload_dir();
 		$upload_path = $upload_dir['basedir'];
 		$custom_dir  = $upload_path . '/gutenverse/css';
+
+		if ( '' === $file ) {
+			return $custom_dir . $file;
+		} else {
+			return $custom_dir . '/' . $file;
+		}
+	}
+}
+
+if ( ! function_exists( 'gutenverse_conditional_path' ) ) {
+	/**
+	 * Get Gutenverse CSS Path.
+	 *
+	 * @since 2.3.0
+	 *
+	 * @param string $file File name.
+	 *
+	 * @return string
+	 */
+	function gutenverse_conditional_path( $file = '' ) {
+		$upload_dir  = wp_upload_dir();
+		$upload_path = $upload_dir['basedir'];
+		$custom_dir  = $upload_path . '/gutenverse/conditional';
 
 		if ( '' === $file ) {
 			return $custom_dir . $file;
@@ -628,6 +737,27 @@ if ( ! function_exists( 'gutenverse_get_menu' ) ) {
 				'menu_class'      => 'gutenverse-menu',
 				'container_class' => 'gutenverse-menu-container',
 				'echo'            => false,
+				'walker' => new class extends Walker_Nav_Menu {
+					public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+
+						$classes     = empty( $item->classes ) ? array() : (array) $item->classes;
+						$class_names = implode( ' ', array_map( 'esc_attr', $classes ) );
+
+						// Strip HTML from title for aria-label.
+						$aria_label = trim( wp_strip_all_tags( $item->title ) );
+
+						// Fallback for icon-only menu items.
+						if ( empty( $aria_label ) ) {
+							$aria_label = __( 'Menu item', 'gutenverse' );
+						}
+
+						$output .= '<li id="menu-item-' . esc_attr( $item->ID ) . '" class="menu-item-' . esc_attr( $item->ID ) . ' ' . $class_names . '">';
+						$output .= '<a href="' . esc_url( $item->url ) . '" aria-label="' . esc_attr( $aria_label ) . '">';
+						$output .= $item->title; // keep HTML icons.
+						$output .= '</a>';
+					}
+
+				},
 			)
 		);
 	}
@@ -727,9 +857,11 @@ if ( ! function_exists( 'gutenverse_template_part_content' ) ) {
 				if ( 0 === validate_file( $attributes['slug'] ) ) {
 					$block_template = get_block_file_template( $template_part_id, 'wp_template_part' );
 
-					$content = $block_template->content;
-					if ( isset( $block_template->area ) ) {
-						$area = $block_template->area;
+					if ( isset( $block_template ) ) {
+						$content = $block_template->content;
+						if ( isset( $block_template->area ) ) {
+							$area = $block_template->area;
+						}
 					}
 				}
 
@@ -875,8 +1007,9 @@ if ( ! function_exists( 'gutenverse_global_font_style_generator' ) ) {
 			if ( isset( $font['transform'] ) ) {
 				$transform = $font['transform'];
 				if ( $transform && 'default' !== $transform ) {
+					$temp_transform = ( 'normal' === $transform ) ? 'none' : $transform;
 					gutenverse_normal_appender(
-						gutenverse_variable_font_name( $id, 'transform' ) . ':' . $transform . ';',
+						gutenverse_variable_font_name( $id, 'transform' ) . ':' . $temp_transform . ';',
 						$variable_style
 					);
 				}
@@ -1231,5 +1364,89 @@ if ( ! function_exists( 'gutenverse_pro_active' ) ) {
 	 */
 	function gutenverse_pro_active() {
 		return defined( 'GUTENVERSE_PRO_VERSION' );
+	}
+}
+
+if ( ! function_exists( 'gutenverse_get_current_url' ) ) {
+	/**
+	 * Get current url with parameter
+	 *
+	 * @return string
+	 */
+	function gutenverse_get_current_url() {
+		$scheme = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ) ? 'https' : 'http';
+		$host   = $_SERVER['HTTP_HOST'];
+		$uri    = $_SERVER['REQUEST_URI'];
+
+		return "{$scheme}://{$host}{$uri}";
+	}
+}
+
+if ( ! function_exists( 'gutenverse_home_url_multilang' ) ) {
+	/**
+	 * Method gutenverse_home_url_multilang
+	 *
+	 * @param string      $path path.
+	 * @param string|null $scheme scheme.
+	 *
+	 * @return string
+	 */
+	function gutenverse_home_url_multilang( $path = '', $scheme = null ) {
+		if ( function_exists( 'pll_current_language' ) ) {
+			if ( isset( $path[0] ) && '/' !== $path[0] ) {
+				$path = '/' . $path;
+			}
+
+			$polylang_setting = get_option( 'polylang', array() );
+			$default_lang     = $polylang_setting['default_lang'];
+			$current_lang     = pll_current_language();
+
+			if ( isset( $polylang_setting['hide_default'] ) && $polylang_setting['hide_default'] ) {
+				if ( $default_lang === $current_lang ) {
+					return home_url( $path, $scheme );
+				}
+			}
+
+			return home_url( $current_lang . $path, $scheme );
+		}
+		return home_url( $path, $scheme );
+	}
+}
+
+if ( ! function_exists( 'gutenverse_unused_cache_file_size' ) ) {
+	/**
+	 * Method gutenverse_unused_cache_file_size
+	 *
+	 * @return string
+	 */
+	function gutenverse_unused_cache_file_size() {
+		$cache_id = get_option( 'gutenverse-style-cache-id', 'initial-cache' );
+		$paths    = array(
+			gutenverse_css_path(),
+			gutenverse_conditional_path(),
+		);
+
+		$total_in_bytes = 0;
+
+		foreach ( $paths as $path ) {
+			if ( ! is_dir( $path ) ) {
+				continue;
+			}
+
+			$files = list_files( $path );
+
+			if ( ! empty( $files ) ) {
+				foreach ( $files as $cf ) {
+					if ( is_file( $cf ) ) {
+						$filename = basename( $cf );
+						if ( false === strpos( $filename, $cache_id ) ) {
+							$total_in_bytes += filesize( $cf );
+						}
+					}
+				}
+			}
+		}
+
+		return size_format( $total_in_bytes );
 	}
 }

@@ -96,14 +96,14 @@ class Form_Validation extends Style_Generator {
 			$cache    = Init::instance()->style_cache;
 			$cache_id = $cache->get_style_cache_id();
 			$filename = $name . '-form-validation-' . $cache_id . '.json';
-			if ( ! $cache->is_file_exist( $filename ) ) {
-				$this->file_name            = $filename;
-				$this->is_bypass            = true;
-				$this->form_validation_data = array();
-				return false;
-			} else {
+
+			if ( $cache->is_file_exist( $filename ) ) {
 				$this->form_file[] = $filename;
+				return true;
 			}
+			$this->file_name            = $filename;
+			$this->is_bypass            = true;
+			$this->form_validation_data = array();
 		}
 
 		return $flag;
@@ -114,8 +114,6 @@ class Form_Validation extends Style_Generator {
 	 * Form Validation Scripts
 	 */
 	public function form_validation_scripts() {
-		wp_enqueue_script( 'gutenverse-frontend-event' );
-
 		$validation_data = null;
 
 		if ( 'direct' === apply_filters( 'gutenverse_frontend_render_mechanism', 'direct' ) ) {
@@ -163,6 +161,10 @@ class Form_Validation extends Style_Generator {
 					$result['require_login']       = isset( $data['require_login'] ) ? $data['require_login'] : false;
 					$result['form_success_notice'] = isset( $data['form_success_notice'] ) ? $data['form_success_notice'] : false;
 					$result['form_error_notice']   = isset( $data['form_error_notice'] ) ? $data['form_error_notice'] : false;
+					$result['file_rule']           = array(
+						'max_size'           => isset( $data['max_size_file'] ) ? $data['max_size_file'] : false,
+						'allowed_extensions' => isset( $data['allowed_extensions'] ) ? $data['allowed_extensions'] : false,
+					);
 					$form_result[]                 = $result;
 				}
 			}

@@ -277,8 +277,12 @@ abstract class Style_Interface {
 				$value    = $this->sanitize_value( $data['value'] );
 				$property = call_user_func( $data['property'], $data['value'] );
 				$selector = $data['selector'];
-
+			if ( isset( $data['specific_device'] ) ) {
+				$device                                    = $data['specific_device'];
+				$this->generated[ $device ][ $selector ][] = $property;
+			} else {
 				$this->generated['Desktop'][ $selector ][] = $property;
+			}
 		}
 	}
 
@@ -643,9 +647,12 @@ abstract class Style_Interface {
 	 */
 	public function handle_unit_point( $value, $property, $important = false ) {
 		if ( isset( $value['unit'] ) && isset( $value['point'] ) && '' !== $value['point'] ) {
-			$point = $value['point'];
-			$unit  = $value['unit'];
-			$imp   = $important ? '!important' : '';
+			$point = $value['point'] ?? null;
+			if ( ! is_numeric( $point ) ) {
+				return '';
+			}
+			$unit = $value['unit'] ?? 'px';
+			$imp  = $important ? '!important' : '';
 
 			return "{$property}: {$point}{$unit}{$imp};";
 		}
@@ -702,6 +709,9 @@ abstract class Style_Interface {
 				case 'background-effect':
 					$this->feature_background_effect( $selector );
 					break;
+				case 'tooltip':
+					$this->tooltip_style( $selector );
+					break;
 			}
 		}
 	}
@@ -720,7 +730,7 @@ abstract class Style_Interface {
 					array(
 						'selector'       => ".{$this->element_id}-cursor-effect.cursor-effect",
 						'property'       => function ( $value ) {
-							return "z-index: {$value}";
+							return "z-index: {$value}; --gv-cursor-effect-zindex: {$value};";
 						},
 						'value'          => $cursor_efect['ZIndex'],
 						'device_control' => false,
@@ -737,7 +747,7 @@ abstract class Style_Interface {
 						if ( isset( $cursor_efect['transitionSpeed'] ) ) {
 							$this->inject_style(
 								array(
-									'selector'       => ".{$this->element_id}-cursor-effect.cursor-effect .cursor-content.enter, .{$this->element_id}-cursor-effect.cursor-effect .innerCursor.enter",
+									'selector'       => ".{$this->element_id}-cursor-effect.cursor-effect:not(.dummy-bg) .cursor-content.enter, .{$this->element_id}-cursor-effect.cursor-effect:not(.dummy-bg) .innerCursor.enter, .{$this->element_id}-cursor-effect.dummy-bg.cursor-effect.enter",
 									'property'       => function ( $value ) {
 										if ( $value ) {
 											return "transition: opacity {$value}s, transform 0s;";
@@ -755,7 +765,7 @@ abstract class Style_Interface {
 						if ( isset( $cursor_efect['transitionSpeed'] ) ) {
 							$this->inject_style(
 								array(
-									'selector'       => ".{$this->element_id}-cursor-effect.cursor-effect .cursor-content.enter, .{$this->element_id}-cursor-effect.cursor-effect .innerCursor.enter",
+									'selector'       => ".{$this->element_id}-cursor-effect.cursor-effect:not(.dummy-bg) .cursor-content.enter, .{$this->element_id}-cursor-effect.cursor-effect:not(.dummy-bg) .innerCursor.enter, .{$this->element_id}-cursor-effect.dummy-bg.cursor-effect.enter",
 									'property'       => function ( $value ) {
 										if ( $value ) {
 											return "transition: opacity 0s, transform {$value}s;";
@@ -773,7 +783,7 @@ abstract class Style_Interface {
 						if ( isset( $cursor_efect['transitionSpeed'] ) ) {
 							$this->inject_style(
 								array(
-									'selector'       => ".{$this->element_id}-cursor-effect.cursor-effect .cursor-content.enter, .{$this->element_id}-cursor-effect.cursor-effect .innerCursor.enter",
+									'selector'       => ".{$this->element_id}-cursor-effect.cursor-effect:not(.dummy-bg) .cursor-content.enter, .{$this->element_id}-cursor-effect.cursor-effect:not(.dummy-bg) .innerCursor.enter, .{$this->element_id}-cursor-effect.dummy-bg.cursor-effect.enter",
 									'property'       => function ( $value ) {
 										if ( $value ) {
 											return "transition: opacity {$value}s, transform {$value}s;";
@@ -791,7 +801,7 @@ abstract class Style_Interface {
 						if ( isset( $cursor_efect['transitionSpeed'] ) ) {
 							$this->inject_style(
 								array(
-									'selector'       => ".{$this->element_id}-cursor-effect.cursor-effect .cursor-content.enter, .{$this->element_id}-cursor-effect.cursor-effect .innerCursor.enter",
+									'selector'       => ".{$this->element_id}-cursor-effect.cursor-effect:not(.dummy-bg) .cursor-content.enter, .{$this->element_id}-cursor-effect.cursor-effect:not(.dummy-bg) .innerCursor.enter, .{$this->element_id}-cursor-effect.dummy-bg.cursor-effect.enter",
 									'property'       => function ( $value ) {
 										if ( $value ) {
 											return "transition: opacity 0s, transform {$value}s;";
@@ -809,7 +819,7 @@ abstract class Style_Interface {
 						if ( isset( $cursor_efect['transitionSpeed'] ) ) {
 							$this->inject_style(
 								array(
-									'selector'       => ".{$this->element_id}-cursor-effect.cursor-effect .cursor-content.enter, .{$this->element_id}-cursor-effect.cursor-effect .innerCursor.enter",
+									'selector'       => ".{$this->element_id}-cursor-effect.cursor-effect:not(.dummy-bg) .cursor-content.enter, .{$this->element_id}-cursor-effect.cursor-effect:not(.dummy-bg) .innerCursor.enter, .{$this->element_id}-cursor-effect.dummy-bg.cursor-effect.enter",
 									'property'       => function ( $value ) {
 										if ( $value ) {
 											return "transition: opacity 0s, transform {$value}s;";
@@ -827,7 +837,7 @@ abstract class Style_Interface {
 						if ( isset( $cursor_efect['transitionSpeed'] ) ) {
 							$this->inject_style(
 								array(
-									'selector'       => ".{$this->element_id}-cursor-effect.cursor-effect .cursor-content.enter, .{$this->element_id}-cursor-effect.cursor-effect .innerCursor.enter",
+									'selector'       => ".{$this->element_id}-cursor-effect.cursor-effect:not(.dummy-bg) .cursor-content.enter, .{$this->element_id}-cursor-effect.cursor-effect:not(.dummy-bg) .innerCursor.enter, .{$this->element_id}-cursor-effect.dummy-bg.cursor-effect.enter",
 									'property'       => function ( $value ) {
 										if ( $value ) {
 											return "transition: opacity 0s, transform {$value}s;";
@@ -847,9 +857,15 @@ abstract class Style_Interface {
 			}
 
 			if ( isset( $cursor_efect['blur'] ) ) {
+				$selector = ".{$this->element_id}-cursor-effect.cursor-effect .cursor-content";
+				if ( isset( $cursor_efect['enableSeperateBackground'] ) && isset( $cursor_efect['type'] )  ) {
+					if ( $cursor_efect['enableSeperateBackground'] && 'text' === $cursor_efect['type'] ) {
+						$selector = ".{$this->element_id}-cursor-effect.cursor-effect.dummy-bg";
+					}
+				}
 				$this->inject_style(
 					array(
-						'selector'       => ".{$this->element_id}-cursor-effect.cursor-effect .cursor-content",
+						'selector'       => $selector,
 						'property'       => function ( $value ) {
 							return "-webkit-backdrop-filter: blur({$value}px); backdrop-filter: blur({$value}px);";
 						},
@@ -875,7 +891,13 @@ abstract class Style_Interface {
 					}
 
 					if ( isset( $cursor_efect['background'] ) ) {
-						$this->handle_background( ".{$this->element_id}-cursor-effect.cursor-effect .cursor-content", $cursor_efect['background'] );
+						$selector =".{$this->element_id}-cursor-effect.cursor-effect .cursor-content";
+						if ( isset( $cursor_efect['enableSeperateBackground'] )  ) {
+							if ( $cursor_efect['enableSeperateBackground'] && 'text' === $cursor_efect['type'] ) {
+								$selector = ".{$this->element_id}-cursor-effect.cursor-effect.dummy-bg";
+							}
+						}
+						$this->handle_background( $selector, $cursor_efect['background'] );
 					}
 
 					if ( isset( $cursor_efect['padding'] ) ) {
@@ -892,8 +914,14 @@ abstract class Style_Interface {
 					}
 
 					if ( isset( $cursor_efect['textBorder'] ) ) {
-						$selector = ".{$this->element_id}-cursor-effect.cursor-effect .cursor-content";
+						$selector = ".{$this->element_id}-cursor-effect.cursor-effect:not(.dummy-bg) .cursor-content";
 						$borders  = $cursor_efect['textBorder'];
+
+						if ( isset( $cursor_efect['enableSeperateBackground'] )  ) {
+							if ( $cursor_efect['enableSeperateBackground'] && 'text' === $cursor_efect['type'] ) {
+								$selector = ".{$this->element_id}-cursor-effect.cursor-effect.dummy-bg";
+							}
+						}
 
 						uksort(
 							$borders,
@@ -1025,7 +1053,7 @@ abstract class Style_Interface {
 
 						$this->inject_style(
 							array(
-								'selector'       => ".{$this->element_id}-cursor-effect.cursor-effect .cursor-content .cursor-icon",
+								'selector'       => ".{$this->element_id}-cursor-effect.cursor-effect .cursor-content .cursor-icon, .{$this->element_id}-cursor-effect.cursor-effect .cursor-content .gutenverse-icon-svg",
 								'property'       => function ( $value ) {
 									return $this->handle_unit_point( $value, 'font-size' );
 								},
@@ -1319,6 +1347,155 @@ abstract class Style_Interface {
 					)
 				);
 			}
+		}
+	}
+	/**
+	 * Handle Feature Tooltip.
+	 *
+	 * @param string $selector Selector.
+	 */
+	protected function tooltip_style( $selector ) {
+		$tltp_attrs = $this->attrs['tooltip'];
+		if ( isset( $tltp_attrs['tooltipMaxWidth'] ) ) {
+			$this->inject_style(
+				array(
+					'selector'       => ".guten-tooltip-{$this->element_id}.guten-tooltip",
+					'property'       => function ( $value ) {
+						return "max-width: {$value}px;";
+					},
+					'value'          => $tltp_attrs['tooltipMaxWidth'],
+					'device_control' => true,
+				)
+			);
+		}
+		if ( isset( $tltp_attrs['tooltipBackground'] ) ) {
+			$this->inject_style(
+				array(
+					'selector'       => ".guten-tooltip-{$this->element_id}.guten-tooltip, .guten-tooltip-{$this->element_id}.guten-tooltip.arrow:before",
+					'property'       => function ( $value ) {
+						return $this->handle_color( $value, 'background-color' );
+					},
+					'value'          => $tltp_attrs['tooltipBackground'],
+					'device_control' => false,
+				)
+			);
+		}
+		if ( isset( $tltp_attrs['tooltipTextAlign'] ) ) {
+			$this->inject_style(
+				array(
+					'selector'       => ".guten-tooltip-{$this->element_id}.guten-tooltip .guten-tooltip-text",
+					'property'       => function ( $value ) {
+						return "text-align: {$value};";
+					},
+					'value'          => $tltp_attrs['tooltipTextAlign'],
+					'device_control' => true,
+				)
+			);
+		}
+		if ( isset( $tltp_attrs['tooltipColor'] ) ) {
+			$this->inject_style(
+				array(
+					'selector'       => ".guten-tooltip-{$this->element_id}.guten-tooltip .guten-tooltip-text",
+					'property'       => function ( $value ) {
+						return $this->handle_color( $value, 'color' );
+					},
+					'value'          => $tltp_attrs['tooltipColor'],
+					'device_control' => false,
+				)
+			);
+		}
+		if ( isset( $tltp_attrs['tooltipIconColor'] ) ) {
+			$this->inject_style(
+				array(
+					'selector'       => ".guten-tooltip-{$this->element_id}.guten-tooltip .guten-tooltip-text .guten-tooltip-icon",
+					'property'       => function ( $value ) {
+						return $this->handle_color( $value, 'color' );
+					},
+					'value'          => $tltp_attrs['tooltipIconColor'],
+					'device_control' => false,
+				)
+			);
+		}
+		if ( isset( $tltp_attrs['tooltipIconSize'] ) ) {
+			$this->inject_style(
+				array(
+					'selector'       => ".guten-tooltip-{$this->element_id}.guten-tooltip .guten-tooltip-text .guten-tooltip-icon",
+					'property'       => function ( $value ) {
+						return "font-size: {$value}px";
+					},
+					'value'          => $tltp_attrs['tooltipIconSize'],
+					'device_control' => false,
+				)
+			);
+		}
+		if ( isset( $tltp_attrs['tooltipIconSpacing'] ) ) {
+			$this->inject_style(
+				array(
+					'selector'       => ".guten-tooltip-{$this->element_id}.guten-tooltip .guten-tooltip-text .guten-tooltip-icon.before",
+					'property'       => function ( $value ) {
+						return "margin-right: {$value}px";
+					},
+					'value'          => $tltp_attrs['tooltipIconSpacing'],
+					'device_control' => false,
+				)
+			);
+			$this->inject_style(
+				array(
+					'selector'       => ".guten-tooltip-{$this->element_id}.guten-tooltip .guten-tooltip-text .guten-tooltip-icon.after",
+					'property'       => function ( $value ) {
+						return "margin-left: {$value}px";
+					},
+					'value'          => $tltp_attrs['tooltipIconSpacing'],
+					'device_control' => false,
+				)
+			);
+		}
+		if ( isset( $tltp_attrs['tooltipTypography'] ) ) {
+			$this->inject_typography(
+				array(
+					'selector'       => ".guten-tooltip-{$this->element_id}.guten-tooltip .guten-tooltip-text",
+					'property'       => function ( $value ) {},
+					'value'          => $tltp_attrs['tooltipTypography'],
+					'device_control' => false,
+				)
+			);
+		}
+		if ( isset( $tltp_attrs['tooltipPadding'] ) ) {
+			$this->inject_style(
+				array(
+					'selector'       => ".guten-tooltip-{$this->element_id}.guten-tooltip",
+					'property'       => function ( $value ) {
+						return $this->handle_dimension( $value, 'padding' );
+					},
+					'value'          => $tltp_attrs['tooltipPadding'],
+					'device_control' => true,
+				)
+			);
+		}
+		if ( isset( $tltp_attrs['tooltipMargin'] ) ) {
+			$this->inject_style(
+				array(
+					'selector'       => ".guten-tooltip-{$this->element_id}.guten-tooltip",
+					'property'       => function ( $value ) {
+						return $this->handle_dimension( $value, 'margin' );
+					},
+					'value'          => $tltp_attrs['tooltipMargin'],
+					'device_control' => true,
+				)
+			);
+		}
+
+		if ( isset( $tltp_attrs['tooltipBorderResponsive'] ) ) {
+			$this->inject_style(
+				array(
+					'selector'       => ".guten-tooltip-{$this->element_id}.guten-tooltip",
+					'property'       => function ( $value ) {
+						return $this->handle_border_responsive( $value );
+					},
+					'value'          => $tltp_attrs['tooltipBorderResponsive'],
+					'device_control' => true,
+				)
+			);
 		}
 	}
 
@@ -1877,7 +2054,7 @@ abstract class Style_Interface {
 					array(
 						'selector'       => $selector,
 						'property'       => function ( $value ) {
-							return "background-blend-mode: {$value};";
+							return "background-blend-mode: {$value}; mix-blend-mode: {$value};";
 						},
 						'value'          => $background['blendMode'],
 						'device_control' => true,
@@ -2385,7 +2562,7 @@ abstract class Style_Interface {
 			if ( isset( $this->attrs['animation']['type'] ) && is_array( $this->attrs['animation']['type'] ) ) {
 				$this->inject_style(
 					array(
-						'selector'       => $selector,
+						'selector'       => "{$selector}:not([class*=\"__tablet-\"]):not([class*=\"__desktop-\"]):not([class*=\"__mobile-\"])",
 						'property'       => function ( $value ) {
 							if ( 'none' === $value ) {
 								return 'animation-name: none;';
@@ -2485,7 +2662,11 @@ abstract class Style_Interface {
 			if ( $multi ) {
 				foreach ( $positions as $position ) {
 					if ( ! gutenverse_truly_empty( $dimension[ $position ] ) ) {
-						$styles[] = "{$prefix}-{$position}: {$dimension[ $position ]}{$unit};";
+						if ( $prefix ) {
+							$styles[] = "{$prefix}-{$position}: {$dimension[ $position ]}{$unit};";
+						} else {
+							$styles[] = "{$position}: {$dimension[ $position ]}{$unit};";
+						}
 					}
 				}
 

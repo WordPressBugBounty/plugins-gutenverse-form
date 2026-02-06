@@ -9,6 +9,7 @@
 
 namespace Gutenverse_Form;
 
+use WP_Error;
 use WP_Post;
 
 /**
@@ -275,6 +276,8 @@ class Form {
 				'overwrite_default_confirmation' => $params['overwrite_default_confirmation'],
 				'overwrite_default_notification' => $params['overwrite_default_notification'],
 				'use_captcha'                    => $params['use_captcha'],
+				'max_size_file'                  => $params['max_size_file'],
+				'allowed_extensions'             => $params['allowed_extensions'],
 			)
 		);
 
@@ -294,6 +297,14 @@ class Form {
 	 * @return mixed
 	 */
 	public static function delete_form_action( $id ) {
+		$psot_type = get_post_type( $id );
+		if ( self::POST_TYPE !== $psot_type ) {
+			return new WP_Error(
+				'forbidden_permission',
+				esc_html__( 'Forbidden Access', '--gctd--' ),
+				array( 'status' => 403 )
+			);
+		}
 		return wp_delete_post( $id, true );
 	}
 

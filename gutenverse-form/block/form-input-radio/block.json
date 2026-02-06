@@ -1,5 +1,5 @@
 {
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"name": "gutenverse/form-input-radio",
 	"title": "Radio",
 	"description": "Gutenverse Input Radio",
@@ -273,10 +273,7 @@
 	"supports": {
 		"className": false
 	},
-	"keywords": [
-		"input",
-		"form",
-		"gutenverse"
-	],
-	"example": {}
+	"keywords": ["input", "form", "radio", "dot"],
+	"example": {},
+	"style": ["gutenverse-form-frontend-form-input-radio-style"]
 }

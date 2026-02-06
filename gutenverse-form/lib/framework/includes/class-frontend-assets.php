@@ -24,7 +24,62 @@ class Frontend_Assets {
 	 */
 	public function __construct() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts' ), 99 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_inline_style' ), 999 );
+		add_action( 'gutenverse_enqueue_assets', array( $this, 'enqueue_template_part_assets' ) );
 		add_filter( 'gutenverse_global_css', array( $this, 'global_variable_css' ) );
+	}
+
+	/**
+	 * Enqueue assets for template parts (header/footer)
+	 */
+	public function enqueue_template_part_assets() {
+		if ( is_admin() ) {
+			return;
+		}
+
+		$template_parts = array( 'header', 'footer' );
+		$theme_slug     = get_stylesheet();
+
+		foreach ( $template_parts as $part_slug ) {
+			$template_part_id = $theme_slug . '//' . $part_slug;
+			$template         = get_block_template( $template_part_id, 'wp_template_part' );
+
+			if ( $template && ! empty( $template->content ) ) {
+				$blocks = parse_blocks( $template->content );
+				$this->enqueue_blocks_assets( $blocks );
+			}
+		}
+	}
+
+	/**
+	 * Recursively enqueue assets for blocks
+	 *
+	 * @param array $blocks Parsed blocks.
+	 */
+	private function enqueue_blocks_assets( $blocks ) {
+		foreach ( $blocks as $block ) {
+			if ( ! empty( $block['blockName'] ) ) {
+				$block_name = $block['blockName'];
+				$block_type = \WP_Block_Type_Registry::get_instance()->get_registered( $block_name );
+
+				if ( $block_type ) {
+					if ( ! empty( $block_type->style_handles ) ) {
+						foreach ( $block_type->style_handles as $handle ) {
+							wp_enqueue_style( $handle );
+						}
+					}
+					if ( ! empty( $block_type->script_handles ) ) {
+						foreach ( $block_type->script_handles as $handle ) {
+							wp_enqueue_script( $handle );
+						}
+					}
+				}
+			}
+
+			if ( ! empty( $block['innerBlocks'] ) ) {
+				$this->enqueue_blocks_assets( $block['innerBlocks'] );
+			}
+		}
 	}
 
 	/**
@@ -101,13 +156,34 @@ class Frontend_Assets {
 	 * Frontend Script
 	 */
 	public function frontend_scripts() {
-		wp_enqueue_script( 'gutenverse-frontend-event' );
+		/**
+		 * Load custom frontend settings
+		 * Enqueue it in wp-block-library so it will be called early
+		 */
+		wp_enqueue_style( 'wp-block-library' );
+
+		$settings = get_option( 'gutenverse-settings' );
+		$default  = '';
+
+		if ( ! isset( $settings['frontend_settings']['remove_template_part_margin'] ) || $settings['frontend_settings']['remove_template_part_margin'] ) {
+			$default = '.wp-block-template-part{margin-block-start:0;margin-block-end:0;}';
+		}
+
+		$enqueue_default = apply_filters(
+			'gutenverse_remove_default_style',
+			$default,
+			$settings
+		);
+
+		if ( ! empty( $enqueue_default ) ) {
+			wp_add_inline_style( 'wp-block-library', $enqueue_default );
+		}
+		// Custom frontend setting end here.
 
 		wp_localize_script( 'gutenverse-frontend-event', 'GutenverseData', $this->gutenverse_data() );
 
 		do_action( 'gutenverse_include_frontend' );
-
-		wp_enqueue_style( 'gutenverse-frontend-style' );
+		wp_dequeue_style( 'gutenverse-frontend-style' );
 
 		wp_enqueue_style(
 			'gutenverse-frontend-icon',
@@ -124,6 +200,13 @@ class Frontend_Assets {
 				GUTENVERSE_FRAMEWORK_VERSION
 			);
 		}
+	}
+
+	/**
+	 * Frontend style
+	 */
+	public function frontend_inline_style() {
+		wp_enqueue_style( 'gutenverse-frontend-style' );
 	}
 
 	/**

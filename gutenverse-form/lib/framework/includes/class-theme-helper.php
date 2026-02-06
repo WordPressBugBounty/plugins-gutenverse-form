@@ -36,6 +36,7 @@ class Theme_Helper {
 
 		add_filter( 'wp_theme_json_data_theme', array( $this, 'additional_custom_templates' ) );
 		add_filter( 'get_block_template', array( $this, 'get_block_template' ), null, 3 );
+
 		add_filter( 'validate_current_theme', '__return_false' );
 
 		// Action.
@@ -173,7 +174,6 @@ class Theme_Helper {
 	public function change_stylesheet_directory( $stylesheet_dir ) {
 		$check_stylesheet = get_stylesheet();
 		$check_template   = get_template();
-
 		if ( $check_stylesheet === $check_template ) {
 			$stylesheet_dir = apply_filters( 'gutenverse_stylesheet_directory', $stylesheet_dir );
 		}

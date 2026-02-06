@@ -72,16 +72,30 @@ class Init {
 	public $meta_option;
 
 	/**
-	 * Hold instance of style generator
+	 * Hold instance of frontend generator
 	 *
-	 * @var Style_Generator
+	 * @since 2.3.0: renamed from style_generator to frontend_generator
+	 *
+	 * @var Frontend_Generator
+	 */
+	public $frontend_generator;
+
+	/**
+	 * Frontend Cache
+	 *
+	 * @since 2.3.0: renamed from style_cache to frontend_cache
+	 *
+	 * @var Frontend_Cache
+	 */
+	public $frontend_cache;
+
+	/**
+	 * Old frontend generator kept for backward compatibility
 	 */
 	public $style_generator;
 
 	/**
-	 * Style Cache
-	 *
-	 * @var Style_Cache
+	 * Old frontend cache kept for backward compatibility
 	 */
 	public $style_cache;
 
@@ -140,7 +154,6 @@ class Init {
 	 */
 	public function init_hook() {
 		// actions.
-		add_action( 'admin_notices', array( $this, 'notice_install_plugin' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'notice_install_plugin_script' ) );
 		add_action( 'rest_api_init', array( $this, 'init_api' ) );
 		add_action( 'activated_plugin', array( $this, 'flush_rewrite_rules' ) );
@@ -153,6 +166,9 @@ class Init {
 		add_filter( 'after_setup_theme', array( $this, 'init_settings' ) );
 		add_filter( 'upload_mimes', array( $this, 'add_fonts_to_allowed_mimes' ) );
 		add_filter( 'wp_check_filetype_and_ext', array( $this, 'update_mime_types' ), 10, 3 );
+		add_filter( 'wp_handle_upload_prefilter', array( $this, 'verify_svg_upload' ), 10, 1 );
+		add_filter( 'wp_lazy_loading_enabled', array( $this, 'disable_wp_lazyload' ), 10, 1 );
+
 		/**
 		 * These functions used to be called inside init hook.
 		 * But because framework called using init hook.
@@ -161,6 +177,47 @@ class Init {
 		$this->register_menu_position();
 		$this->import_mechanism();
 	}
+
+	/**
+	 * Disable default lazyload.
+	 *
+	 * @param bool $default .
+	 */
+	public function disable_wp_lazyload( $default ) {
+		$settings = get_option( 'gutenverse-settings' );
+
+		if ( ! isset( $settings['frontend_settings']['disable_wp_lazyload'] ) || $settings['frontend_settings']['disable_wp_lazyload'] ) {
+			return false;
+		}
+
+		return $default;
+	}
+
+	/**
+	 * Verify Svg Upload
+	 *
+	 * @param mixed $file .
+	 */
+	public function verify_svg_upload( $file ) {
+
+		if ( 'image/svg+xml' !== $file['type'] ) {
+			return $file;
+		}
+
+		$svg = file_get_contents( $file['tmp_name'] );
+
+		if ( false === $svg ) {
+			$file['error'] = __( 'Unable to read SVG file.', 'gutenverse' );
+			return $file;
+		}
+
+		if ( ! gutenverse_is_svg_safe( $svg ) ) {
+			$file['error'] = __( 'SVG file contains disallowed or unsafe elements.', 'gutenverse' );
+		}
+
+		return $file;
+	}
+
 	/**
 	 * Hide doing_wp_cron query argument in url
 	 */
@@ -201,12 +258,20 @@ class Init {
 		$this->blocks           = new Blocks();
 		$this->frontend_assets  = new Frontend_Assets();
 		$this->editor_assets    = new Editor_Assets();
-		$this->style_cache      = new Style_Cache();
-		$this->style_generator  = new Style_Generator();
 		$this->frontend_toolbar = new Frontend_Toolbar();
 		$this->global_variable  = new Global_Variable();
 		$this->upgrader         = new Upgrader();
 		$this->meta_option      = Meta_Option::instance();
+
+		/**
+		 * Load the renamed variables and add fallback for old variables, in case there is function still using them
+		 *
+		 * @since 3.3.0
+		 */
+		$this->frontend_cache     = new Frontend_Cache();
+		$this->frontend_generator = new Frontend_Generator();
+		$this->style_cache        = $this->frontend_cache;
+		$this->style_generator    = $this->frontend_generator;
 
 		// Deprecated Function.
 		new Deprecated();
@@ -243,7 +308,7 @@ class Init {
 	public function flush_rewrite_rules() {
 		if ( ! get_option( 'gutenverse_plugin_permalinks_flushed' ) ) {
 			flush_rewrite_rules();
-			update_option( 'gutenverse_plugin_permalinks_flushed', 1 );
+			update_option( 'gutenverse_plugin_permalinks_flushed', 1, false );
 		}
 	}
 
@@ -321,34 +386,6 @@ class Init {
 		}
 
 		return $defaults;
-	}
-	/**
-	 * Show notification to install Gutenverse Plugin.
-	 */
-	public function notice_install_plugin() {
-		// skip if compatible.
-		if ( gutenverse_compatible_check() ) {
-			return;
-		}
-
-		$screen = get_current_screen();
-		if ( isset( $screen->parent_file ) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id ) {
-			return;
-		}
-
-		if ( 'true' === get_user_meta( get_current_user_id(), 'gutenverse_install_notice', true ) ) {
-			return;
-		}
-		?>
-		<div class="notice is-dismissible install-gutenverse-plugin-notice">
-			<div class="gutenverse-notice-inner">
-				<div class="gutenverse-notice-content">
-					<h3><?php esc_html_e( 'WordPress 5.9 required for Gutenverse.', 'gutenverse-form' ); ?></h3>
-					<p><?php esc_html_e( 'You are currently using lower version of WordPress, we recommend to update to WordPress 5.9 or higher. Or if you want to keep using lower version of WordPress, please install the latest version of Gutenberg', 'gutenverse-form' ); ?></p>					
-				</div>
-			</div>
-		</div>
-		<?php
 	}
 
 	/**

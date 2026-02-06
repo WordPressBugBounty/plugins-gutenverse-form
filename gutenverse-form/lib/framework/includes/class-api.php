@@ -9,7 +9,12 @@
 
 namespace Gutenverse\Framework;
 
+use Automatic_Upgrader_Skin;
+use Exception;
+use Theme_Upgrader;
+use WP_Error;
 use WP_Query;
+use WP_REST_Response;
 
 /**
  * Class Api
@@ -104,6 +109,26 @@ class Api {
 
 		register_rest_route(
 			self::ENDPOINT,
+			'global/additional_settings',
+			array(
+				'methods'             => 'POST',
+				'callback'            => array( $this, 'get_global_additional_settings' ),
+				'permission_callback' => 'gutenverse_permission_check_admin',
+			)
+		);
+
+		register_rest_route(
+			self::ENDPOINT,
+			'global/additional_settings/update',
+			array(
+				'methods'             => 'POST',
+				'callback'            => array( $this, 'update_global_additional_settings' ),
+				'permission_callback' => 'gutenverse_permission_check_admin',
+			)
+		);
+
+		register_rest_route(
+			self::ENDPOINT,
 			'themes/activate',
 			array(
 				'methods'             => 'POST',
@@ -138,6 +163,16 @@ class Api {
 			array(
 				'methods'             => 'GET',
 				'callback'            => array( $this, 'get_singles' ),
+				'permission_callback' => 'gutenverse_permission_check_author',
+			)
+		);
+
+		register_rest_route(
+			self::ENDPOINT,
+			'image-sizes',
+			array(
+				'methods'             => 'GET',
+				'callback'            => array( $this, 'get_image_sizes' ),
 				'permission_callback' => 'gutenverse_permission_check_author',
 			)
 		);
@@ -303,6 +338,26 @@ class Api {
 			)
 		);
 
+		register_rest_route(
+			self::ENDPOINT,
+			'library/install-activate-theme',
+			array(
+				'methods'             => 'POST',
+				'callback'            => array( $this, 'install_and_activate_theme_by_slug' ),
+				'permission_callback' => 'gutenverse_permission_check_admin',
+			)
+		);
+
+		register_rest_route(
+			self::ENDPOINT,
+			'settings/remove-cache',
+			array(
+				'methods'             => 'GET',
+				'callback'            => array( $this, 'remove_cache_files' ),
+				'permission_callback' => 'gutenverse_permission_check_admin',
+			)
+		);
+
 		/** ----------------------------------------------------------------
 		 * Frontend/Global Routes
 		 */
@@ -328,6 +383,99 @@ class Api {
 	}
 
 	/**
+	 * Remove Frontend Cache Files
+	 *
+	 * since version 2.3.1
+	 *
+	 * @return WP_Rest
+	 */
+	public function remove_cache_files() {
+		try {
+			$options = get_option( 'gutenverse-settings' );
+
+			if ( ! isset( $options['frontend_settings']['file_delete_mechanism'] ) || 'manual' === $options['frontend_settings']['file_delete_mechanism'] ) {
+				Init::instance()->frontend_cache->cleanup_cached_style();
+				return new WP_REST_Response(
+					array(
+						'status' => 'success',
+					),
+					200
+				);
+			} else {
+				throw new Exception( 'Failed Request: Can Only used if Manual Deletion is Manual', 1 );
+			}
+		} catch ( \Throwable $th ) {
+			return new WP_REST_Response(
+				array(
+					'status'  => 'failed',
+					'message' => $th->getMessage(),
+				),
+				400
+			);
+		}
+	}
+	/**
+	 * Fetch Data
+	 *
+	 * @param object $request .
+	 *
+	 * @return WP_Rest
+	 */
+	public function install_and_activate_theme_by_slug( $request ) {
+		require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+		require_once ABSPATH . 'wp-admin/includes/theme.php';
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		require_once ABSPATH . 'wp-admin/includes/plugin.php'; // for is_plugin_active() if needed
+		require_once ABSPATH . 'wp-includes/theme.php';
+
+		$slug = sanitize_text_field( $request->get_param( 'slug' ) );
+		if ( empty( $slug ) ) {
+			return new WP_Error( 'no_slug', 'Theme slug is required', array( 'status' => 400 ) );
+		}
+
+		// Check if already installed
+		$installed_themes = wp_get_themes();
+		if ( isset( $installed_themes[ $slug ] ) ) {
+			switch_theme( $slug );
+			return array(
+				'success' => true,
+				'message' => 'Theme already installed and activated',
+				'slug'    => $slug,
+			);
+		}
+
+		// Get theme info from WP.org
+		$api = themes_api(
+			'theme_information',
+			array(
+				'slug'   => $slug,
+				'fields' => array( 'sections' => false ),
+			)
+		);
+		if ( is_wp_error( $api ) ) {
+			return new WP_Error( 'theme_api_failed', $api->get_error_message(), array( 'status' => 400 ) );
+		}
+
+		// Install theme
+		$skin     = new Automatic_Upgrader_Skin();
+		$upgrader = new Theme_Upgrader( $skin );
+
+		$result = $upgrader->install( $api->download_link );
+		if ( is_wp_error( $result ) || ! $result ) {
+			return new WP_Error( 'install_failed', 'Theme installation failed', array( 'status' => 500 ) );
+		}
+
+		// Activate theme
+		$theme_stylesheet = $slug;
+		switch_theme( $theme_stylesheet );
+
+		return array(
+			'success' => true,
+			'message' => 'Theme installed and activated successfully',
+			'slug'    => $slug,
+		);
+	}
+	/**
 	 * Fetch Data
 	 *
 	 * @param object $request .
@@ -347,6 +495,7 @@ class Api {
 		}
 
 		$dev_param = $request->get_param( 'dev' );
+			$this->update_library_data();
 
 		if ( 'true' === $dev_param ) {
 			$this->update_library_data();
@@ -430,7 +579,6 @@ class Api {
 
 		foreach ( $data as $key => $value ) {
 			$content = $this->get_json_data( $key );
-
 			if ( 'layout-data' === $key ) {
 				$content = $this->inject_layout_like( $content );
 			}
@@ -439,9 +587,100 @@ class Api {
 				$content = $this->inject_section_like( $content );
 			}
 
+			if ( 'theme-data' === $key ) {
+				$content = $this->theme_data_manipulator( $content );
+			}
+
 			$data[ $key ] = $content;
 		}
 		return $data;
+	}
+
+	/**
+	 * Theme Data Manipulator
+	 *
+	 * since core v2.3.3
+	 *
+	 * @param array $content .
+	 */
+	public function theme_data_manipulator( $content ) {
+		$current_theme        = wp_get_theme();
+		$current_slug = $current_theme->get_stylesheet();
+		if ( $current_theme->parent() ) {
+			$current_slug = $current_theme->parent()->get_stylesheet();
+		}
+		$themes = $content;
+
+		$current_theme_item = null;
+		$pro_related_item   = null;
+		$other_items        = array();
+
+		// Loop over existing themes
+		foreach ( $themes as $theme ) {
+
+			$slug   = $theme['data']['slug'] ?? '';
+			$pro_of = $theme['data']['theme_pro_of'] ?? array();
+
+			// 1. Current theme found in array
+			if ( $slug === $current_slug ) {
+				$theme['data']['current_used'] = true;
+				$current_theme_item            = $theme;
+				continue;
+			}
+
+			// 2. Theme referencing current slug
+			if ( is_array( $pro_of ) && in_array( $current_slug, $pro_of, true ) ) {
+				$pro_related_item = $theme;
+				continue;
+			}
+
+			// 3. Others
+			$other_items[] = $theme;
+		}
+
+		// 4. If current theme NOT in array: create new theme item
+		if ( ! $current_theme_item ) {
+
+			// Screenshot (URL or empty string)
+			$screenshot = $current_theme->get_screenshot();
+
+			$current_theme_item = array(
+				'id'         => 0,
+				'name'       => $current_theme->get( 'Name' ),
+
+				'data'       => array(
+					'slug'         => $current_slug,
+					'name'         => $current_theme->get( 'Name' ),
+					'version'      => $current_theme->get( 'Version' ),
+					'current_used' => true,
+					'tier'		   => [''],
+					// Add screenshot as cover
+					'cover'        => array(
+						$screenshot,
+						0,
+						0,
+						1,
+					),
+				),
+
+				'categories' => array(),
+				'author'     => array(
+					'name' => $current_theme->get( 'Author' ),
+					'url'  => $current_theme->get( 'AuthorURI' ),
+				),
+			);
+		}
+
+		// Build final sorted array
+		$final = array();
+
+		$final[] = $current_theme_item;      // 1. Current theme always first
+		if ( $pro_related_item ) {
+			$final[] = $pro_related_item;    // 2. Theme referencing current slug
+		}
+		$final = array_merge( $final, $other_items ); // 3. Others afterward
+
+		return $final;
 	}
 
 	/**
@@ -523,8 +762,12 @@ class Api {
 	 */
 	public function inject_layout_like( $data ) {
 		$liked = Meta_Option::instance()->get_option( 'liked_layout' );
-		foreach ( $data as $key => $item ) {
-			$data[ $key ]['like'] = ! empty( $liked ) ? in_array( $item['data']['slug'], $liked, true ) : false;
+		if ( ! empty( $data ) ) {
+			foreach ( $data as $key => $item ) {
+				if ( is_array( $data[ $key ] ) ) {
+					$data[ $key ]['like'] = ! empty( $liked ) ? in_array( $item['data']['slug'], $liked, true ) : false;
+				}
+			}
 		}
 
 		return $data;
@@ -541,7 +784,9 @@ class Api {
 		$liked = Meta_Option::instance()->get_option( 'liked_section' );
 
 		foreach ( $data as $key => $item ) {
-			$data[ $key ]['like'] = ! empty( $liked ) ? in_array( $item['data']['slug'], $liked, true ) : false;
+			if ( is_array( $data[ $key ] ) ) {
+				$data[ $key ]['like'] = ! empty( $liked ) ? in_array( $item['data']['slug'], $liked, true ) : false;
+			}
 		}
 
 		return $data;
@@ -727,7 +972,7 @@ class Api {
 		if ( ! apply_filters( 'gutenverse_server_mode', false ) ) {
 			$endpoints = array(
 				array(
-					'version'  => 'v3',
+					'version'  => 'v5',
 					'endpoint' => 'layout/data',
 					'filename' => 'layout/data',
 				),
@@ -737,7 +982,7 @@ class Api {
 					'filename' => 'layout/categories',
 				),
 				array(
-					'version'  => 'v3',
+					'version'  => 'v6',
 					'endpoint' => 'theme/data',
 					'filename' => 'theme/data',
 				),
@@ -747,7 +992,7 @@ class Api {
 					'filename' => 'theme/categories',
 				),
 				array(
-					'version'  => 'v3',
+					'version'  => 'v5',
 					'endpoint' => 'section/data',
 					'filename' => 'section/data',
 				),
@@ -784,7 +1029,7 @@ class Api {
 	 */
 	public function notice_close( $request ) {
 		$notice_id = $this->gutenverse_api_esc_data( $request->get_param( 'id' ), 'string' );
-		update_option( "gutenverse_{$notice_id}", true );
+		update_option( "gutenverse_{$notice_id}", true, false );
 
 		return false;
 	}
@@ -1223,65 +1468,70 @@ class Api {
 	 * @param object $request .
 	 */
 	public function modify_settings( $request ) {
-		global $wp_filesystem;
-		require_once ABSPATH . 'wp-admin/includes/file.php';
-		WP_Filesystem();
-		$data        = $request->get_param( 'setting' );
-		$option      = get_option( 'gutenverse-settings' );
-		$value       = $option ? $option : array();
-		$upload_dir  = wp_upload_dir();
-		$upload_path = $upload_dir['basedir'];
-		foreach ( $data as $key => $setting ) {
-			$value[ $key ] = $setting;
-			if ( 'custom_font' === $key ) {
-				foreach ( $data['custom_font']['value'] as $v ) {
-					$local_file = $upload_path . '/' . $v['font_family'] . '.css';
-					if ( file_exists( $local_file ) ) {
-						wp_delete_file( $local_file );
-					}
-				}
-				foreach ( $data['custom_font']['value'] as $v ) {
+		$data = $request->get_param( 'setting' );
 
-					if ( ! $v['font_style'] ) {
-						$v['font_style'] = 'normal';
+		if ( array_key_exists( 'gvnews_settings', $data ) ) {
+			update_option( 'gvnews_settings', $data['gvnews_settings'], false );
+		} else {
+			global $wp_filesystem;
+			require_once ABSPATH . 'wp-admin/includes/file.php';
+			WP_Filesystem();
+			$option      = get_option( 'gutenverse-settings' );
+			$value       = $option ? $option : array();
+			$upload_dir  = wp_upload_dir();
+			$upload_path = $upload_dir['basedir'];
+			foreach ( $data as $key => $setting ) {
+				$value[ $key ] = $setting;
+				if ( 'custom_font' === $key ) {
+					foreach ( $data['custom_font']['value'] as $v ) {
+						$local_file = $upload_path . '/' . $v['font_family'] . '.css';
+						if ( file_exists( $local_file ) ) {
+							wp_delete_file( $local_file );
+						}
 					}
-					if ( ! $v['font_weight'] ) {
-						$v['font_weight'] = 'normal';
+					foreach ( $data['custom_font']['value'] as $v ) {
+
+						if ( ! $v['font_style'] ) {
+							$v['font_style'] = 'normal';
+						}
+						if ( ! $v['font_weight'] ) {
+							$v['font_weight'] = 'normal';
+						}
+						$text = '';
+						if ( $v['font_src_woff'] ) {
+							$text .= $this->add_css_custom_font( $v, $v['font_src_woff'] );
+						}
+						if ( $v['font_src_woff2'] ) {
+							$text .= $this->add_css_custom_font( $v, $v['font_src_woff2'] );
+						}
+						if ( $v['font_src_ttf'] ) {
+							$text .= $this->add_css_custom_font( $v, $v['font_src_ttf'] );
+						}
+						if ( $v['font_src_otf'] ) {
+							$text .= $this->add_css_custom_font( $v, $v['font_src_otf'] );
+						}
+						if ( $v['font_src_svg'] ) {
+							$text .= $this->add_css_custom_font( $v, $v['font_src_svg'] );
+						}
+						$local_file = $upload_path . '/' . $v['font_family'] . '.css';
+						if ( $wp_filesystem->exists( $local_file ) ) {
+							$content  = $wp_filesystem->get_contents( $local_file );
+							$content .= $text;
+						} else {
+							$content = $text;
+						}
+						$wp_filesystem->put_contents( $local_file, $content, FS_CHMOD_FILE );
 					}
-					$text = '';
-					if ( $v['font_src_woff'] ) {
-						$text .= $this->add_css_custom_font( $v, $v['font_src_woff'] );
-					}
-					if ( $v['font_src_woff2'] ) {
-						$text .= $this->add_css_custom_font( $v, $v['font_src_woff2'] );
-					}
-					if ( $v['font_src_ttf'] ) {
-						$text .= $this->add_css_custom_font( $v, $v['font_src_ttf'] );
-					}
-					if ( $v['font_src_otf'] ) {
-						$text .= $this->add_css_custom_font( $v, $v['font_src_otf'] );
-					}
-					if ( $v['font_src_svg'] ) {
-						$text .= $this->add_css_custom_font( $v, $v['font_src_svg'] );
-					}
-					$local_file = $upload_path . '/' . $v['font_family'] . '.css';
-					if ( $wp_filesystem->exists( $local_file ) ) {
-						$content  = $wp_filesystem->get_contents( $local_file );
-						$content .= $text;
-					} else {
-						$content = $text;
-					}
-					$wp_filesystem->put_contents( $local_file, $content, FS_CHMOD_FILE );
+				}
+				if ( 'frontend_settings' === $key ) {
+					gutenverse_delete_sceduler( 'gutenverse_cleanup_cached_style' );
 				}
 			}
-			if ( 'frontend_settings' === $key ) {
-				gutenverse_delete_sceduler( 'gutenverse_cleanup_cached_style' );
+			if ( ! isset( $option ) ) {
+				add_option( 'gutenverse-settings', $value, '', true );
+			} else {
+				update_option( 'gutenverse-settings', $value, true );
 			}
-		}
-		if ( ! isset( $option ) ) {
-			add_option( 'gutenverse-settings', $value );
-		} else {
-			update_option( 'gutenverse-settings', $value );
 		}
 
 		return true;
@@ -1330,6 +1580,64 @@ class Api {
 	}
 
 	/**
+	 * Get Global Additional Settings.
+	 *
+	 * @param object $request .
+	 */
+	public function get_global_additional_settings( $request ) {
+		$post_id = (int) $request->get_param( 'id' );
+		$types   = is_array( $request->get_param( 'types' ) ) ? $request->get_param( 'types' ) : array();
+		$data    = array();
+
+		foreach ( $types as $type ) {
+			switch ( $type ) {
+				case 'custom_css':
+					if ( ! empty( $post_id ) ) {
+						$data['custom_css'] = get_post_meta( $post_id, 'gutenverse_page_custom_css', true );
+					}
+					break;
+				case 'custom_js':
+					if ( ! empty( $post_id ) ) {
+						$data['custom_js'] = get_post_meta( $post_id, 'gutenverse_page_custom_js', true );
+					}
+					break;
+				default:
+					break;
+			}
+		}
+
+		return $data;
+	}
+
+	/**
+	 * Update Global Additional Settings.
+	 *
+	 * @param object $request .
+	 */
+	public function update_global_additional_settings( $request ) {
+		$post_id         = (int) $request->get_param( 'id' );
+		$setting_type    = sanitize_text_field( $request->get_param( 'type' ) );
+		$setting_content = $request->get_param( 'content' );
+
+		switch ( $setting_type ) {
+			case 'custom_css':
+				if ( ! empty( $post_id ) ) {
+					update_post_meta( $post_id, 'gutenverse_page_custom_css', $setting_content );
+				}
+				break;
+			case 'custom_js':
+				if ( ! empty( $post_id ) ) {
+					update_post_meta( $post_id, 'gutenverse_page_custom_js', $setting_content );
+				}
+				break;
+			default:
+				break;
+		}
+
+		return true;
+	}
+
+	/**
 	 * Flag true if already subscribed.
 	 *
 	 * @param object $request .
@@ -1365,9 +1673,9 @@ class Api {
 		$options = get_option( $option_name );
 
 		if ( ! isset( $options ) ) {
-			$result = add_option( $option_name, $data );
+			$result = add_option( $option_name, $data, '', false );
 		} else {
-			$result = update_option( $option_name, $data );
+			$result = update_option( $option_name, $data, false );
 		}
 
 		return $result;
@@ -1580,6 +1888,7 @@ class Api {
 				$url
 			)
 		);
+
 		if ( is_wp_error( $response ) ) {
 			return false;
 		}
@@ -1690,12 +1999,44 @@ class Api {
 
 		if ( $check_theme->exists() ) {
 			switch_theme( $stylesheet );
+			$target_redirect = admin_url( 'admin.php?page=' . $stylesheet . '-wizard' );
+			if ( get_option( $stylesheet . '_lite_plus_wizard_setup_done' ) ) {
+				$target_redirect = admin_url( 'admin.php?page=' . $stylesheet . '-dashboard' );
+			}
 
 			return array(
 				'status' => 200,
+				'redirect' => $target_redirect
 			);
 		}
 
 		return null;
+	}
+
+	/**
+	 * Get Image Sizes.
+	 *
+	 * @return WP_REST_Response
+	 */
+	public function get_image_sizes() {
+		$sizes             = wp_get_registered_image_subsizes();
+		$image_sizes       = array();
+		$excluded_defaults = array( 'medium_large', '1536x1536', '2048x2048' );
+
+		foreach ( $sizes as $slug => $size ) {
+			if ( ! in_array( $slug, $excluded_defaults, true ) ) {
+				$image_sizes[] = array(
+					'label' => ucwords( str_replace( '-', ' ', $slug ) ) . ' (' . $size['width'] . 'x' . $size['height'] . ')',
+					'value' => $slug,
+				);
+			}
+		}
+
+		$image_sizes[] = array(
+			'label' => 'Full',
+			'value' => 'full',
+		);
+
+		return new \WP_REST_Response( $image_sizes, 200 );
 	}
 }

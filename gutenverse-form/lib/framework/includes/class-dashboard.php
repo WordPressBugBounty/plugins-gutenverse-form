@@ -38,6 +38,7 @@ class Dashboard {
 		add_action( 'admin_menu', array( $this, 'parent_menu' ) );
 		add_action( 'admin_menu', array( $this, 'child_menu' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'enqueue_script_in_wizard', array( $this, 'enqueue_scripts' ) );
 
 		add_filter( 'admin_footer_text', '__return_empty_string', 11 );
 		add_filter( 'update_footer', '__return_empty_string', 11 );
@@ -57,7 +58,16 @@ class Dashboard {
 		global $pagenow;
 
 		if ( 'admin.php' === $pagenow && isset( $_GET['page'] ) ) {
-			$old_page = wp_sanitize_redirect( wp_unslash( $_GET['page'] ) );
+			$page = sanitize_text_field( wp_unslash( $_GET['page'] ) );
+
+			if ( 'gutenverse' === $page && isset( $_GET['path'] ) && 'theme-list' === sanitize_text_field( wp_unslash( $_GET['path'] ) ) ) {
+				if ( ! apply_filters( 'gutenverse_show_theme_list_dashboard', false ) ) {
+					wp_safe_redirect( admin_url( 'admin.php?page=gutenverse' ) );
+					exit;
+				}
+			}
+
+			$old_page = wp_sanitize_redirect( $page );
 
 			switch ( $old_page ) {
 				case 'gutenverse-settings':
@@ -81,10 +91,6 @@ class Dashboard {
 	public function enqueue_scripts( $hook ) {
 		global $current_screen;
 
-		if ( $current_screen->is_block_editor ) {
-			return;
-		}
-
 		wp_enqueue_style(
 			'gutenverse-core-dashboard-icons',
 			GUTENVERSE_FRAMEWORK_URL_PATH . '/assets/dist/dashboard-icon.css',
@@ -99,6 +105,18 @@ class Dashboard {
 			GUTENVERSE_FRAMEWORK_VERSION
 		);
 
+		// @since 3.2.0
+		wp_enqueue_style(
+			'gutenverse-core-notifications',
+			GUTENVERSE_FRAMEWORK_URL_PATH . '/assets/css/notifications.css',
+			null,
+			GUTENVERSE_FRAMEWORK_VERSION
+		);
+
+		if ( isset( $current_screen ) && $current_screen->is_block_editor ) {
+			return;
+		}
+
 		$include = ( include GUTENVERSE_FRAMEWORK_DIR . '/lib/dependencies/core.asset.php' )['dependencies'];
 
 		wp_enqueue_script( 'gutenverse-core-event' );
@@ -108,6 +126,8 @@ class Dashboard {
 		wp_localize_script( 'gutenverse-core-event', 'GutenverseThemeList', $this->gutenverse_theme_list_config() );
 
 		wp_localize_script( 'gutenverse-core-event', 'GutenverseSettings', $this->gutenverse_setting_config() );
+
+		wp_localize_script( 'gutenverse-core-event', 'GutenversePluginList', $this->gutenverse_plugin_list_config() );
 
 		wp_set_script_translations( 'gutenverse-core-event', 'gutenverse', GUTENVERSE_FRAMEWORK_LANG_DIR );
 
@@ -151,6 +171,17 @@ class Dashboard {
 			);
 		}
 
+		$notifications = ( include GUTENVERSE_FRAMEWORK_DIR . '/lib/dependencies/notifications.asset.php' )['dependencies'];
+
+		// @since 3.2.0
+		wp_enqueue_script(
+			'gutenverse-core-notifications',
+			GUTENVERSE_FRAMEWORK_URL_PATH . '/assets/js/notifications.js',
+			$notifications,
+			GUTENVERSE_FRAMEWORK_VERSION,
+			true
+		);
+
 		do_action( 'gutenverse_include_dashboard' );
 	}
 
@@ -160,6 +191,8 @@ class Dashboard {
 	 * @return array
 	 */
 	public function gutenverse_dashboard_config() {
+		global $pagenow;
+
 		$config = array();
 
 		$config['imgDir']           = GUTENVERSE_FRAMEWORK_URL_PATH . '/assets/img';
@@ -172,23 +205,66 @@ class Dashboard {
 		$config['support']          = 'https://wordpress.org/support/plugin/gutenverse/';
 		$config['docs']             = GUTENVERSE_FRAMEWORK_DOCUMENTATION_URL;
 		$config['community']        = 'https://www.facebook.com/groups/gutenversecommunity/';
+		$config['showThemeList']    = apply_filters( 'gutenverse_show_theme_list_dashboard', false );
 		$config['themelist']        = admin_url( 'admin.php?page=gutenverse&path=theme-list' );
 		$config['homeSlug']         = 'gutenverse';
-		$config['system']           = $this->system_status();
 		$config['plugins']          = Editor_Assets::list_plugin();
 		$config['pluginVersions']   = array();
 		$config['fontIconExists']   = Init::instance()->assets->is_font_icon_exists();
 		$config['themesUrl']        = GUTENVERSE_FRAMEWORK_THEMES_URL;
+		$config['proDemoUrl']       = untrailingslashit( GUTENVERSE_FRAMEWORK_LIBRARY_URL );
 		$config['adminUrl']         = admin_url();
 		$config['upgradeProUrl']    = gutenverse_upgrade_pro();
 		$config['requireProUpdate'] = \Gutenverse_Initialize_Framework::instance()->need_update_pro();
 		$config['eventBanner']      = gutenverse_get_event_banner();
 		$config['activeTheme']      = get_option( 'stylesheet' );
-		$config['showThemeList']    = apply_filters( 'gutenverse_show_theme_list', true );
+		$config['activePlugins']    = $this->get_active_plugins();
+		$config['noticeActions']    = array(
+			'gutenverse-core-notice-wp-59'             => array(
+				'show' => ! gutenverse_compatible_check(),
+			),
+			'gutenverse-core-notice-mismatch-version'  => array(
+				'show'      => get_option( ( new Upgrader() )->get_framework_init_option_name() ),
+				'actionUrl' => esc_url( admin_url( 'plugins.php' ) ),
+			),
+			'gutenverse-core-compatibility-notice-2-0' => array(
+				'show'        => defined( 'GUTENVERSE_VERSION' ) && version_compare( GUTENVERSE_VERSION, '1.9.9', '<=' ) && ! get_option( 'gutenverse_compatibility_notice_flag' ),
+				'plugin_list' => apply_filters( 'gutenverse_companion_plugin_list', array() ),
+				'action_url'  => admin_url( 'plugins.php' ),
+			),
+		);
+
+		if ( 'admin.php' === $pagenow && isset( $_GET['page'] ) && 'gutenverse' === $_GET['page'] ) {
+			$config['system'] = $this->system_status();
+		}
+		if ( in_array( 'gutenverse-companion/gutenverse-companion.php', $config['activePlugins'], true ) || in_array( 'gutenverse-companion', $config['activePlugins'], true ) ) {
+			$config['companionActive'] = true;
+		} else {
+			$config['companionActive'] = 'false';
+		}
 
 		return apply_filters( 'gutenverse_dashboard_config', $config );
 	}
+	/**
+	 * Get active plugin lists.
+	 *
+	 * @return array
+	 */
+	public function get_active_plugins() {
+		if ( ! function_exists( 'get_plugins' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+		$active_plugins = get_option( 'active_plugins' );
+		$all_plugins    = get_plugins();
+		$plugin_lists   = array();
+		foreach ( $active_plugins as $plugin ) {
+			if ( isset( $all_plugins[ $plugin ] ) && isset( $all_plugins[ $plugin ]['TextDomain'] ) ) {
+				$plugin_lists[] = $all_plugins[ $plugin ]['TextDomain'];
+			}
+		}
 
+		return $plugin_lists;
+	}
 	/**
 	 * System Status.
 	 *
@@ -222,9 +298,13 @@ class Dashboard {
 		$status['count_tag']        = wp_count_terms( 'post_tag' );
 
 		/** Server Environment */
-		$remote     = wp_remote_get( home_url() );
-		$gd_support = array();
+		$remote = get_transient( 'gutenverse_wp_remote_get_status_cache' );
+		if ( ! $remote ) {
+			$remote = wp_remote_get( home_url() );
+			set_transient( 'gutenverse_wp_remote_get_status_cache', $remote, 30 * MINUTE_IN_SECONDS );
+		}
 
+		$gd_support = array();
 		if ( function_exists( 'gd_info' ) ) {
 			foreach ( gd_info() as $key => $value ) {
 				$gd_support[ $key ] = $value;
@@ -305,6 +385,492 @@ class Dashboard {
 	}
 
 	/**
+	 * Gutenverse Plugin List Config
+	 *
+	 * @return array
+	 */
+	public function gutenverse_plugin_list_config() {
+		$config = array();
+
+		$config['pluginCheck'] = array(
+			'gutenverse'      => array(
+				array(
+					'plugin_version'    => '2.0.0',
+					'framework_version' => '1.0.0',
+				),
+				array(
+					'plugin_version'    => '2.0.1',
+					'framework_version' => '1.0.1',
+				),
+				array(
+					'plugin_version'    => '2.0.2',
+					'framework_version' => '1.0.2',
+				),
+				array(
+					'plugin_version'    => '2.0.3',
+					'framework_version' => '1.0.3',
+				),
+				array(
+					'plugin_version'    => '2.0.4',
+					'framework_version' => '1.0.4',
+				),
+				array(
+					'plugin_version'    => '2.0.5',
+					'framework_version' => '1.0.6',
+				),
+				array(
+					'plugin_version'    => '2.0.6',
+					'framework_version' => '1.0.7',
+				),
+				array(
+					'plugin_version'    => '2.0.7',
+					'framework_version' => '1.0.8',
+				),
+				array(
+					'plugin_version'    => '2.0.8',
+					'framework_version' => '1.0.9',
+				),
+				array(
+					'plugin_version'    => '2.0.9',
+					'framework_version' => '1.1.0',
+				),
+				array(
+					'plugin_version'    => '2.1.0',
+					'framework_version' => '1.1.0',
+				),
+				array(
+					'plugin_version'    => '2.1.1',
+					'framework_version' => '1.1.1',
+				),
+				array(
+					'plugin_version'    => '2.1.2',
+					'framework_version' => '1.1.2',
+				),
+				array(
+					'plugin_version'    => '2.1.3',
+					'framework_version' => '1.1.3',
+				),
+				array(
+					'plugin_version'    => '2.1.4',
+					'framework_version' => '1.1.4',
+				),
+				array(
+					'plugin_version'    => '2.1.5',
+					'framework_version' => '1.1.5',
+				),
+				array(
+					'plugin_version'    => '2.1.6',
+					'framework_version' => '1.1.6',
+				),
+				array(
+					'plugin_version'    => '2.1.7',
+					'framework_version' => '1.1.7',
+				),
+				array(
+					'plugin_version'    => '2.1.8',
+					'framework_version' => '1.1.8',
+				),
+				array(
+					'plugin_version'    => '2.1.9',
+					'framework_version' => '1.1.9',
+				),
+				array(
+					'plugin_version'    => '2.2.0',
+					'framework_version' => '1.2.0',
+				),
+				array(
+					'plugin_version'    => '2.2.1',
+					'framework_version' => '1.2.1',
+				),
+				array(
+					'plugin_version'    => '3.0.0',
+					'framework_version' => '2.0.0',
+				),
+				array(
+					'plugin_version'    => '3.0.1',
+					'framework_version' => '2.0.1',
+				),
+				array(
+					'plugin_version'    => '3.0.2',
+					'framework_version' => '2.0.2',
+				),
+				array(
+					'plugin_version'    => '3.0.3',
+					'framework_version' => '2.0.3',
+				),
+				array(
+					'plugin_version'    => '3.0.4',
+					'framework_version' => '2.0.4',
+				),
+				array(
+					'plugin_version'    => '3.0.5',
+					'framework_version' => '2.0.5',
+				),
+				array(
+					'plugin_version'    => '3.0.6',
+					'framework_version' => '2.0.6',
+				),
+				array(
+					'plugin_version'    => '3.0.7',
+					'framework_version' => '2.0.7',
+				),
+				array(
+					'plugin_version'    => '3.1.0',
+					'framework_version' => '2.1.0',
+				),
+				array(
+					'plugin_version'    => '3.1.1',
+					'framework_version' => '2.1.1',
+				),
+				array(
+					'plugin_version'    => '3.1.2',
+					'framework_version' => '2.1.2',
+				),
+				array(
+					'plugin_version'    => '3.2.0',
+					'framework_version' => '2.2.0',
+				),
+				array(
+					'plugin_version'    => '3.2.1',
+					'framework_version' => '2.2.1',
+				),
+				array(
+					'plugin_version'    => '3.3.0',
+					'framework_version' => '2.3.0',
+				),
+				array(
+					'plugin_version'    => '3.3.1',
+					'framework_version' => '2.3.1',
+				),
+				array(
+					'plugin_version'    => '3.3.2',
+					'framework_version' => '2.3.2',
+				),
+				array(
+					'plugin_version'    => '3.4.0',
+					'framework_version' => '2.4.0',
+				),
+				array(
+					'plugin_version'    => '3.4.1',
+					'framework_version' => '2.4.0',
+				),
+				array(
+					'plugin_version'    => '3.4.3',
+					'framework_version' => '2.4.3',
+				),
+				array(
+					'plugin_version'    => '3.4.4',
+					'framework_version' => '2.4.4',
+				),
+				array(
+					'plugin_version'    => '3.4.5',
+					'framework_version' => '2.4.5',
+				),
+			),
+			'gutenverse-form' => array(
+				array(
+					'plugin_version'    => '1.0.0',
+					'framework_version' => '1.0.0',
+				),
+				array(
+					'plugin_version'    => '1.0.1',
+					'framework_version' => '1.0.1',
+				),
+				array(
+					'plugin_version'    => '1.0.2',
+					'framework_version' => '1.0.2',
+				),
+				array(
+					'plugin_version'    => '1.0.3',
+					'framework_version' => '1.0.3',
+				),
+				array(
+					'plugin_version'    => '1.0.4',
+					'framework_version' => '1.0.4',
+				),
+				array(
+					'plugin_version'    => '1.0.5',
+					'framework_version' => '1.0.5',
+				),
+				array(
+					'plugin_version'    => '1.0.6',
+					'framework_version' => '1.0.6',
+				),
+				array(
+					'plugin_version'    => '1.0.7',
+					'framework_version' => '1.0.7',
+				),
+				array(
+					'plugin_version'    => '1.0.8',
+					'framework_version' => '1.0.8',
+				),
+				array(
+					'plugin_version'    => '1.0.9',
+					'framework_version' => '1.0.9',
+				),
+				array(
+					'plugin_version'    => '1.1.0',
+					'framework_version' => '1.1.0',
+				),
+				array(
+					'plugin_version'    => '1.1.1',
+					'framework_version' => '1.1.1',
+				),
+				array(
+					'plugin_version'    => '1.1.2',
+					'framework_version' => '1.1.2',
+				),
+				array(
+					'plugin_version'    => '1.1.3',
+					'framework_version' => '1.1.3',
+				),
+				array(
+					'plugin_version'    => '1.1.4',
+					'framework_version' => '1.1.4',
+				),
+				array(
+					'plugin_version'    => '1.1.5',
+					'framework_version' => '1.1.5',
+				),
+				array(
+					'plugin_version'    => '1.1.6',
+					'framework_version' => '1.1.6',
+				),
+				array(
+					'plugin_version'    => '1.1.7',
+					'framework_version' => '1.1.7',
+				),
+				array(
+					'plugin_version'    => '1.1.8',
+					'framework_version' => '1.1.8',
+				),
+				array(
+					'plugin_version'    => '1.1.9',
+					'framework_version' => '1.1.9',
+				),
+				array(
+					'plugin_version'    => '2.0.0',
+					'framework_version' => '2.0.0',
+				),
+				array(
+					'plugin_version'    => '2.0.1',
+					'framework_version' => '2.0.1',
+				),
+				array(
+					'plugin_version'    => '2.0.2',
+					'framework_version' => '2.0.3',
+				),
+				array(
+					'plugin_version'    => '2.0.4',
+					'framework_version' => '2.0.4',
+				),
+				array(
+					'plugin_version'    => '2.0.5',
+					'framework_version' => '2.0.5',
+				),
+				array(
+					'plugin_version'    => '2.0.6',
+					'framework_version' => '2.0.6',
+				),
+				array(
+					'plugin_version'    => '2.0.8',
+					'framework_version' => '2.0.7',
+				),
+				array(
+					'plugin_version'    => '2.1.0',
+					'framework_version' => '2.1.0',
+				),
+				array(
+					'plugin_version'    => '2.1.1',
+					'framework_version' => '2.1.1',
+				),
+				array(
+					'plugin_version'    => '2.1.2',
+					'framework_version' => '2.1.2',
+				),
+				array(
+					'plugin_version'    => '2.1.3',
+					'framework_version' => '2.1.2',
+				),
+				array(
+					'plugin_version'    => '2.2.0',
+					'framework_version' => '2.2.0',
+				),
+				array(
+					'plugin_version'    => '2.3.0',
+					'framework_version' => '2.3.0',
+				),
+				array(
+					'plugin_version'    => '2.3.1',
+					'framework_version' => '2.3.1',
+				),
+				array(
+					'plugin_version'    => '2.3.2',
+					'framework_version' => '2.3.2',
+				),
+				array(
+					'plugin_version'    => '2.4.0',
+					'framework_version' => '2.4.0',
+				),
+				array(
+					'plugin_version'    => '2.4.3',
+					'framework_version' => '2.4.3',
+				),
+				array(
+					'plugin_version'    => '2.4.4',
+					'framework_version' => '2.4.4',
+				),
+				array(
+					'plugin_version'    => '2.4.5',
+					'framework_version' => '2.4.5',
+				),
+			),
+			'gutenverse-news' => array(
+				array(
+					'plugin_version'    => '1.0.0',
+					'framework_version' => '1.0.0',
+				),
+				array(
+					'plugin_version'    => '1.0.2',
+					'framework_version' => '1.0.6',
+				),
+				array(
+					'plugin_version'    => '1.0.3',
+					'framework_version' => '1.0.7',
+				),
+				array(
+					'plugin_version'    => '2.0.0',
+					'framework_version' => '2.0.6',
+				),
+				array(
+					'plugin_version'    => '2.0.1',
+					'framework_version' => '2.1.0',
+				),
+				array(
+					'plugin_version'    => '3.0.0',
+					'framework_version' => '2.1.2',
+				),
+				array(
+					'plugin_version'    => '3.0.2',
+					'framework_version' => '2.2.1',
+				),
+				array(
+					'plugin_version'    => '3.1.1',
+					'framework_version' => '2.4.4',
+				),
+			),
+			'gutenverse-pro'  => array(
+				array(
+					'plugin_version'    => '1.0.0',
+					'framework_version' => '1.0.0',
+				),
+				array(
+					'plugin_version'    => '1.0.1',
+					'framework_version' => '1.0.2',
+				),
+				array(
+					'plugin_version'    => '1.0.2',
+					'framework_version' => '1.1.2',
+				),
+				array(
+					'plugin_version'    => '1.0.3',
+					'framework_version' => '1.1.5',
+				),
+				array(
+					'plugin_version'    => '1.0.4',
+					'framework_version' => '1.1.6',
+				),
+				array(
+					'plugin_version'    => '1.0.4',
+					'framework_version' => '1.1.7',
+				),
+				array(
+					'plugin_version'    => '1.0.5',
+					'framework_version' => '1.1.8',
+				),
+				array(
+					'plugin_version'    => '2.0.0',
+					'framework_version' => '2.0.0',
+				),
+				array(
+					'plugin_version'    => '2.0.1',
+					'framework_version' => '2.0.1',
+				),
+				array(
+					'plugin_version'    => '2.0.2',
+					'framework_version' => '2.0.3',
+				),
+				array(
+					'plugin_version'    => '2.0.4',
+					'framework_version' => '2.0.4',
+				),
+				array(
+					'plugin_version'    => '2.0.5',
+					'framework_version' => '2.0.5',
+				),
+				array(
+					'plugin_version'    => '2.0.6',
+					'framework_version' => '2.0.6',
+				),
+				array(
+					'plugin_version'    => '2.0.7',
+					'framework_version' => '2.0.7',
+				),
+				array(
+					'plugin_version'    => '2.1.0',
+					'framework_version' => '2.1.0',
+				),
+				array(
+					'plugin_version'    => '2.1.1',
+					'framework_version' => '2.1.1',
+				),
+				array(
+					'plugin_version'    => '2.1.2',
+					'framework_version' => '2.1.2',
+				),
+				array(
+					'plugin_version'    => '2.2.0',
+					'framework_version' => '2.2.0',
+				),
+				array(
+					'plugin_version'    => '2.2.1',
+					'framework_version' => '2.2.1',
+				),
+				array(
+					'plugin_version'    => '2.3.0',
+					'framework_version' => '2.3.0',
+				),
+				array(
+					'plugin_version'    => '2.3.1',
+					'framework_version' => '2.3.1',
+				),
+				array(
+					'plugin_version'    => '2.3.2',
+					'framework_version' => '2.3.2',
+				),
+				array(
+					'plugin_version'    => '2.4.0',
+					'framework_version' => '2.4.0',
+				),
+				array(
+					'plugin_version'    => '2.4.3',
+					'framework_version' => '2.4.3',
+				),
+				array(
+					'plugin_version'    => '2.4.4',
+					'framework_version' => '2.4.4',
+				),
+				array(
+					'plugin_version'    => '2.4.5',
+					'framework_version' => '2.4.5',
+				),
+			),
+		);
+
+		return $config;
+	}
+
+	/**
 	 * Gutenverse Settings Config
 	 *
 	 * @return array
@@ -312,11 +878,14 @@ class Dashboard {
 	public function gutenverse_setting_config() {
 		$upload_path = wp_upload_dir();
 
-		$config                    = array();
-		$config['settingsData']    = get_option( 'gutenverse-settings', array() );
-		$config['blockCategories'] = Init::instance()->blocks->gutenverse_categories();
-		$config['uploadPath']      = $upload_path['basedir'];
-		$config['renderSchedule']  = gmdate( 'Y-m-d H:i:s', wp_next_scheduled( 'gutenverse_cleanup_cached_style' ) );
+		$config = array();
+
+		$settings_data                                     = apply_filters( 'gutenverse_settings_data', get_option( 'gutenverse-settings', array() ) );
+		$settings_data['frontend_settings']['unused_size'] = gutenverse_unused_cache_file_size();
+		$config['settingsData']                            = $settings_data;
+		$config['blockCategories']                         = Init::instance()->blocks->gutenverse_categories();
+		$config['uploadPath']                              = $upload_path['basedir'];
+		$config['renderSchedule']                          = gmdate( 'Y-m-d H:i:s', wp_next_scheduled( 'gutenverse_cleanup_cached_style' ) );
 
 		return $config;
 	}
@@ -340,8 +909,10 @@ class Dashboard {
 	 * Child Menu
 	 */
 	public function child_menu() {
-		$path            = admin_url( 'admin.php?page=gutenverse&path=' );
-		$show_theme_list = apply_filters( 'gutenverse_show_theme_list', true );
+		$path         = admin_url( 'admin.php?page=gutenverse&path=' );
+		$active_theme = get_option( 'stylesheet' );
+		$companion    = $this->get_active_plugins();
+		$companion    = in_array( 'gutenverse-companion/gutenverse-companion.php', $companion, true ) || in_array( 'gutenverse-companion', $companion, true );
 
 		add_submenu_page(
 			self::TYPE,
@@ -363,18 +934,6 @@ class Dashboard {
 			1
 		);
 
-		if ( $show_theme_list ) {
-			add_submenu_page(
-				self::TYPE,
-				esc_html__( 'Theme List', 'gutenverse-form' ),
-				esc_html__( 'Theme List', 'gutenverse-form' ),
-				'manage_options',
-				$path . 'theme-list',
-				null,
-				2
-			);
-		}
-
 		add_submenu_page(
 			self::TYPE,
 			esc_html__( 'Blocks', 'gutenverse-form' ),
@@ -382,8 +941,20 @@ class Dashboard {
 			'manage_options',
 			$path . 'block-list',
 			null,
-			3
+			2
 		);
+
+		if ( apply_filters( 'gutenverse_show_theme_list_dashboard', false ) ) {
+			add_submenu_page(
+				self::TYPE,
+				esc_html__( 'Theme List', 'gutenverse-form' ),
+				esc_html__( 'Theme List', 'gutenverse-form' ),
+				'manage_options',
+				$path . 'theme-list',
+				null,
+				3
+			);
+		}
 
 		add_submenu_page(
 			self::TYPE,
@@ -424,19 +995,6 @@ class Dashboard {
 				gutenverse_upgrade_pro() . '/?utm_source=gutenverse&utm_medium=dashboardnav',
 				null,
 				9999
-			);
-		}
-
-		// Add Submenu on Appearance.
-		if ( $show_theme_list ) {
-			add_submenu_page(
-				'themes.php',
-				esc_html__( 'Gutenverse Themes', 'gutenverse-form' ),
-				esc_html__( 'Gutenverse Themes', 'gutenverse-form' ),
-				'manage_options',
-				'admin.php?page=gutenverse&path=theme-list',
-				null,
-				1
 			);
 		}
 	}

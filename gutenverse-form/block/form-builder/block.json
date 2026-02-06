@@ -1,5 +1,5 @@
 {
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"name": "gutenverse/form-builder",
 	"title": "Form Builder",
 	"description": "Build a flexible form with many field choices.",
@@ -8,6 +8,38 @@
 	"attributes": {
 		"elementId": {
 			"type": "string"
+		},
+		"positioningType": {
+			"type": "object",
+			"copyStyle": true
+		},
+		"positioningWidth": {
+			"type": "object",
+			"copyStyle": true
+		},
+		"positioningAlign": {
+			"type": "object",
+			"copyStyle": true
+		},
+		"positioningLocation": {
+			"type": "string",
+			"copyStyle": true
+		},
+		"positioningLeft": {
+			"type": "object",
+			"copyStyle": true
+		},
+		"positioningRight": {
+			"type": "object",
+			"copyStyle": true
+		},
+		"positioningTop": {
+			"type": "object",
+			"copyStyle": true
+		},
+		"positioningBottom": {
+			"type": "object",
+			"copyStyle": true
 		},
 		"mouseMoveEffect": {
 			"type": "object",
@@ -255,5 +287,18 @@
 		"className": false,
 		"anchor": true
 	},
-	"keywords": ["form", "entry", "submit"]
+	"keywords": [
+		"contact",
+		"form",
+		"entry",
+		"submit",
+		"input",
+		"wrapper"
+	],
+	"viewScript": [
+		"gutenverse-form-frontend-form-builder-script"
+	],
+	"style": [
+		"gutenverse-form-frontend-form-builder-style"
+	]
 }

@@ -1,9 +1,9 @@
 === Gutenverse Form – Contact Form Builder, Booking, Reservation, Subscribe for Block Editor ===
 Contributors: Jegstudio
 Tags: contact form, form builder, custom form, block form, WordPress form plugin
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 2.1.2
+Stable tag: 2.4.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -206,6 +206,75 @@ Gutenverse Form is designed to be compatible with other Gutenberg plugins. We ha
 
 
 == Changelog ==
+= 2.4.5 =
+##### New & Improvements
+* add for label in form input
+* add positioning panel for form builder
+
+##### Bug Fixes
+* fix transform transition
+* fix tooltip info icon position
+
+= 2.4.4 =
+##### New & Improvements
+* add aria label options in some blocks for SEO & accessibility
+* add loading state when converting icon to svg for better ux
+
+##### Bug Fixes
+* fix error when running wp cli for gutenverse form
+* fix form action capture browser not working
+
+= 2.4.3 =
+##### New & Improvements
+* add option fetch priority high for background image
+
+##### Bug Fixes
+* fix background slideshow style overwritten by default
+* fix issue with glitching background image for background slider mode
+* fix word and character validation if only one value exist
+
+= 2.4.0 =
+##### New & Improvements
+* add option to convert Webfont to SVG icon for improved SEO
+
+##### Bug Fixes
+* fix issue with global styles fetch in editor
+* fix issue with animation effect not running on tablet/mobile
+* fix issue with animation effect when combined with transform effect
+* fix issue with section background type video
+* fix recaptcha block issue on frontend
+* fix security issue (credit by andrea bocchetti - Wordfence)
+
+= 2.3.2 =
+##### New & Improvements
+- improve styling cache mechanism
+
+##### Bug Fixes
+- fix recaptcha issue
+- fix security issue (credit by Patchstack)
+
+= 2.3.1 =
+##### New & Improvements
+* Update core framework
+
+= 2.3.0 =
+##### New & Improvements
+* Improve CSS & JS files to load only if block/feature exist
+
+##### Bug Fixes
+* fix security issue. credit: Patchstack.
+
+= 2.2.0 =
+##### New & Improvements
+* add notification center for Gutenverse notices
+* add Custom Page CSS & JS
+* add new library option when Companion theme is installed
+* blocks now use API v3 for faster editing experience
+
+##### Bug Fixes
+* fix frontend inline style
+* fix more block recovery issues
+
 = 2.1.2 =
 ##### Bug Fixes
 * fix bug recaptcha causing re-scroll issue
