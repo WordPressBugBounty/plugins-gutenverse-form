@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 2.4.5\n"
+"Project-Id-Version: Gutenverse Form 2.4.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-05T08:01:51+00:00\n"
+"POT-Creation-Date: 2026-02-24T02:52:41+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -265,17 +265,19 @@ msgid " - Updated on "
 msgstr ""
 
 #: lib/framework/includes/block/class-post-abstract.php:776
-#: lib/framework/includes/block/class-post-abstract.php:866
+#: lib/framework/includes/block/class-post-abstract.php:870
 msgid "Prev"
 msgstr ""
 
-#: lib/framework/includes/block/class-post-abstract.php:811
-#: lib/framework/includes/block/class-post-abstract.php:936
+#: lib/framework/includes/block/class-post-abstract.php:813
+#: lib/framework/includes/block/class-post-abstract.php:815
+#: lib/framework/includes/block/class-post-abstract.php:946
+#: lib/framework/includes/block/class-post-abstract.php:952
 msgid "Next"
 msgstr ""
 
-#: lib/framework/includes/class-api.php:1142
-#: lib/framework/includes/class-api.php:1295
+#: lib/framework/includes/class-api.php:1146
+#: lib/framework/includes/class-api.php:1299
 #: lib/framework/assets/js/components.js:2
 msgid "All"
 msgstr ""
@@ -295,41 +297,41 @@ msgstr ""
 msgid "by"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:898
-#: lib/framework/includes/class-dashboard.php:899
+#: lib/framework/includes/class-dashboard.php:914
+#: lib/framework/includes/class-dashboard.php:915
 #: lib/framework/includes/class-frontend-toolbar.php:121
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Gutenverse"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:919
-#: lib/framework/includes/class-dashboard.php:920
+#: lib/framework/includes/class-dashboard.php:935
+#: lib/framework/includes/class-dashboard.php:936
 #: lib/framework/includes/class-frontend-toolbar.php:219
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Dashboard"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:929
-#: lib/framework/includes/class-dashboard.php:930
+#: lib/framework/includes/class-dashboard.php:945
+#: lib/framework/includes/class-dashboard.php:946
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Ecosystem"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:939
-#: lib/framework/includes/class-dashboard.php:940
+#: lib/framework/includes/class-dashboard.php:955
+#: lib/framework/includes/class-dashboard.php:956
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Blocks"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:950
-#: lib/framework/includes/class-dashboard.php:951
+#: lib/framework/includes/class-dashboard.php:966
+#: lib/framework/includes/class-dashboard.php:967
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Theme List"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:961
-#: lib/framework/includes/class-dashboard.php:962
+#: lib/framework/includes/class-dashboard.php:977
+#: lib/framework/includes/class-dashboard.php:978
 #: lib/framework/includes/class-frontend-toolbar.php:237
 #: assets/js/blocks.js:2
 #: lib/framework/assets/js/core.js:2
@@ -337,22 +339,22 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:971
-#: lib/framework/includes/class-dashboard.php:972
+#: lib/framework/includes/class-dashboard.php:987
+#: lib/framework/includes/class-dashboard.php:988
 #: lib/framework/includes/class-frontend-toolbar.php:246
 #: lib/framework/assets/js/dashboard.js:2
 msgid "System Status"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:981
-#: lib/framework/includes/class-dashboard.php:982
+#: lib/framework/includes/class-dashboard.php:997
+#: lib/framework/includes/class-dashboard.php:998
 #: lib/framework/includes/class-frontend-toolbar.php:255
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Update Notice"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:992
-#: lib/framework/includes/class-dashboard.php:993
+#: lib/framework/includes/class-dashboard.php:1008
+#: lib/framework/includes/class-dashboard.php:1009
 #: lib/framework/includes/class-frontend-toolbar.php:198
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Upgrade to PRO"
@@ -1362,6 +1364,22 @@ msgstr ""
 
 #: assets/js/blocks.js:2
 msgid "Close Icon Size"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Disable Remove Icon"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Remove Icon Offset"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Remove Icon Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Remove Icon Size"
 msgstr ""
 
 #: assets/js/blocks.js:2
