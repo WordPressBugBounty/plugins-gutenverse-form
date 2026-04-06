@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 2.5.1\n"
+"Project-Id-Version: Gutenverse Form 2.5.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-13T09:59:21+00:00\n"
+"POT-Creation-Date: 2026-04-06T06:01:59+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -244,12 +244,13 @@ msgid "Entry Data"
 msgstr ""
 
 #. translators: 1: Time from now.
-#: lib/framework/helper.php:370
+#: lib/framework/helper.php:598
 msgid "%s ago"
 msgstr ""
 
-#: lib/framework/helper.php:1305
-#: lib/framework/helper.php:1324
+#: lib/framework/helper.php:1533
+#: lib/framework/helper.php:1552
+#: lib/framework/helper.php:1571
 msgid "Forbidden Access"
 msgstr ""
 
@@ -275,8 +276,8 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: lib/framework/includes/class-api.php:1146
-#: lib/framework/includes/class-api.php:1299
+#: lib/framework/includes/class-api.php:1145
+#: lib/framework/includes/class-api.php:1298
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 msgid "All"
@@ -297,41 +298,41 @@ msgstr ""
 msgid "by"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:932
-#: lib/framework/includes/class-dashboard.php:933
+#: lib/framework/includes/class-dashboard.php:956
+#: lib/framework/includes/class-dashboard.php:957
 #: lib/framework/includes/class-frontend-toolbar.php:121
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Gutenverse"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:953
-#: lib/framework/includes/class-dashboard.php:954
+#: lib/framework/includes/class-dashboard.php:977
+#: lib/framework/includes/class-dashboard.php:978
 #: lib/framework/includes/class-frontend-toolbar.php:219
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Dashboard"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:963
-#: lib/framework/includes/class-dashboard.php:964
+#: lib/framework/includes/class-dashboard.php:987
+#: lib/framework/includes/class-dashboard.php:988
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Ecosystem"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:973
-#: lib/framework/includes/class-dashboard.php:974
+#: lib/framework/includes/class-dashboard.php:997
+#: lib/framework/includes/class-dashboard.php:998
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Blocks"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:984
-#: lib/framework/includes/class-dashboard.php:985
+#: lib/framework/includes/class-dashboard.php:1008
+#: lib/framework/includes/class-dashboard.php:1009
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Theme List"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:995
-#: lib/framework/includes/class-dashboard.php:996
+#: lib/framework/includes/class-dashboard.php:1019
+#: lib/framework/includes/class-dashboard.php:1020
 #: lib/framework/includes/class-frontend-toolbar.php:237
 #: assets/js/blocks.js:2
 #: lib/framework/assets/js/core.js:2
@@ -339,22 +340,22 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1005
-#: lib/framework/includes/class-dashboard.php:1006
+#: lib/framework/includes/class-dashboard.php:1029
+#: lib/framework/includes/class-dashboard.php:1030
 #: lib/framework/includes/class-frontend-toolbar.php:246
 #: lib/framework/assets/js/dashboard.js:2
 msgid "System Status"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1015
-#: lib/framework/includes/class-dashboard.php:1016
+#: lib/framework/includes/class-dashboard.php:1039
+#: lib/framework/includes/class-dashboard.php:1040
 #: lib/framework/includes/class-frontend-toolbar.php:255
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Update Notice"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1026
-#: lib/framework/includes/class-dashboard.php:1027
+#: lib/framework/includes/class-dashboard.php:1050
+#: lib/framework/includes/class-dashboard.php:1051
 #: lib/framework/includes/class-frontend-toolbar.php:198
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Upgrade to PRO"
@@ -3463,6 +3464,10 @@ msgid "If value has not been set, it will follow the higher resolution's value"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
+msgid "Are you sure want to create a new global color?"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
 msgid "Manage Variable Color"
 msgstr ""
 
@@ -3764,6 +3769,10 @@ msgstr ""
 
 #: lib/framework/assets/js/core.js:2
 msgid "Add Global Fonts"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Are you sure want to create a new global font?"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
