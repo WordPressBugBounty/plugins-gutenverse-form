@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 2.6.0\n"
+"Project-Id-Version: Gutenverse Form 2.6.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-16T08:09:13+00:00\n"
+"POT-Creation-Date: 2026-04-27T07:21:55+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -244,13 +244,13 @@ msgid "Entry Data"
 msgstr ""
 
 #. translators: 1: Time from now.
-#: lib/framework/helper.php:598
+#: lib/framework/helper.php:733
 msgid "%s ago"
 msgstr ""
 
-#: lib/framework/helper.php:1533
-#: lib/framework/helper.php:1552
-#: lib/framework/helper.php:1571
+#: lib/framework/helper.php:1668
+#: lib/framework/helper.php:1687
+#: lib/framework/helper.php:1706
 msgid "Forbidden Access"
 msgstr ""
 
@@ -287,52 +287,52 @@ msgstr ""
 msgid "Gutenverse Wrapper"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:354
-#: lib/framework/includes/class-dashboard.php:356
-#: lib/framework/includes/class-dashboard.php:357
+#: lib/framework/includes/class-dashboard.php:369
+#: lib/framework/includes/class-dashboard.php:371
+#: lib/framework/includes/class-dashboard.php:372
 msgid "unknown"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:359
+#: lib/framework/includes/class-dashboard.php:374
 #: lib/framework/assets/js/dashboard.js:2
 msgid "by"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:956
-#: lib/framework/includes/class-dashboard.php:957
+#: lib/framework/includes/class-dashboard.php:995
+#: lib/framework/includes/class-dashboard.php:996
 #: lib/framework/includes/class-frontend-toolbar.php:121
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Gutenverse"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:977
-#: lib/framework/includes/class-dashboard.php:978
+#: lib/framework/includes/class-dashboard.php:1016
+#: lib/framework/includes/class-dashboard.php:1017
 #: lib/framework/includes/class-frontend-toolbar.php:219
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Dashboard"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:987
-#: lib/framework/includes/class-dashboard.php:988
+#: lib/framework/includes/class-dashboard.php:1026
+#: lib/framework/includes/class-dashboard.php:1027
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Ecosystem"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:997
-#: lib/framework/includes/class-dashboard.php:998
+#: lib/framework/includes/class-dashboard.php:1036
+#: lib/framework/includes/class-dashboard.php:1037
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Blocks"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1008
-#: lib/framework/includes/class-dashboard.php:1009
+#: lib/framework/includes/class-dashboard.php:1047
+#: lib/framework/includes/class-dashboard.php:1048
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Theme List"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1019
-#: lib/framework/includes/class-dashboard.php:1020
+#: lib/framework/includes/class-dashboard.php:1058
+#: lib/framework/includes/class-dashboard.php:1059
 #: lib/framework/includes/class-frontend-toolbar.php:237
 #: assets/js/blocks.js:2
 #: lib/framework/assets/js/core.js:2
@@ -340,22 +340,22 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1029
-#: lib/framework/includes/class-dashboard.php:1030
+#: lib/framework/includes/class-dashboard.php:1068
+#: lib/framework/includes/class-dashboard.php:1069
 #: lib/framework/includes/class-frontend-toolbar.php:246
 #: lib/framework/assets/js/dashboard.js:2
 msgid "System Status"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1039
-#: lib/framework/includes/class-dashboard.php:1040
+#: lib/framework/includes/class-dashboard.php:1078
+#: lib/framework/includes/class-dashboard.php:1079
 #: lib/framework/includes/class-frontend-toolbar.php:255
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Update Notice"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1050
-#: lib/framework/includes/class-dashboard.php:1051
+#: lib/framework/includes/class-dashboard.php:1089
+#: lib/framework/includes/class-dashboard.php:1090
 #: lib/framework/includes/class-frontend-toolbar.php:198
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Upgrade to PRO"
@@ -2319,7 +2319,7 @@ msgid "Gutenverse Style Pasted"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
-msgid "Failed! Please paste style to same block type"
+msgid "Failed! Please paste style to the same block type or compatible style group"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
@@ -3480,6 +3480,54 @@ msgid "Manage Variable Color"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
+msgid "Add Global"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Global Color Label"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Global Color Label..."
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Global Color Slug"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Used as a unique identifier. If empty, a slug will be generated automatically."
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Global Color Slug..."
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Proceed"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid " Select the color. It's already using global color."
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid " This slug already used!"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid " This name is already used in your Global Colors. Are you sure want to create it using the same name?"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid " This color is already available in your Global Colors. Are you sure want to create it again?"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Create"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
 msgid "Type"
 msgstr ""
 
@@ -3785,6 +3833,30 @@ msgstr ""
 
 #: lib/framework/assets/js/core.js:2
 msgid "Manage Variable Font"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Global Font Label"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Global Font Label..."
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Global Font Slug"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Global Font Slug..."
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid " The slug already used!"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid " This name is already used in your Global Fonts. Are you sure want to create it using the same name?"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
@@ -5024,7 +5096,6 @@ msgstr ""
 #: block/form-input-telp/block.json
 #: block/form-input-text/block.json
 #: block/form-input-textarea/block.json
-#: block/form-notice/block.json
 msgctxt "block keyword"
 msgid "form"
 msgstr ""
@@ -5141,7 +5212,6 @@ msgid "email"
 msgstr ""
 
 #: block/form-input-email/block.json
-#: block/form-notice/block.json
 msgctxt "block keyword"
 msgid "message"
 msgstr ""
@@ -5360,31 +5430,6 @@ msgstr ""
 #: block/form-input-textarea/block.json
 msgctxt "block keyword"
 msgid "textarea"
-msgstr ""
-
-#: block/form-notice/block.json
-msgctxt "block title"
-msgid "Form Notice"
-msgstr ""
-
-#: block/form-notice/block.json
-msgctxt "block description"
-msgid "Form Notice Block"
-msgstr ""
-
-#: block/form-notice/block.json
-msgctxt "block keyword"
-msgid "notice"
-msgstr ""
-
-#: block/form-notice/block.json
-msgctxt "block keyword"
-msgid "success"
-msgstr ""
-
-#: block/form-notice/block.json
-msgctxt "block keyword"
-msgid "error"
 msgstr ""
 
 #: lib/framework/block/column/block.json
