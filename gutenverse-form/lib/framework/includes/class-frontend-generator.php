@@ -283,6 +283,8 @@ class Frontend_Generator {
 			$bypass_script = apply_filters( 'gutenverse_bypass_generate_script', false, $name );
 
 			if ( $bypass_style && $bypass_script ) {
+				$preloads             = apply_filters( 'gutenverse_load_cached_preload_assets', array(), 'image', $post->ID );
+				$this->preload_images = array_merge( $this->preload_images, $preloads );
 				return;
 			}
 
@@ -364,8 +366,17 @@ class Frontend_Generator {
 						$image_urls[] = $slide_images[0]['image']['image'];
 					}
 				} elseif ( ! empty( $bg['image'] ) ) {
-					$image = $bg['image'];
-					if ( isset( $image['image'] ) ) {
+					$image    = $bg['image'];
+
+					if ( isset( $image['Mobile']['image'] ) ) {
+						$image_urls[] = $image['Mobile']['image'];
+					} elseif ( isset( $image['Mobile']['url'] ) ) {
+						$image_urls[] = $image['Mobile']['url'];
+					} elseif ( isset( $image['Tablet']['image'] ) ) {
+						$image_urls[] = $image['Tablet']['image'];
+					} elseif ( isset( $image['Tablet']['url'] ) ) {
+						$image_urls[] = $image['Tablet']['url'];
+					} elseif ( isset( $image['image'] ) ) {
 						$image_urls[] = $image['image'];
 					} elseif ( isset( $image['url'] ) ) {
 						$image_urls[] = $image['url'];
@@ -392,7 +403,15 @@ class Frontend_Generator {
 					$image      = $bg_overlay['image'];
 					$image_urls = array();
 
-					if ( isset( $image['image'] ) ) {
+					if ( isset( $image['Mobile']['image'] ) ) {
+						$image_urls[] = $image['Mobile']['image'];
+					} elseif ( isset( $image['Mobile']['url'] ) ) {
+						$image_urls[] = $image['Mobile']['url'];
+					} elseif ( isset( $image['Tablet']['image'] ) ) {
+						$image_urls[] = $image['Tablet']['image'];
+					} elseif ( isset( $image['Tablet']['url'] ) ) {
+						$image_urls[] = $image['Tablet']['url'];
+					} elseif ( isset( $image['image'] ) ) {
 						$image_urls[] = $image['image'];
 					} elseif ( isset( $image['url'] ) ) {
 						$image_urls[] = $image['url'];
@@ -420,6 +439,7 @@ class Frontend_Generator {
 	 * Render Preload Images
 	 */
 	public function render_preload_images() {
+		global $post;
 		static $printed_images = array();
 
 		if ( ! empty( $this->preload_images ) ) {
@@ -432,6 +452,7 @@ class Frontend_Generator {
 				printf( '<link rel="preload" fetchpriority="high" as="image" href="%s">', esc_url( $image_url ) );
 				$printed_images[] = $image_url;
 			}
+			do_action( 'gutenverse_cache_preload_assets', $this->preload_images, 'image', $post->ID );
 			$this->preload_images = array();
 		}
 	}
