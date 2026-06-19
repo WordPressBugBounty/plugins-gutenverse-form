@@ -607,7 +607,7 @@ class Container extends Block_Abstract {
 		$html_tag                 = isset( $attributes['htmlTag'] ) ? $attributes['htmlTag'] : 'div';
 		$anchor                   = isset( $attributes['anchor'] ) ? $attributes['anchor'] : '';
 
-		$is_slideshow       = ! empty( $background['slideImage'] ) && is_array( $background['slideImage'] ) && count( $background['slideImage'] ) > 0;
+		$is_slideshow       = ! empty( $background['slideImage'] ) && is_array( $background['slideImage'] ) && count( $background['slideImage'] ) > 0 && ( isset( $background['type'] ) && $background['type'] === 'slide' );
 		$is_bg_animated     = $this->is_animation_active( $background_animated );
 		$is_bg_effect       = ! empty( $background_effect ) && isset( $background_effect['type'] ) && 'none' !== $background_effect['type'];
 		$is_sticky          = $this->is_sticky( $sticky );
@@ -737,14 +737,14 @@ class Container extends Block_Abstract {
 		}
 
 		// Background animated layer.
+		$slide_elements = $is_slideshow ? apply_filters( 'gutenverse_background_slideshow', '', $attributes, $element_id ) : '';
 		if ( $is_bg_animated ) {
-			$slide_elements = $is_slideshow ? apply_filters( 'gutenverse_background_slideshow', '', $attributes, $element_id ) : '';
 			$output        .= '<div class="guten-background-animated"><div class="animated-layer animated-' . esc_attr( $data_id ) . '">' . $slide_elements . '</div></div>';
 		}
 
 		// Slideshow (without bg animated).
 		if ( ! $is_bg_animated && $is_slideshow ) {
-			$output .= apply_filters( 'gutenverse_background_slideshow', '', $attributes, $element_id );
+			$output .= $slide_elements;
 		}
 
 		// Background effect.

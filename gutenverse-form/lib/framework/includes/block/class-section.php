@@ -149,49 +149,6 @@ class Section extends Block_Abstract {
 	}
 
 	/**
-	 * Render slideshow elements.
-	 *
-	 * @return string
-	 */
-	private function render_slide_elements() {
-		$background  = isset( $this->attributes['background'] ) ? $this->attributes['background'] : array();
-		$slide_image = isset( $background['slideImage'] ) ? $background['slideImage'] : array();
-		$element_id  = $this->get_element_id();
-
-		if ( empty( $slide_image ) || ! is_array( $slide_image ) ) {
-			return '';
-		}
-
-		$output  = '<div class="bg-slideshow-container">';
-		$output .= '<div class="bg-slideshow-item">';
-
-		foreach ( $slide_image as $index => $image ) {
-			$image_url = '';
-			if ( isset( $image['image']['image'] ) && ! empty( $image['image']['image'] ) ) {
-				$image_url = $image['image']['image'];
-			}
-
-			$slide_class = $element_id . '-slideshow-image slideshow-image';
-			if ( 1 === $index ) {
-				$slide_class .= ' current';
-			} elseif ( 0 === $index ) {
-				$slide_class .= ' previous';
-			}
-
-			$style_attr = ! empty( $image_url ) ? ' style="background-image: url(' . esc_url( $image_url ) . ')"' : '';
-
-			$output .= '<div class="' . esc_attr( $element_id . '-child-slideshow slideshow-item-container item-' . $index ) . '">';
-			$output .= '<div class="' . esc_attr( $slide_class ) . '"' . $style_attr . '></div>';
-			$output .= '</div>';
-		}
-
-		$output .= '</div>';
-		$output .= '</div>';
-
-		return $output;
-	}
-
-	/**
 	 * Render video background container.
 	 *
 	 * @return string
@@ -902,7 +859,7 @@ class Section extends Block_Abstract {
 		$_is_bg_animated         = $this->is_animation_active( $background_animated );
 		$_is_top_div_animated    = ! $this->is_empty_value( $top_div_animated ) && ( ! isset( $top_div_animated['type'] ) || 'none' !== $top_div_animated['type'] );
 		$_is_bottom_div_animated = ! $this->is_empty_value( $bottom_div_animated ) && ( ! isset( $bottom_div_animated['type'] ) || 'none' !== $bottom_div_animated['type'] );
-		$is_slideshow            = isset( $background['slideImage'] ) && is_array( $background['slideImage'] ) && count( $background['slideImage'] ) > 0;
+		$is_slideshow            = isset( $background['slideImage'] ) && is_array( $background['slideImage'] ) && count( $background['slideImage'] ) > 0 && ( isset( $background['type'] ) && $background['type'] === 'slide' );
 		$is_background_effect    = ! empty( $background_effect ) && isset( $background_effect['type'] ) && 'none' !== $background_effect['type'];
 		$using_featured_image    = ! empty( $background['useFeaturedImage'] ) && ( ! empty( $background['useFeaturedImage']['Desktop'] ) || ! empty( $background['useFeaturedImage']['Tablet'] ) || ! empty( $background['useFeaturedImage']['Mobile'] ) );
 		$cursor_effect_show      = ! empty( $cursor_effect['show'] );
@@ -1001,7 +958,7 @@ class Section extends Block_Abstract {
 		$output .= $this->render_guten_data( $data_id, $_is_sticky, $_is_bg_animated, $_is_top_div_animated, $_is_bottom_div_animated, $is_slideshow );
 
 		// Background animated layer.
-		$slide_elements = $this->render_slide_elements();
+		$slide_elements = $is_slideshow ? apply_filters( 'gutenverse_background_slideshow', '', $attributes, $element_id ) : '';
 		if ( $_is_bg_animated ) {
 			$output .= '<div class="guten-background-animated"><div class="animated-layer animated-' . esc_attr( $data_id ) . '">';
 			if ( $is_slideshow ) {
