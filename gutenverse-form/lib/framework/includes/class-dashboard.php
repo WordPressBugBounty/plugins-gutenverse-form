@@ -208,14 +208,14 @@ class Dashboard {
 		$config['showThemeList']            = apply_filters( 'gutenverse_show_theme_list_dashboard', false );
 		$config['themelist']                = admin_url( 'admin.php?page=gutenverse&path=theme-list' );
 		$config['homeSlug']                 = 'gutenverse';
-		$config['plugins']                  = Editor_Assets::list_plugin();
+		$config['plugins']                  = Editor_Assets::list_plugin( true );
 		$config['pluginVersions']           = array();
 		$config['fontIconExists']           = Init::instance()->assets->is_font_icon_exists();
 		$config['themesUrl']                = GUTENVERSE_FRAMEWORK_THEMES_URL;
 		$config['proDemoUrl']               = untrailingslashit( GUTENVERSE_FRAMEWORK_LIBRARY_URL );
 		$config['adminUrl']                 = admin_url();
 		$config['upgradeProUrl']            = gutenverse_upgrade_pro();
-		$config['proSiteUrl']            	= GUTENVERSE_FRAMEWORK_PRO_URL;
+		$config['proSiteUrl']               = GUTENVERSE_FRAMEWORK_PRO_URL;
 		$config['requireProUpdate']         = \Gutenverse_Initialize_Framework::instance()->need_update_pro();
 		$config['eventBanner']              = gutenverse_get_event_banner();
 		$config['adsBannerThemeTF']         = gutenverse_get_ads_banner_theme_tf();
@@ -236,6 +236,10 @@ class Dashboard {
 				'plugin_list' => apply_filters( 'gutenverse_companion_plugin_list', array() ),
 				'action_url'  => admin_url( 'plugins.php' ),
 			),
+			'gutenverse-core-render-mechanism-notice-3-0-0' => array(
+				'show'      => version_compare( GUTENVERSE_FRAMEWORK_VERSION, '3.0.0', '>=' ),
+				'actionUrl' => esc_url_raw( admin_url( 'admin.php?page=gutenverse&path=settings&settings=frontend' ) ),
+			),
 		);
 
 		if ( 'admin.php' === $pagenow && isset( $_GET['page'] ) && 'gutenverse' === $_GET['page'] ) {
@@ -246,21 +250,7 @@ class Dashboard {
 		} else {
 			$config['companionActive'] = 'false';
 		}
-		include_once ABSPATH . 'wp-admin/includes/theme.php';
-
-		$theme = wp_get_theme();
-		$slug  = $theme->get_stylesheet();
-
-		$api = themes_api(
-			'theme_information',
-			array(
-				'slug' => $slug,
-			)
-		);
-
-		if ( ! is_wp_error( $api ) ) {
-			$config['is_wporg_theme'] = true;
-		}
+		$config['is_wporg_theme'] = gutenverse_is_wporg_theme();
 
 		return apply_filters( 'gutenverse_dashboard_config', $config );
 	}
@@ -273,9 +263,12 @@ class Dashboard {
 		if ( ! function_exists( 'get_plugins' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
-		$active_plugins = get_option( 'active_plugins' );
-		$all_plugins    = get_plugins();
-		$plugin_lists   = array();
+		$active_plugins          = get_option( 'active_plugins', array() );
+		$active_sitewide_plugins = get_site_option( 'active_sitewide_plugins', array() );
+		$active_sitewide_plugins = array_keys( $active_sitewide_plugins );
+		$active_plugins          = array_unique( array_merge( $active_plugins, $active_sitewide_plugins ) );
+		$all_plugins             = get_plugins();
+		$plugin_lists            = array();
 		foreach ( $active_plugins as $plugin ) {
 			if ( isset( $all_plugins[ $plugin ] ) && isset( $all_plugins[ $plugin ]['TextDomain'] ) ) {
 				$plugin_lists[] = $all_plugins[ $plugin ]['TextDomain'];
@@ -645,6 +638,10 @@ class Dashboard {
 					'plugin_version'    => '3.8.2',
 					'framework_version' => '2.8.2',
 				),
+				array(
+					'plugin_version'    => '4.0.0',
+					'framework_version' => '3.0.0',
+				),
 			),
 			'gutenverse-form' => array(
 				array(
@@ -850,6 +847,10 @@ class Dashboard {
 				array(
 					'plugin_version'    => '2.8.2',
 					'framework_version' => '2.8.2',
+				),
+				array(
+					'plugin_version'    => '3.0.0',
+					'framework_version' => '3.0.0',
 				),
 			),
 			'gutenverse-news' => array(
@@ -1063,6 +1064,10 @@ class Dashboard {
 					'plugin_version'    => '2.7.2',
 					'framework_version' => '2.8.1',
 				),
+				array(
+					'plugin_version'    => '3.0.0',
+					'framework_version' => '3.0.0',
+				),
 			),
 		);
 
@@ -1079,12 +1084,29 @@ class Dashboard {
 
 		$config = array();
 
-		$settings_data                                     = apply_filters( 'gutenverse_settings_data', get_option( 'gutenverse-settings', array() ) );
-		$settings_data['frontend_settings']['unused_size'] = gutenverse_unused_cache_file_size();
-		$config['settingsData']                            = $settings_data;
-		$config['blockCategories']                         = Init::instance()->blocks->gutenverse_categories();
-		$config['uploadPath']                              = $upload_path['basedir'];
-		$config['renderSchedule']                          = gmdate( 'Y-m-d H:i:s', wp_next_scheduled( 'gutenverse_cleanup_cached_style' ) );
+		$settings_data = apply_filters( 'gutenverse_settings_data', get_option( 'gutenverse-settings', array() ) );
+
+		if ( ! isset( $settings_data['frontend_settings'] ) || ! is_array( $settings_data['frontend_settings'] ) ) {
+			$settings_data['frontend_settings'] = array();
+		}
+
+		unset(
+			$settings_data['frontend_settings']['render_mechanism'],
+			$settings_data['frontend_settings']['file_delete_mechanism'],
+			$settings_data['frontend_settings']['old_render_deletion_schedule'],
+			$settings_data['frontend_settings']['cache_id'],
+			$settings_data['frontend_settings']['unused_size'],
+			$settings_data['frontend_settings']['payload_cache_size'],
+			$settings_data['frontend_settings']['payload_cache_files']
+		);
+
+		$payload_cache_stats                                       = Init::instance()->frontend_cache->get_payload_cache_stats();
+		$settings_data['frontend_settings']['legacy_cache_size']   = gutenverse_legacy_cache_file_size();
+		$settings_data['frontend_settings']['payload_cache_size']  = $payload_cache_stats['size_label'];
+		$settings_data['frontend_settings']['payload_cache_files'] = $payload_cache_stats['files'];
+		$config['settingsData']                                    = $settings_data;
+		$config['blockCategories']                                 = Init::instance()->blocks->gutenverse_categories();
+		$config['uploadPath']                                      = $upload_path['basedir'];
 
 		return $config;
 	}

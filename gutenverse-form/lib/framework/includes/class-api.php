@@ -362,6 +362,16 @@ class Api {
 
 		register_rest_route(
 			self::ENDPOINT,
+			'settings/clear-payload-cache',
+			array(
+				'methods'             => 'GET',
+				'callback'            => array( $this, 'clear_payload_cache_files' ),
+				'permission_callback' => 'gutenverse_permission_check_admin',
+			)
+		);
+
+		register_rest_route(
+			self::ENDPOINT,
 			'freemius/checkout-tracking',
 			array(
 				'methods'             => 'POST',
@@ -507,19 +517,53 @@ class Api {
 	 */
 	public function remove_cache_files() {
 		try {
-			$options = get_option( 'gutenverse-settings' );
+			$removed_size = gutenverse_legacy_cache_file_size();
+			Init::instance()->frontend_cache->cleanup_legacy_files();
+			$legacy_size = gutenverse_legacy_cache_file_size();
 
-			if ( ! isset( $options['frontend_settings']['file_delete_mechanism'] ) || 'manual' === $options['frontend_settings']['file_delete_mechanism'] ) {
-				Init::instance()->frontend_cache->cleanup_cached_style();
-				return new WP_REST_Response(
-					array(
-						'status' => 'success',
-					),
-					200
-				);
-			} else {
-				throw new Exception( 'Failed Request: Can Only used if Manual Deletion is Manual', 1 );
-			}
+			return new WP_REST_Response(
+				array(
+					'status'            => 'success',
+					'removed_size'      => $removed_size,
+					'legacy_cache_size' => $legacy_size,
+					'unused_size'       => gutenverse_unused_cache_file_size(),
+				),
+				200
+			);
+		} catch ( \Throwable $th ) {
+			return new WP_REST_Response(
+				array(
+					'status'  => 'failed',
+					'message' => $th->getMessage(),
+				),
+				400
+			);
+		}
+	}
+
+	/**
+	 * Clear internal frontend payload cache files.
+	 *
+	 * @return WP_Rest
+	 */
+	public function clear_payload_cache_files() {
+		try {
+			$cache        = Init::instance()->frontend_cache;
+			$before_stats = $cache->get_payload_cache_stats();
+
+			$cache->clear_payload_cache();
+
+			$after_stats = $cache->get_payload_cache_stats();
+
+			return new WP_REST_Response(
+				array(
+					'status'              => 'success',
+					'removed_size'        => $before_stats['size_label'],
+					'payload_cache_size'  => $after_stats['size_label'],
+					'payload_cache_files' => $after_stats['files'],
+				),
+				200
+			);
 		} catch ( \Throwable $th ) {
 			return new WP_REST_Response(
 				array(
@@ -1100,7 +1144,7 @@ class Api {
 	 */
 	public function inject_plugin_detail( $data ) {
 		foreach ( $data as $key => $value ) {
-			$plugin                      = $this->fetch_plugin_detail( $value->slug );
+			$plugin                      = $this->fetch_plugin_detail( $value->slug, $value->host );
 			$data[ $key ]                = (array) $data[ $key ];
 			$data[ $key ]['icons']       = $this->get_plugin_image( $plugin );
 			$data[ $key ]['description'] = $data[ $key ]['description'] ? $data[ $key ]['description'] : $plugin['description'];
@@ -1116,25 +1160,28 @@ class Api {
 	 *
 	 * @return array
 	 */
-	public function fetch_plugin_detail( $plugin_slug ) {
-		require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
-		$result = plugins_api(
-			'plugin_information',
-			array(
-				'slug'   => $plugin_slug,
-				'locale' => 'en_US',
-				'fields' => array(
-					'icons' => true,
-				),
-			)
-		);
+	public function fetch_plugin_detail( $plugin_slug, $host ) {
+		/* only fetch if plugin source from wporg */
+		if ( 'wporg' === $host ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+			$result = plugins_api(
+				'plugin_information',
+				array(
+					'slug'   => $plugin_slug,
+					'locale' => 'en_US',
+					'fields' => array(
+						'icons' => true,
+					),
+				)
+			);
 
-		$description = array(
-			'icons'       => $result->icons,
-			'description' => wp_strip_all_tags( $result->sections['description'] ),
-			'version'     => $result->version,
-			'name'        => $result->name,
-		);
+			$description = array(
+				'icons'       => $result->icons,
+				'description' => wp_strip_all_tags( $result->sections['description'] ),
+				'version'     => $result->version,
+				'name'        => $result->name,
+			);
+		}
 		return $description;
 	}
 
@@ -1387,7 +1434,7 @@ class Api {
 					'filename' => 'section/categories',
 				),
 				array(
-					'version'  => 'v3',
+					'version'  => 'v4',
 					'endpoint' => 'plugin/ecosystem',
 					'filename' => 'plugin/ecosystem',
 				),
@@ -1848,12 +1895,40 @@ class Api {
 	}
 
 	/**
+	 * Remove legacy frontend file-cache settings.
+	 *
+	 * @param array $setting Frontend settings.
+	 *
+	 * @return array
+	 */
+	private function remove_legacy_frontend_file_cache_settings( $setting ) {
+		if ( ! is_array( $setting ) ) {
+			return $setting;
+		}
+
+		unset(
+			$setting['render_mechanism'],
+			$setting['file_delete_mechanism'],
+			$setting['old_render_deletion_schedule'],
+			$setting['cache_id'],
+			$setting['unused_size'],
+			$setting['legacy_cache_size'],
+			$setting['payload_cache_size'],
+			$setting['payload_cache_files']
+		);
+
+		return $setting;
+	}
+
+	/**
 	 * Modify Settings
 	 *
 	 * @param object $request .
 	 */
 	public function modify_settings( $request ) {
 		$data = $request->get_param( 'setting' );
+
+		do_action( 'gutenverse_before_modify_settings', $data );
 
 		if ( array_key_exists( 'gvnews_settings', $data ) ) {
 			update_option( 'gvnews_settings', $data['gvnews_settings'], false );
@@ -1866,6 +1941,11 @@ class Api {
 			$upload_dir  = wp_upload_dir();
 			$upload_path = $upload_dir['basedir'];
 			foreach ( $data as $key => $setting ) {
+				if ( 'frontend_settings' === $key ) {
+					$setting = $this->remove_legacy_frontend_file_cache_settings( $setting );
+					gutenverse_delete_sceduler( 'gutenverse_cleanup_cached_style' );
+				}
+
 				$value[ $key ] = $setting;
 				if ( 'custom_font' === $key ) {
 					foreach ( $data['custom_font']['value'] as $v ) {
@@ -1908,9 +1988,6 @@ class Api {
 						$wp_filesystem->put_contents( $local_file, $content, FS_CHMOD_FILE );
 					}
 				}
-				if ( 'frontend_settings' === $key ) {
-					gutenverse_delete_sceduler( 'gutenverse_cleanup_cached_style' );
-				}
 			}
 			if ( ! isset( $option ) ) {
 				add_option( 'gutenverse-settings', $value, '', true );
@@ -1918,6 +1995,8 @@ class Api {
 				update_option( 'gutenverse-settings', $value, true );
 			}
 		}
+
+		do_action( 'gutenverse_after_modify_settings', $data );
 
 		return true;
 	}
