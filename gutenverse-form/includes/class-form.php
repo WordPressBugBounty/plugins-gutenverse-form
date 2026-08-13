@@ -40,6 +40,20 @@ class Form {
 	const OWNER_INSTANCE_META = '_gutenverse_form_owner_instance_id';
 
 	/**
+	 * Form action source clone post meta key.
+	 *
+	 * @var string
+	 */
+	const CLONED_FROM_META = '_gutenverse_form_cloned_from';
+
+	/**
+	 * Form action clone time post meta key.
+	 *
+	 * @var string
+	 */
+	const CLONED_AT_META = '_gutenverse_form_cloned_at';
+
+	/**
 	 * Check whether form action email automation can be used.
 	 *
 	 * @return bool
@@ -982,15 +996,23 @@ class Form {
 				$post_id   = (int) get_post_meta( $entry_id, 'post-id', true );
 				$post_item = $post_id > 0 ? get_post( $post_id ) : null;
 				$post_type = $post_item ? get_post_type_object( $post_item->post_type ) : null;
+				$source_url = ! $post_item ? esc_url_raw( get_post_meta( $entry_id, 'source-url', true ) ) : '';
+				$source_title = '';
+
+				if ( $post_item ) {
+					$source_title = get_the_title( $post_item );
+				} elseif ( $source_url ) {
+					$source_title = untrailingslashit( $source_url ) === untrailingslashit( home_url( '/' ) ) ? __( 'Home', 'gutenverse-form' ) : $source_url;
+				}
 
 				$entries[ $form_id ][] = array(
 					'id'            => $entry_id,
 					'title'         => get_the_title( $entry_id ),
 					'date'          => get_the_date( '', $entry_id ),
 					'edit_url'      => get_edit_post_link( $entry_id, 'raw' ),
-					'source_title'  => $post_item ? get_the_title( $post_item ) : '',
+					'source_title'  => $source_title,
 					'source_type'   => $post_type ? $post_type->labels->singular_name : '',
-					'source_view'   => $post_item ? get_permalink( $post_item ) : '',
+					'source_view'   => $post_item ? get_permalink( $post_item ) : $source_url,
 					'source_edit'   => $post_item ? get_edit_post_link( $post_item->ID, 'raw' ) : '',
 					'source_status' => $post_item ? get_post_status( $post_item ) : '',
 				);
@@ -1928,7 +1950,17 @@ class Form {
 	 * @return array
 	 */
 	public static function edit_form_action( $params ) {
-		$params = self::normalize_form_action_params( $params );
+		$id       = isset( $params['id'] ) ? absint( $params['id'] ) : 0;
+		$existing = $id ? get_post_meta( $id, 'form-data', true ) : array();
+		$existing = is_array( $existing ) ? $existing : array();
+
+		if ( $id && ! isset( $existing['title'] ) ) {
+			$existing['title'] = get_the_title( $id );
+		}
+
+		$params       = array_merge( $existing, $params );
+		$params['id'] = $id;
+		$params       = self::normalize_form_action_params( $params );
 
 		if ( ! self::can_use_pro_email_actions() ) {
 			$params = self::preserve_locked_email_action_params( $params );
@@ -2245,6 +2277,9 @@ class Form {
 				array( 'status' => 500 )
 			);
 		}
+
+		update_post_meta( $new_form_action_id, self::CLONED_FROM_META, $id );
+		update_post_meta( $new_form_action_id, self::CLONED_AT_META, time() );
 
 		$cloned_meta = get_post_meta( $new_form_action_id, 'form-data', true );
 		$cloned_meta = self::duplicate_email_templates_for_cloned_action( $cloned_meta, $new_form_action_id, $new_title );

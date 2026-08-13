@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 3.0.0\n"
+"Project-Id-Version: Gutenverse Form 3.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-12T05:44:33+00:00\n"
+"POT-Creation-Date: 2026-08-13T07:24:31+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -36,30 +36,30 @@ msgstr ""
 msgid "https://jegtheme.com/"
 msgstr ""
 
-#: includes/class-api.php:2367
-#: includes/class-api.php:2409
-#: includes/class-api.php:2555
+#: includes/class-api.php:2685
+#: includes/class-api.php:2727
+#: includes/class-api.php:2873
 msgid "Integrations are available in Gutenverse Pro."
 msgstr ""
 
-#: includes/class-api.php:2431
-#: includes/class-api.php:2516
+#: includes/class-api.php:2749
+#: includes/class-api.php:2834
 msgid "Invalid integration service."
 msgstr ""
 
-#: includes/class-api.php:2444
+#: includes/class-api.php:2762
 msgid "Integration service is unavailable."
 msgstr ""
 
-#: includes/class-api.php:2494
+#: includes/class-api.php:2812
 msgid "Missing secret storage context."
 msgstr ""
 
-#: includes/class-api.php:2504
+#: includes/class-api.php:2822
 msgid "Permission denied."
 msgstr ""
 
-#: includes/class-api.php:2527
+#: includes/class-api.php:2845
 msgid "This field is not configured for server-side secret storage."
 msgstr ""
 
@@ -100,10 +100,10 @@ msgid "Tracked Forms"
 msgstr ""
 
 #: includes/class-daily-summary.php:394
-#: includes/class-entries.php:1224
-#: includes/class-entries.php:1273
-#: includes/class-form.php:266
-#: includes/class-form.php:267
+#: includes/class-entries.php:1288
+#: includes/class-entries.php:1337
+#: includes/class-form.php:280
+#: includes/class-form.php:281
 #: assets/js/blocks.js:2
 #: assets/js/dashboard.js:2
 #: assets/js/form.js:2
@@ -206,8 +206,8 @@ msgid "Search Item"
 msgstr ""
 
 #: includes/class-email-template.php:158
-#: includes/class-entries.php:1928
-#: includes/class-entries.php:1953
+#: includes/class-entries.php:1961
+#: includes/class-entries.php:1983
 msgid "Not found"
 msgstr ""
 
@@ -267,326 +267,318 @@ msgstr ""
 msgid "All Form"
 msgstr ""
 
-#: includes/class-entries.php:747
-msgid "No form"
+#: includes/class-entries.php:750
+#: includes/class-form.php:1005
+msgid "Home"
 msgstr ""
 
-#: includes/class-entries.php:749
+#: includes/class-entries.php:787
 msgid "No referral"
 msgstr ""
 
-#: includes/class-entries.php:807
+#: includes/class-entries.php:811
+msgid "No form"
+msgstr ""
+
+#: includes/class-entries.php:871
 msgid "Entry not found."
 msgstr ""
 
-#: includes/class-entries.php:815
+#: includes/class-entries.php:879
 msgid "You do not have permission to delete this entry."
 msgstr ""
 
-#: includes/class-entries.php:825
+#: includes/class-entries.php:889
 #: assets/js/form.js:2
 msgid "Could not delete entry. Please try again."
 msgstr ""
 
-#: includes/class-entries.php:849
+#: includes/class-entries.php:913
 msgid "Exporting entries requires Gutenverse PRO."
 msgstr ""
 
-#: includes/class-entries.php:1201
+#: includes/class-entries.php:1266
 msgid "no-form"
 msgstr ""
 
-#: includes/class-entries.php:1210
-msgid "no-referral"
-msgstr ""
-
-#: includes/class-entries.php:1222
+#: includes/class-entries.php:1286
 msgid "Checkbox"
 msgstr ""
 
-#: includes/class-entries.php:1223
-#: includes/class-form.php:399
+#: includes/class-entries.php:1287
+#: includes/class-form.php:413
 #: lib/framework/assets/js/core.js:2
 msgid "Title"
 msgstr ""
 
-#: includes/class-entries.php:1225
+#: includes/class-entries.php:1289
 msgid "Referral"
 msgstr ""
 
-#: includes/class-entries.php:1226
-#: includes/class-form.php:402
+#: includes/class-entries.php:1290
+#: includes/class-form.php:416
 msgid "Date"
 msgstr ""
 
-#: includes/class-entries.php:1240
+#: includes/class-entries.php:1304
 #: assets/js/form.js:2
 msgid "Entry"
 msgstr ""
 
 #. translators: 1: form title, 2: entry ID.
-#: includes/class-entries.php:1297
-#: includes/class-entries.php:1319
+#: includes/class-entries.php:1361
+#: includes/class-entries.php:1383
 msgid "%1$s - Entry #%2$d"
 msgstr ""
 
 #. translators: 1: entry title base, 2: entry ID.
-#: includes/class-entries.php:1339
+#: includes/class-entries.php:1403
 msgid "%1$s #%2$d"
 msgstr ""
 
-#: includes/class-entries.php:1422
-#: includes/class-entries.php:1423
-#: includes/class-entries.php:1424
-#: includes/class-form.php:291
-#: includes/class-form.php:292
-#: includes/class-form.php:400
+#: includes/class-entries.php:1486
+#: includes/class-entries.php:1487
+#: includes/class-entries.php:1488
+#: includes/class-form.php:305
+#: includes/class-form.php:306
+#: includes/class-form.php:414
 #: assets/js/form.js:2
 msgid "Entries"
 msgstr ""
 
-#: includes/class-entries.php:1425
+#: includes/class-entries.php:1489
 msgid "New Entries"
 msgstr ""
 
-#: includes/class-entries.php:1426
+#: includes/class-entries.php:1490
 msgid "Create Entry"
 msgstr ""
 
-#: includes/class-entries.php:1427
-#: includes/class-entries.php:1429
+#: includes/class-entries.php:1491
+#: includes/class-entries.php:1493
 msgid "View Entry"
 msgstr ""
 
-#: includes/class-entries.php:1428
+#: includes/class-entries.php:1492
 msgid "New Entry"
 msgstr ""
 
-#: includes/class-entries.php:1430
+#: includes/class-entries.php:1494
 msgid "Search Entry"
 msgstr ""
 
-#: includes/class-entries.php:1431
-#: includes/class-form.php:546
+#: includes/class-entries.php:1495
+#: includes/class-form.php:560
 msgid "No entry found"
 msgstr ""
 
-#: includes/class-entries.php:1432
+#: includes/class-entries.php:1496
 msgid "No Entry in Trash"
 msgstr ""
 
-#: includes/class-entries.php:1435
+#: includes/class-entries.php:1499
 msgid "Gutenverse Form Entries"
 msgstr ""
 
-#: includes/class-entries.php:1465
+#: includes/class-entries.php:1529
 msgid "Form Info"
 msgstr ""
 
-#: includes/class-entries.php:1475
+#: includes/class-entries.php:1539
 msgid "Entry Info"
 msgstr ""
 
-#: includes/class-entries.php:1485
+#: includes/class-entries.php:1549
 #: includes/class-frontend-toolbar.php:54
 msgid "Integrations"
 msgstr ""
 
-#: includes/class-entries.php:1495
+#: includes/class-entries.php:1559
 #: includes/class-mail.php:333
 msgid "Browser Info"
 msgstr ""
 
-#: includes/class-entries.php:1505
+#: includes/class-entries.php:1569
 msgid "Payment Info"
 msgstr ""
 
-#: includes/class-entries.php:1526
+#: includes/class-entries.php:1590
 msgid "Spam Status"
 msgstr ""
 
-#: includes/class-entries.php:1543
+#: includes/class-entries.php:1607
 #: includes/class-mail.php:321
 msgid "Entry ID"
 msgstr ""
 
-#: includes/class-entries.php:1562
+#: includes/class-entries.php:1626
 msgid "Resubmit All"
 msgstr ""
 
-#: includes/class-entries.php:1563
+#: includes/class-entries.php:1627
 msgid "Integrations Triggered"
 msgstr ""
 
-#: includes/class-entries.php:1569
+#: includes/class-entries.php:1633
 msgid "Resend Submission"
 msgstr ""
 
-#: includes/class-entries.php:1577
+#: includes/class-entries.php:1641
 msgid "Integration Logs"
 msgstr ""
 
-#: includes/class-entries.php:1616
+#: includes/class-entries.php:1680
 msgid "No integrations were recorded for this entry."
 msgstr ""
 
-#: includes/class-entries.php:1756
+#: includes/class-entries.php:1820
 msgid "Not spam"
 msgstr ""
 
-#: includes/class-entries.php:1757
+#: includes/class-entries.php:1821
 msgid "Spam"
 msgstr ""
 
-#: includes/class-entries.php:1758
+#: includes/class-entries.php:1822
 msgid "Unknown"
 msgstr ""
 
-#: includes/class-entries.php:1759
+#: includes/class-entries.php:1823
 msgid "Unavailable"
 msgstr ""
 
-#: includes/class-entries.php:1760
-#: includes/class-entries.php:1971
-#: includes/class-entries.php:1972
+#: includes/class-entries.php:1824
+#: includes/class-entries.php:2001
+#: includes/class-entries.php:2002
 #: assets/js/blocks.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Disabled"
 msgstr ""
 
-#: includes/class-entries.php:1768
+#: includes/class-entries.php:1832
 msgid "Provider"
 msgstr ""
 
-#: includes/class-entries.php:1774
+#: includes/class-entries.php:1838
 msgid "Result"
 msgstr ""
 
-#: includes/class-entries.php:1781
+#: includes/class-entries.php:1845
 msgid "Hint"
 msgstr ""
 
-#: includes/class-entries.php:1791
+#: includes/class-entries.php:1855
 msgid "Checked"
 msgstr ""
 
-#: includes/class-entries.php:1815
+#: includes/class-entries.php:1879
 msgid "Yes"
 msgstr ""
 
-#: includes/class-entries.php:1815
+#: includes/class-entries.php:1879
 msgid "No"
 msgstr ""
 
-#: includes/class-entries.php:1825
+#: includes/class-entries.php:1889
 msgid "Empty"
 msgstr ""
 
-#: includes/class-entries.php:1846
+#: includes/class-entries.php:1910
 msgid "Submitted Field"
 msgstr ""
 
-#: includes/class-entries.php:1894
-msgid "No source"
-msgstr ""
-
-#. translators: %d: Source post ID.
-#: includes/class-entries.php:1903
-msgid "Source #%d"
-msgstr ""
-
-#: includes/class-entries.php:1956
+#: includes/class-entries.php:1986
 #: includes/class-mail.php:315
 msgid "Form ID"
 msgstr ""
 
-#: includes/class-entries.php:1956
+#: includes/class-entries.php:1986
 msgid "Form is not set"
 msgstr ""
 
-#: includes/class-entries.php:1957
-#: includes/class-form.php:537
-#: includes/class-form.php:538
-#: includes/class-form.php:539
+#: includes/class-entries.php:1987
+#: includes/class-form.php:551
+#: includes/class-form.php:552
+#: includes/class-form.php:553
 #: includes/class-frontend-toolbar.php:36
 msgid "Form Action"
 msgstr ""
 
-#: includes/class-entries.php:1971
-#: includes/class-entries.php:1977
+#: includes/class-entries.php:2001
+#: includes/class-entries.php:2007
 msgid "IP Address"
 msgstr ""
 
-#: includes/class-entries.php:1972
-#: includes/class-entries.php:1978
+#: includes/class-entries.php:2002
+#: includes/class-entries.php:2008
 msgid "Browser Data"
 msgstr ""
 
-#: includes/class-entries.php:1992
-#: includes/class-entries.php:1993
+#: includes/class-entries.php:2022
+#: includes/class-entries.php:2023
 msgid "none"
 msgstr ""
 
-#: includes/class-entries.php:2007
+#: includes/class-entries.php:2037
 msgid "Method"
 msgstr ""
 
-#: includes/class-entries.php:2008
+#: includes/class-entries.php:2038
 msgid "Status"
 msgstr ""
 
-#: includes/class-entries.php:2045
+#: includes/class-entries.php:2075
 msgid "Permission denied"
 msgstr ""
 
-#: includes/class-entries.php:2054
+#: includes/class-entries.php:2084
 msgid "Invalid Entry ID"
 msgstr ""
 
-#: includes/class-entries.php:2073
+#: includes/class-entries.php:2104
 msgid "%s retriggered successfully"
 msgstr ""
 
-#: includes/class-entries.php:2075
+#: includes/class-entries.php:2106
 msgid "Integration not found or not support retriggering"
 msgstr ""
 
-#: includes/class-entries.php:2079
+#: includes/class-entries.php:2110
 msgid "All integrations retriggered successfully"
 msgstr ""
 
-#: includes/class-entries.php:2100
+#: includes/class-entries.php:2131
 msgid "Back to entries"
 msgstr ""
 
-#: includes/class-entries.php:2101
+#: includes/class-entries.php:2132
 msgid "All Integation Retriggered Successfully"
 msgstr ""
 
-#: includes/class-entries.php:2102
+#: includes/class-entries.php:2133
 msgid "All Integation Retriggered Failed"
 msgstr ""
 
-#: includes/class-entries.php:2103
+#: includes/class-entries.php:2134
 msgid "Error occurred"
 msgstr ""
 
-#: includes/class-entries.php:2104
+#: includes/class-entries.php:2135
 msgid "AJAX error occurred"
 msgstr ""
 
-#: includes/class-entries.php:2105
+#: includes/class-entries.php:2136
 msgid "Entry title is view only"
 msgstr ""
 
-#: includes/class-form-validation.php:192
+#: includes/class-form-validation.php:196
 msgid "Form action is missing, please assign form action into this form."
 msgstr ""
 
-#: includes/class-form.php:277
-#: includes/class-form.php:278
-#: includes/class-form.php:422
-#: includes/class-form.php:440
+#: includes/class-form.php:291
+#: includes/class-form.php:292
+#: includes/class-form.php:436
+#: includes/class-form.php:454
 #: lib/framework/includes/class-dashboard.php:1140
 #: lib/framework/includes/class-dashboard.php:1141
 #: lib/framework/includes/class-frontend-toolbar.php:219
@@ -595,151 +587,151 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: includes/class-form.php:300
-#: includes/class-form.php:301
+#: includes/class-form.php:314
+#: includes/class-form.php:315
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Form Settings"
 msgstr ""
 
-#: includes/class-form.php:308
-#: includes/class-form.php:309
+#: includes/class-form.php:322
+#: includes/class-form.php:323
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Form Integrations"
 msgstr ""
 
-#: includes/class-form.php:368
+#: includes/class-form.php:382
 #: assets/js/form.js:2
 msgid "Form actions have moved to Form Builder"
 msgstr ""
 
-#: includes/class-form.php:369
+#: includes/class-form.php:383
 #: assets/js/form.js:2
 msgid "Form actions are now bound to each Form Builder block and can be created, edited, or deleted directly from the Form Builder. They are no longer managed from this admin dashboard."
 msgstr ""
 
-#: includes/class-form.php:371
+#: includes/class-form.php:385
 #: assets/js/blocks.js:2
 #: assets/js/dashboard.js:2
 #: assets/js/form.js:2
 msgid "Dismiss notice"
 msgstr ""
 
-#: includes/class-form.php:401
+#: includes/class-form.php:415
 msgid "Author"
 msgstr ""
 
-#: includes/class-form.php:444
+#: includes/class-form.php:458
 msgid "Export CSV"
 msgstr ""
 
-#: includes/class-form.php:540
+#: includes/class-form.php:554
 msgid "New Form Action"
 msgstr ""
 
-#: includes/class-form.php:541
+#: includes/class-form.php:555
 #: assets/js/blocks.js:2
 #: assets/js/form.js:2
 msgid "Create Form"
 msgstr ""
 
-#: includes/class-form.php:542
+#: includes/class-form.php:556
 msgid "Edit Form Option"
 msgstr ""
 
-#: includes/class-form.php:543
+#: includes/class-form.php:557
 msgid "New Form Entry"
 msgstr ""
 
-#: includes/class-form.php:544
+#: includes/class-form.php:558
 msgid "View Form"
 msgstr ""
 
-#: includes/class-form.php:545
+#: includes/class-form.php:559
 msgid "Search Form"
 msgstr ""
 
-#: includes/class-form.php:547
+#: includes/class-form.php:561
 msgid "No Form in Trash"
 msgstr ""
 
-#: includes/class-form.php:550
+#: includes/class-form.php:564
 msgid "Gutenverse Form Action"
 msgstr ""
 
-#: includes/class-form.php:582
-#: includes/class-form.php:1736
-#: includes/class-form.php:2213
+#: includes/class-form.php:596
+#: includes/class-form.php:1758
+#: includes/class-form.php:2245
 msgid "This form action does not exist on this site."
 msgstr ""
 
 #. translators: 1: day label, 2: count
-#: includes/class-form.php:1156
+#: includes/class-form.php:1178
 #: assets/js/form.js:2
 msgid "%1$s: %2$s entries"
 msgstr ""
 
-#: includes/class-form.php:1202
+#: includes/class-form.php:1224
 msgid "Not used on any live post or page."
 msgstr ""
 
-#: includes/class-form.php:1204
+#: includes/class-form.php:1226
 msgid "Live but has not received any entries yet."
 msgstr ""
 
-#: includes/class-form.php:1206
+#: includes/class-form.php:1228
 msgid "No submissions in the last 7 days."
 msgstr ""
 
-#: includes/class-form.php:1361
+#: includes/class-form.php:1383
 msgid "(no title)"
 msgstr ""
 
-#: includes/class-form.php:1677
-#: includes/class-form.php:2158
+#: includes/class-form.php:1699
+#: includes/class-form.php:2190
 msgid " Clone"
 msgstr ""
 
-#: includes/class-form.php:1728
+#: includes/class-form.php:1750
 msgid "A form action, post, and form instance are required before ownership can be checked."
 msgstr ""
 
-#: includes/class-form.php:1996
-#: includes/class-form.php:2154
+#: includes/class-form.php:2028
+#: includes/class-form.php:2186
 #: assets/js/blocks.js:2
 #: assets/js/dashboard.js:2
 #: assets/js/form.js:2
 msgid "Confirmation"
 msgstr ""
 
-#: includes/class-form.php:2005
-#: includes/class-form.php:2155
+#: includes/class-form.php:2037
+#: includes/class-form.php:2187
 #: assets/js/blocks.js:2
 #: assets/js/dashboard.js:2
 #: assets/js/form.js:2
 msgid "Notification"
 msgstr ""
 
-#: includes/class-form.php:2036
+#: includes/class-form.php:2068
 msgid "Forbidden Access: Target form action does not exist."
 msgstr ""
 
-#: includes/class-form.php:2048
+#: includes/class-form.php:2080
 msgid "This form action is still used by a form builder and cannot be deleted from here."
 msgstr ""
 
-#: includes/class-form.php:2059
+#: includes/class-form.php:2091
 msgid "This form action is still used by more than one form builder. Create private copies or remove the other references before deleting it."
 msgstr ""
 
-#: includes/class-form.php:2070
+#: includes/class-form.php:2102
 msgid "This form action belongs to another form builder and cannot be deleted from this form."
 msgstr ""
 
-#: includes/class-form.php:2179
+#: includes/class-form.php:2211
 msgid "Could not duplicate the email template for this form action."
 msgstr ""
 
-#: includes/class-form.php:2244
+#: includes/class-form.php:2276
 msgid "Could not duplicate this form action."
 msgstr ""
 
