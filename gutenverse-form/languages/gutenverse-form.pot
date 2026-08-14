@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 3.0.1\n"
+"Project-Id-Version: Gutenverse Form 3.0.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-13T07:24:31+00:00\n"
+"POT-Creation-Date: 2026-08-14T05:38:28+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -36,30 +36,30 @@ msgstr ""
 msgid "https://jegtheme.com/"
 msgstr ""
 
-#: includes/class-api.php:2685
-#: includes/class-api.php:2727
-#: includes/class-api.php:2873
+#: includes/class-api.php:2776
+#: includes/class-api.php:2818
+#: includes/class-api.php:2964
 msgid "Integrations are available in Gutenverse Pro."
 msgstr ""
 
-#: includes/class-api.php:2749
-#: includes/class-api.php:2834
+#: includes/class-api.php:2840
+#: includes/class-api.php:2925
 msgid "Invalid integration service."
 msgstr ""
 
-#: includes/class-api.php:2762
+#: includes/class-api.php:2853
 msgid "Integration service is unavailable."
 msgstr ""
 
-#: includes/class-api.php:2812
+#: includes/class-api.php:2903
 msgid "Missing secret storage context."
 msgstr ""
 
-#: includes/class-api.php:2822
+#: includes/class-api.php:2913
 msgid "Permission denied."
 msgstr ""
 
-#: includes/class-api.php:2845
+#: includes/class-api.php:2936
 msgid "This field is not configured for server-side secret storage."
 msgstr ""
 
@@ -579,8 +579,8 @@ msgstr ""
 #: includes/class-form.php:292
 #: includes/class-form.php:436
 #: includes/class-form.php:454
-#: lib/framework/includes/class-dashboard.php:1140
-#: lib/framework/includes/class-dashboard.php:1141
+#: lib/framework/includes/class-dashboard.php:1152
+#: lib/framework/includes/class-dashboard.php:1153
 #: lib/framework/includes/class-frontend-toolbar.php:219
 #: assets/js/dashboard.js:2
 #: lib/framework/assets/js/dashboard.js:2
@@ -798,11 +798,11 @@ msgstr ""
 msgid "Forbidden Access"
 msgstr ""
 
-#: lib/framework/includes/block/class-block-abstract.php:332
+#: lib/framework/includes/block/class-block-abstract.php:359
 msgid "This content is password protected. To view it please enter this post password below:"
 msgstr ""
 
-#: lib/framework/includes/block/class-block-abstract.php:335
+#: lib/framework/includes/block/class-block-abstract.php:362
 msgid "Enter"
 msgstr ""
 
@@ -843,34 +843,34 @@ msgstr ""
 msgid "by"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1119
-#: lib/framework/includes/class-dashboard.php:1120
+#: lib/framework/includes/class-dashboard.php:1131
+#: lib/framework/includes/class-dashboard.php:1132
 #: lib/framework/includes/class-frontend-toolbar.php:121
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Gutenverse"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1150
-#: lib/framework/includes/class-dashboard.php:1151
+#: lib/framework/includes/class-dashboard.php:1162
+#: lib/framework/includes/class-dashboard.php:1163
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Ecosystem"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1160
-#: lib/framework/includes/class-dashboard.php:1161
+#: lib/framework/includes/class-dashboard.php:1172
+#: lib/framework/includes/class-dashboard.php:1173
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Blocks"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1171
-#: lib/framework/includes/class-dashboard.php:1172
+#: lib/framework/includes/class-dashboard.php:1183
+#: lib/framework/includes/class-dashboard.php:1184
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Theme List"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1182
-#: lib/framework/includes/class-dashboard.php:1183
+#: lib/framework/includes/class-dashboard.php:1194
+#: lib/framework/includes/class-dashboard.php:1195
 #: lib/framework/includes/class-frontend-toolbar.php:237
 #: assets/js/blocks.js:2
 #: lib/framework/assets/js/core.js:2
@@ -878,22 +878,22 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1192
-#: lib/framework/includes/class-dashboard.php:1193
+#: lib/framework/includes/class-dashboard.php:1204
+#: lib/framework/includes/class-dashboard.php:1205
 #: lib/framework/includes/class-frontend-toolbar.php:246
 #: lib/framework/assets/js/dashboard.js:2
 msgid "System Status"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1202
-#: lib/framework/includes/class-dashboard.php:1203
+#: lib/framework/includes/class-dashboard.php:1214
+#: lib/framework/includes/class-dashboard.php:1215
 #: lib/framework/includes/class-frontend-toolbar.php:255
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Update Notice"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1213
-#: lib/framework/includes/class-dashboard.php:1214
+#: lib/framework/includes/class-dashboard.php:1225
+#: lib/framework/includes/class-dashboard.php:1226
 #: lib/framework/includes/class-frontend-toolbar.php:198
 #: assets/js/form.js:2
 #: lib/framework/assets/js/dashboard.js:2
