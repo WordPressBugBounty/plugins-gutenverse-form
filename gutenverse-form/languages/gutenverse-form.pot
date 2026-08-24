@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 3.0.3\n"
+"Project-Id-Version: Gutenverse Form 3.0.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-18T01:35:56+00:00\n"
+"POT-Creation-Date: 2026-08-24T02:41:27+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -579,8 +579,8 @@ msgstr ""
 #: includes/class-form.php:292
 #: includes/class-form.php:436
 #: includes/class-form.php:454
-#: lib/framework/includes/class-dashboard.php:1152
-#: lib/framework/includes/class-dashboard.php:1153
+#: lib/framework/includes/class-dashboard.php:1160
+#: lib/framework/includes/class-dashboard.php:1161
 #: lib/framework/includes/class-frontend-toolbar.php:219
 #: assets/js/dashboard.js:2
 #: lib/framework/assets/js/dashboard.js:2
@@ -787,14 +787,14 @@ msgid "Entry Data"
 msgstr ""
 
 #. translators: 1: Time from now.
-#: lib/framework/helper.php:789
+#: lib/framework/helper.php:818
 msgid "%s ago"
 msgstr ""
 
-#: lib/framework/helper.php:1878
-#: lib/framework/helper.php:1897
-#: lib/framework/helper.php:1916
-#: lib/framework/helper.php:1935
+#: lib/framework/helper.php:1907
+#: lib/framework/helper.php:1926
+#: lib/framework/helper.php:1945
+#: lib/framework/helper.php:1964
 msgid "Forbidden Access"
 msgstr ""
 
@@ -843,34 +843,34 @@ msgstr ""
 msgid "by"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1131
-#: lib/framework/includes/class-dashboard.php:1132
+#: lib/framework/includes/class-dashboard.php:1139
+#: lib/framework/includes/class-dashboard.php:1140
 #: lib/framework/includes/class-frontend-toolbar.php:121
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Gutenverse"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1162
-#: lib/framework/includes/class-dashboard.php:1163
+#: lib/framework/includes/class-dashboard.php:1170
+#: lib/framework/includes/class-dashboard.php:1171
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Ecosystem"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1172
-#: lib/framework/includes/class-dashboard.php:1173
+#: lib/framework/includes/class-dashboard.php:1180
+#: lib/framework/includes/class-dashboard.php:1181
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Blocks"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1183
-#: lib/framework/includes/class-dashboard.php:1184
+#: lib/framework/includes/class-dashboard.php:1191
+#: lib/framework/includes/class-dashboard.php:1192
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Theme List"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1194
-#: lib/framework/includes/class-dashboard.php:1195
+#: lib/framework/includes/class-dashboard.php:1202
+#: lib/framework/includes/class-dashboard.php:1203
 #: lib/framework/includes/class-frontend-toolbar.php:237
 #: assets/js/blocks.js:2
 #: lib/framework/assets/js/core.js:2
@@ -878,22 +878,22 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1204
-#: lib/framework/includes/class-dashboard.php:1205
+#: lib/framework/includes/class-dashboard.php:1212
+#: lib/framework/includes/class-dashboard.php:1213
 #: lib/framework/includes/class-frontend-toolbar.php:246
 #: lib/framework/assets/js/dashboard.js:2
 msgid "System Status"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1214
-#: lib/framework/includes/class-dashboard.php:1215
+#: lib/framework/includes/class-dashboard.php:1222
+#: lib/framework/includes/class-dashboard.php:1223
 #: lib/framework/includes/class-frontend-toolbar.php:255
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Update Notice"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:1225
-#: lib/framework/includes/class-dashboard.php:1226
+#: lib/framework/includes/class-dashboard.php:1233
+#: lib/framework/includes/class-dashboard.php:1234
 #: lib/framework/includes/class-frontend-toolbar.php:198
 #: assets/js/form.js:2
 #: lib/framework/assets/js/dashboard.js:2
