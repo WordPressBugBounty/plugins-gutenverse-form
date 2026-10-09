@@ -5,7 +5,7 @@ Tags: form, form builder, contact form, block form, booking form
 Requires at least: 5.9
 Tested up to: 7.1
 Requires PHP: 7.0
-Stable tag: 3.0.11
+Stable tag: 3.0.12
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -288,9 +288,15 @@ Terms: https://gutenverse.com/terms-and-conditions/
 
 == Changelog ==
 
+= 3.0.12 =
+Bug fixes:
+- Fix email template not running properly
+- Fix legacy form fallback
+- Check if SVG value is empty
+
 = 3.0.11 =
 Bug fixes:
-- Fixed vulnerability issues with SVG icons. credit: Animesh - Automattic Inc.
+- Fixed vulnerability issues with SVG icons. credit: John Ryan Albon - WPScan.
 
 = 3.0.10 =
 New and improved:
