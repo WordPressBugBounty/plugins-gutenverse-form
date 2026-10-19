@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 3.0.12\n"
+"Project-Id-Version: Gutenverse Form 3.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-09T08:35:54+00:00\n"
+"POT-Creation-Date: 2026-10-16T07:57:43+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -894,8 +894,8 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: lib/framework/includes/class-api.php:1577
-#: lib/framework/includes/class-api.php:1730
+#: lib/framework/includes/class-api.php:1579
+#: lib/framework/includes/class-api.php:1732
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 msgid "All"
@@ -7316,19 +7316,39 @@ msgid "This will disable WordPress default script for handling emojis, do this i
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
-msgid "Legacy Generated Frontend Files"
+msgid "Frontend CSS Loading"
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
-msgid "Remove old generated CSS files after your page cache has been purged."
+msgid "Load Static CSS as Files"
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
-msgid "Legacy size"
+msgid "Load static CSS files separately instead of embedding them in the page."
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
-msgid "Only clear these files after purging page cache or CDN cache. Cached pages may still reference old generated CSS URLs."
+msgid "Load Generated CSS Separately"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Load generated CSS separately from the page HTML. This does not create CSS files."
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Legacy Generated Frontend CSS Files"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Remove CSS files left by older versions. The current generated CSS loading option does not create CSS files."
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "File size"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Only clear these legacy files after purging page cache or CDN cache. Cached pages may still reference them."
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
@@ -7344,15 +7364,15 @@ msgid "No Legacy Files"
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
-msgid "Internal Inline Style Cache"
+msgid "Internal Generated CSS Cache"
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
-msgid "Stores generated inline style payloads so large pages do not need to rebuild block CSS on every request."
+msgid "Stores generated CSS with its source data. Separate stylesheet links read CSS from this cache."
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
-msgid "Cache size"
+msgid "Payload cache"
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
@@ -7360,7 +7380,7 @@ msgid "files"
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
-msgid "Clearing this cache is safe. The next frontend request will regenerate the needed inline style payloads."
+msgid "Purge page or CDN cache before clearing. Cached pages may still request CSS stored here."
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
