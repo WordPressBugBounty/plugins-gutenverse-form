@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 3.1.0\n"
+"Project-Id-Version: Gutenverse Form 3.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-16T07:57:43+00:00\n"
+"POT-Creation-Date: 2026-10-29T06:31:06+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -21,7 +21,7 @@ msgid "Gutenverse Form"
 msgstr ""
 
 #. Plugin URI of the plugin
-msgid "https://gutenverse.com/"
+msgid "https://gutenverse.com/?utm_source=wp-plugins&utm_campaign=plugin-uri&utm_medium=wp-dash"
 msgstr ""
 
 #. Description of the plugin
@@ -33,7 +33,7 @@ msgid "Jegstudio"
 msgstr ""
 
 #. Author URI of the plugin
-msgid "https://jegtheme.com/"
+msgid "https://jegtheme.com/?utm_source=wp-plugins&utm_campaign=plugin-uri&utm_medium=wp-dash"
 msgstr ""
 
 #: includes/class-api.php:2776
@@ -469,6 +469,7 @@ msgstr ""
 
 #: includes/class-entries.php:1549
 #: includes/class-frontend-toolbar.php:54
+#: lib/framework/assets/js/dashboard.js:2
 msgid "Integrations"
 msgstr ""
 
@@ -658,9 +659,9 @@ msgstr ""
 #: includes/class-form.php:292
 #: includes/class-form.php:436
 #: includes/class-form.php:454
-#: lib/framework/includes/class-dashboard.php:838
-#: lib/framework/includes/class-dashboard.php:839
-#: lib/framework/includes/class-frontend-toolbar.php:219
+#: lib/framework/includes/class-dashboard.php:920
+#: lib/framework/includes/class-dashboard.php:921
+#: lib/framework/includes/class-frontend-toolbar.php:283
 #: assets/js/dashboard.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Dashboard"
@@ -732,8 +733,8 @@ msgid "Gutenverse Form Action"
 msgstr ""
 
 #: includes/class-form.php:596
-#: includes/class-form.php:1758
-#: includes/class-form.php:2245
+#: includes/class-form.php:1811
+#: includes/class-form.php:2304
 msgid "This form action does not exist on this site."
 msgstr ""
 
@@ -760,51 +761,51 @@ msgid "(no title)"
 msgstr ""
 
 #: includes/class-form.php:1699
-#: includes/class-form.php:2190
+#: includes/class-form.php:2249
 msgid " Clone"
 msgstr ""
 
-#: includes/class-form.php:1750
+#: includes/class-form.php:1803
 msgid "A form action, post, and form instance are required before ownership can be checked."
 msgstr ""
 
-#: includes/class-form.php:2028
-#: includes/class-form.php:2186
+#: includes/class-form.php:2087
+#: includes/class-form.php:2245
 #: assets/js/blocks.js:2
 #: assets/js/dashboard.js:2
 #: assets/js/form.js:2
 msgid "Confirmation"
 msgstr ""
 
-#: includes/class-form.php:2037
-#: includes/class-form.php:2187
+#: includes/class-form.php:2096
+#: includes/class-form.php:2246
 #: assets/js/blocks.js:2
 #: assets/js/dashboard.js:2
 #: assets/js/form.js:2
 msgid "Notification"
 msgstr ""
 
-#: includes/class-form.php:2068
+#: includes/class-form.php:2127
 msgid "Forbidden Access: Target form action does not exist."
 msgstr ""
 
-#: includes/class-form.php:2080
+#: includes/class-form.php:2139
 msgid "This form action is still used by a form builder and cannot be deleted from here."
 msgstr ""
 
-#: includes/class-form.php:2091
+#: includes/class-form.php:2150
 msgid "This form action is still used by more than one form builder. Create private copies or remove the other references before deleting it."
 msgstr ""
 
-#: includes/class-form.php:2102
+#: includes/class-form.php:2161
 msgid "This form action belongs to another form builder and cannot be deleted from this form."
 msgstr ""
 
-#: includes/class-form.php:2211
+#: includes/class-form.php:2270
 msgid "Could not duplicate the email template for this form action."
 msgstr ""
 
-#: includes/class-form.php:2276
+#: includes/class-form.php:2335
 msgid "Could not duplicate this form action."
 msgstr ""
 
@@ -894,10 +895,12 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: lib/framework/includes/class-api.php:1579
-#: lib/framework/includes/class-api.php:1732
+#: lib/framework/includes/class-api.php:1690
+#: lib/framework/includes/class-api.php:1843
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "All"
 msgstr ""
 
@@ -905,77 +908,106 @@ msgstr ""
 msgid "Gutenverse Wrapper"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:381
+#: lib/framework/includes/class-dashboard.php:329
+msgid "Dismiss this notice permanently."
+msgstr ""
+
+#: lib/framework/includes/class-dashboard.php:332
+msgid "Introducing Gutenverse Optimizer"
+msgstr ""
+
+#: lib/framework/includes/class-dashboard.php:333
+msgid "Unlock powerful optimization tools to identify and fix issues that can affect your website’s speed, performance, and user experience."
+msgstr ""
+
+#: lib/framework/includes/class-dashboard.php:335
+msgid "Upgrade To Gutenverse PRO"
+msgstr ""
+
+#: lib/framework/includes/class-dashboard.php:362
+msgid "Unable to dismiss this notice. Please try again."
+msgstr ""
+
+#: lib/framework/includes/class-dashboard.php:462
 msgid "Gutenverse event banner"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:384
+#: lib/framework/includes/class-dashboard.php:465
 msgid "Dismiss this notice."
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:561
-#: lib/framework/includes/class-dashboard.php:563
-#: lib/framework/includes/class-dashboard.php:564
+#: lib/framework/includes/class-dashboard.php:642
+#: lib/framework/includes/class-dashboard.php:644
+#: lib/framework/includes/class-dashboard.php:645
 msgid "unknown"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:566
+#: lib/framework/includes/class-dashboard.php:647
 #: lib/framework/assets/js/dashboard.js:2
 msgid "by"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:817
-#: lib/framework/includes/class-dashboard.php:818
-#: lib/framework/includes/class-frontend-toolbar.php:121
+#: lib/framework/includes/class-dashboard.php:898
+#: lib/framework/includes/class-dashboard.php:899
+#: lib/framework/includes/class-frontend-toolbar.php:122
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Gutenverse"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:848
-#: lib/framework/includes/class-dashboard.php:849
+#: lib/framework/includes/class-dashboard.php:930
+#: lib/framework/includes/class-dashboard.php:931
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Ecosystem"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:858
-#: lib/framework/includes/class-dashboard.php:859
+#: lib/framework/includes/class-dashboard.php:940
+#: lib/framework/includes/class-dashboard.php:941
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Blocks"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:869
-#: lib/framework/includes/class-dashboard.php:870
+#: lib/framework/includes/class-dashboard.php:951
+#: lib/framework/includes/class-dashboard.php:952
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Theme List"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:880
-#: lib/framework/includes/class-dashboard.php:881
-#: lib/framework/includes/class-frontend-toolbar.php:237
+#: lib/framework/includes/class-dashboard.php:962
+#: lib/framework/includes/class-dashboard.php:963
+#: lib/framework/includes/class-frontend-toolbar.php:301
 #: assets/js/blocks.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Settings"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:890
-#: lib/framework/includes/class-dashboard.php:891
-#: lib/framework/includes/class-frontend-toolbar.php:246
+#: lib/framework/includes/class-dashboard.php:972
+#: lib/framework/includes/class-dashboard.php:973
+#: lib/framework/includes/class-frontend-toolbar.php:198
+#: lib/framework/includes/class-frontend-toolbar.php:346
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Optimizer"
+msgstr ""
+
+#: lib/framework/includes/class-dashboard.php:982
+#: lib/framework/includes/class-dashboard.php:983
+#: lib/framework/includes/class-frontend-toolbar.php:310
 #: lib/framework/assets/js/dashboard.js:2
 msgid "System Status"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:900
-#: lib/framework/includes/class-dashboard.php:901
-#: lib/framework/includes/class-frontend-toolbar.php:255
+#: lib/framework/includes/class-dashboard.php:992
+#: lib/framework/includes/class-dashboard.php:993
+#: lib/framework/includes/class-frontend-toolbar.php:319
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Update Notice"
 msgstr ""
 
-#: lib/framework/includes/class-dashboard.php:911
-#: lib/framework/includes/class-dashboard.php:912
-#: lib/framework/includes/class-frontend-toolbar.php:198
+#: lib/framework/includes/class-dashboard.php:1003
+#: lib/framework/includes/class-dashboard.php:1004
+#: lib/framework/includes/class-frontend-toolbar.php:262
 #: assets/js/form.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Upgrade to PRO"
@@ -1037,57 +1069,66 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:156
+#: lib/framework/includes/class-frontend-toolbar.php:157
 msgid "Gutenverse Admin"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:165
+#: lib/framework/includes/class-frontend-toolbar.php:166
 msgid "Gutenverse Pulse"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:228
+#: lib/framework/includes/class-frontend-toolbar.php:198
+#: lib/framework/assets/js/components.js:2
+msgid "Open Optimizer"
+msgstr ""
+
+#: lib/framework/includes/class-frontend-toolbar.php:215
+msgid "Optimize This Page"
+msgstr ""
+
+#: lib/framework/includes/class-frontend-toolbar.php:292
 msgid "Block List"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:266
+#: lib/framework/includes/class-frontend-toolbar.php:330
 msgid "Template Editor"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:282
+#: lib/framework/includes/class-frontend-toolbar.php:355
 msgid "Rate Us "
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:294
+#: lib/framework/includes/class-frontend-toolbar.php:367
 msgid "All Template"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:303
+#: lib/framework/includes/class-frontend-toolbar.php:376
 msgid "Template Part"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:312
+#: lib/framework/includes/class-frontend-toolbar.php:385
 msgid "Got Question?"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:324
+#: lib/framework/includes/class-frontend-toolbar.php:397
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 msgid "Documentation"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:345
+#: lib/framework/includes/class-frontend-toolbar.php:418
 msgid "Not a Block Themes"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:364
+#: lib/framework/includes/class-frontend-toolbar.php:437
 msgid "Edit Template: "
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:379
+#: lib/framework/includes/class-frontend-toolbar.php:452
 msgid "Included Template Part"
 msgstr ""
 
-#: lib/framework/includes/class-frontend-toolbar.php:391
+#: lib/framework/includes/class-frontend-toolbar.php:464
 msgid "Edit: "
 msgstr ""
 
@@ -1690,6 +1731,8 @@ msgstr ""
 #: assets/js/blocks.js:2
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Style"
 msgstr ""
 
@@ -1958,278 +2001,6 @@ msgid "Radio Options"
 msgstr ""
 
 #: assets/js/blocks.js:2
-msgid "Wrapper Margin"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Checkbox Link Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Checkbox Link Typography"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "GDPR Label"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "GDPR Default Value"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Will not show on editor, only in frontend"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "GDPR Checked Value"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Value sent to Form Action and integrations when the checkbox is checked"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "GDPR Unchecked Value"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Value sent to Form Action and integrations when the checkbox is unchecked"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Temporarily Hide Notice"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Hides the notice in the editor while editing. This setting resets after reloading the page."
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Message Source"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Default Message"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Custom Message"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Notice Status (Preview)"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Frontend status is set automatically after submission."
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: assets/js/form.js:2
-msgid "Success Message"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: assets/js/form.js:2
-msgid "Error Message"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Icon Success"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Icon Error"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Icon Position Suceess"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Left (Default)"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Right"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/blocks.js:2
-msgid "Top"
-msgstr ""
-
-#: assets/js/blocks.js:2
-#: lib/framework/assets/js/blocks.js:2
-msgid "Bottom"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Icon Position Error"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Icon Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Icon Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Icon Size"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Icon Size"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Icon Background"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Icon Background"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Icon Border"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Icon Border"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Icon Padding"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Icon Padding"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Text Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Text Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Typography"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Typography"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Content Margin"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Content Margin"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Background"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Background"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Border"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Border"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Padding"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Padding"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success Margin"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error Margin"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Notice Settings"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Container Style"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Icon Style"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Content Style"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Success message defined in Form Builder"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Error message defined in Form Builder"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Remove notice?"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Notice still appears after removing the \"Form Notice\"?"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Your form action may have a default notice message. Go to Admin Dashboard > Form > Form Action and delete the notice text."
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Label Width"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Label Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Title Typography"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Label Padding"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Label Margin"
-msgstr ""
-
-#: assets/js/blocks.js:2
-msgid "Require Indicator Color"
-msgstr ""
-
-#: assets/js/blocks.js:2
 msgid "Error Example"
 msgstr ""
 
@@ -2243,6 +2014,22 @@ msgstr ""
 
 #: assets/js/blocks.js:2
 msgid "Error Background Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Text Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Typography"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Padding"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Margin"
 msgstr ""
 
 #: assets/js/blocks.js:2
@@ -2263,6 +2050,22 @@ msgstr ""
 
 #: assets/js/blocks.js:2
 msgid "Success Background Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Text Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Typography"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Padding"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Margin"
 msgstr ""
 
 #: assets/js/blocks.js:2
@@ -2428,7 +2231,17 @@ msgstr ""
 
 #: assets/js/blocks.js:2
 #: assets/js/form.js:2
+msgid "Success Message"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: assets/js/form.js:2
 msgid "The message displayed after successful submission."
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: assets/js/form.js:2
+msgid "Error Message"
 msgstr ""
 
 #: assets/js/blocks.js:2
@@ -2901,6 +2714,8 @@ msgstr ""
 #: assets/js/form.js:2
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "PRO"
 msgstr ""
 
@@ -3586,6 +3401,236 @@ msgid "Click the + symbol on form builder block, then search for inputs you need
 msgstr ""
 
 #: assets/js/blocks.js:2
+msgid "Wrapper Margin"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Checkbox Link Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Checkbox Link Typography"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "GDPR Label"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "GDPR Default Value"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Will not show on editor, only in frontend"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "GDPR Checked Value"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Value sent to Form Action and integrations when the checkbox is checked"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "GDPR Unchecked Value"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Value sent to Form Action and integrations when the checkbox is unchecked"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Temporarily Hide Notice"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Hides the notice in the editor while editing. This setting resets after reloading the page."
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Message Source"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Default Message"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Custom Message"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Notice Status (Preview)"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Frontend status is set automatically after submission."
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Icon Success"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Icon Error"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Icon Position Suceess"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Left (Default)"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Right"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/blocks.js:2
+msgid "Top"
+msgstr ""
+
+#: assets/js/blocks.js:2
+#: lib/framework/assets/js/blocks.js:2
+msgid "Bottom"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Icon Position Error"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Icon Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Icon Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Icon Size"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Icon Size"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Icon Background"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Icon Background"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Icon Border"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Icon Border"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Icon Padding"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Icon Padding"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Content Margin"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Content Margin"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Background"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Background"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success Border"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error Border"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Notice Settings"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Container Style"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Icon Style"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Content Style"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Success message defined in Form Builder"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Error message defined in Form Builder"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Remove notice?"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Notice still appears after removing the \"Form Notice\"?"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Your form action may have a default notice message. Go to Admin Dashboard > Form > Form Action and delete the notice text."
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Label Width"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Label Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Title Typography"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Label Padding"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Label Margin"
+msgstr ""
+
+#: assets/js/blocks.js:2
+msgid "Require Indicator Color"
+msgstr ""
+
+#: assets/js/blocks.js:2
 msgid "OFF Text"
 msgstr ""
 
@@ -4165,6 +4210,7 @@ msgstr ""
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Activate License"
 msgstr ""
 
@@ -4637,6 +4683,8 @@ msgstr ""
 #: lib/framework/assets/js/blocks.js:2
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Layout"
 msgstr ""
 
@@ -4851,6 +4899,8 @@ msgstr ""
 #: lib/framework/assets/js/blocks.js:2
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Layouts"
 msgstr ""
 
@@ -4969,15 +5019,11 @@ msgid "Copy Style"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
-msgid "Gutenverse \"%s\" Style Copied"
+msgid "%s \"%s\" Style Copied"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 msgid "Paste Style"
-msgstr ""
-
-#: lib/framework/assets/js/components.js:2
-msgid "Gutenverse Style Pasted"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
@@ -4994,73 +5040,99 @@ msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Import Section Notice"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "We can't import content because the Post Content is missing from your Template. Would you like to switch to Post View instead in order to import the content?"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Keep Import"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Dismiss"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Upgrade To PRO"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Renew License"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Fetching Data"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Importing Assets"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Deploying Content"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Manage Required Plugin"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Import this page"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Importing "
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Plugin Requirements"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "There is plugin need to be installed or updated for this layout work correctly."
 msgid_plural "There are %s plugins need to be installed or updated for this layout work correctly."
 msgstr[0] ""
@@ -5068,244 +5140,316 @@ msgstr[1] ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Manage Plugin Requirement →"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "View Demo"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "by "
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Liked"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Like"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "No Result Found"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "It seems we can't find any results based on your search."
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Installing Plugin"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Disabling Plugin"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Deleting Plugin"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Activating Plugin"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Go to Plugin Page"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Install Plugin"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Update & Activate Plugin"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Activate Plugin"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Update Plugin"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Installed & Activated"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Installed version %s"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Required version %s or later"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Attention!"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Please refresh this page after install or update plugin"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Plugin Requirement"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Please install or update and activate these missing requirements plugin for this section or layout to work correctly. We recommend to backup your site before install/update plugin listed below."
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Load More"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Search Layout"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Licenses"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Categories"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Color"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Welcome to Gutenverse Library"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Discover "
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid " Premium Layouts "
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid " and Sections You Never Meet Before!"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Basic"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Professional"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Agency"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Enterprise"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Free"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Back to %s"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Back to Layouts"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Import this section"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Preview Section"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Import on Progress"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Missing Requirement"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Click for more detail"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "There is plugin need to be installed or updated for this section work correctly."
 msgid_plural "There are %s plugins need to be installed or updated for this section work correctly."
 msgstr[0] ""
@@ -5313,31 +5457,43 @@ msgstr[1] ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Back to sections"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Back to Favorite Layout"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Back to Favorite sections"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Library"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Section"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Import Failed!"
 msgstr ""
 
@@ -5367,6 +5523,7 @@ msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
 msgid "Upgrade To Pro"
 msgstr ""
 
@@ -5414,35 +5571,53 @@ msgstr ""
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Upgrade "
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid " Gutenverse PRO "
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid " version to "
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid " unlock these premium features"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "Install Gutenverse News Essentials"
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
 #: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+#: lib/framework/assets/js/notifications.js:2
 msgid "You need to Install and Activate plugin Gutenverse News Essentials to unlock this feature."
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Don't Let a Slow Website Drive Visitors Away"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+#: lib/framework/assets/js/core.js:2
+msgid "Upgrade to Gutenverse Pro to identify and fix optimization issues that could affect your website's speed, performance, and user experience."
 msgstr ""
 
 #: lib/framework/assets/js/components.js:2
@@ -5692,6 +5867,14 @@ msgstr ""
 msgid "Coming Soon"
 msgstr ""
 
+#: lib/framework/assets/js/components.js:2
+msgid "Gutenverse Optimizer"
+msgstr ""
+
+#: lib/framework/assets/js/components.js:2
+msgid "Close Optimizer"
+msgstr ""
+
 #: lib/framework/assets/js/core.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Copied..."
@@ -5699,6 +5882,36 @@ msgstr ""
 
 #: lib/framework/assets/js/core.js:2
 msgid "Click to Copy Element Id"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Scan Pages, Posts, Templates, and Patterns"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Review Optimizer Issues and Recommended Fixes"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Tune Performance settings from one dashboard"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Unlock Advanced Optimization Tools"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Optimizer dashboard is a Pro Feature"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Activate Gutenverse Pro to scan, configure, and review optimizer issues from the dashboard"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
@@ -6053,6 +6266,10 @@ msgstr ""
 
 #: lib/framework/assets/js/core.js:2
 msgid "Background Fallback"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Enable Slideshow on Mobile"
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
@@ -7080,6 +7297,10 @@ msgid "Version Compatibility"
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
+msgid "More"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
 msgid "WELCOME TO 👋"
 msgstr ""
 
@@ -7440,30 +7661,6 @@ msgid "Custom Font Settings"
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
-msgid "Global Block Settings"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Gutenverse News Additional Features"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "View Counter Settings"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Post Review Settings"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Paywall Settings"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Like & Dislike Settings"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
 msgid "Performance Settings"
 msgstr ""
 
@@ -7472,15 +7669,7 @@ msgid "Account Settings"
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
-msgid "Bookmark Settings"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Post Split Settings"
-msgstr ""
-
-#: lib/framework/assets/js/dashboard.js:2
-msgid "Ads Settings"
+msgid "Integration Settings"
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
@@ -7749,6 +7938,22 @@ msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Version %s"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Standard"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Personal"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Ultimate"
+msgstr ""
+
+#: lib/framework/assets/js/dashboard.js:2
+msgid "Requires %s plan or higher"
 msgstr ""
 
 #: lib/framework/assets/js/dashboard.js:2
