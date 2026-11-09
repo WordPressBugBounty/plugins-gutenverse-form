@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenverse Form 3.2.1\n"
+"Project-Id-Version: Gutenverse Form 3.2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenverse-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-30T05:49:31+00:00\n"
+"POT-Creation-Date: 2026-11-09T03:36:55+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: gutenverse-form\n"
@@ -36,30 +36,30 @@ msgstr ""
 msgid "https://jegtheme.com/?utm_source=wp-plugins&utm_campaign=plugin-uri&utm_medium=wp-dash"
 msgstr ""
 
-#: includes/class-api.php:2776
-#: includes/class-api.php:2818
-#: includes/class-api.php:2964
+#: includes/class-api.php:2675
+#: includes/class-api.php:2717
+#: includes/class-api.php:2863
 msgid "Integrations are available in Gutenverse Pro."
 msgstr ""
 
-#: includes/class-api.php:2840
-#: includes/class-api.php:2925
+#: includes/class-api.php:2739
+#: includes/class-api.php:2824
 msgid "Invalid integration service."
 msgstr ""
 
-#: includes/class-api.php:2853
+#: includes/class-api.php:2752
 msgid "Integration service is unavailable."
 msgstr ""
 
-#: includes/class-api.php:2903
+#: includes/class-api.php:2802
 msgid "Missing secret storage context."
 msgstr ""
 
-#: includes/class-api.php:2913
+#: includes/class-api.php:2812
 msgid "Permission denied."
 msgstr ""
 
-#: includes/class-api.php:2936
+#: includes/class-api.php:2835
 msgid "This field is not configured for server-side secret storage."
 msgstr ""
 
@@ -100,8 +100,8 @@ msgid "Tracked Forms"
 msgstr ""
 
 #: includes/class-daily-summary.php:402
-#: includes/class-entries.php:1288
-#: includes/class-entries.php:1337
+#: includes/class-entries.php:1304
+#: includes/class-entries.php:1353
 #: includes/class-form.php:280
 #: includes/class-form.php:281
 #: assets/js/blocks.js:2
@@ -285,8 +285,8 @@ msgid "Search Item"
 msgstr ""
 
 #: includes/class-email-template.php:158
-#: includes/class-entries.php:1961
-#: includes/class-entries.php:1983
+#: includes/class-entries.php:1977
+#: includes/class-entries.php:1999
 msgid "Not found"
 msgstr ""
 
@@ -346,78 +346,78 @@ msgstr ""
 msgid "All Form"
 msgstr ""
 
-#: includes/class-entries.php:750
+#: includes/class-entries.php:766
 #: includes/class-form.php:1005
 msgid "Home"
 msgstr ""
 
-#: includes/class-entries.php:787
+#: includes/class-entries.php:803
 msgid "No referral"
 msgstr ""
 
-#: includes/class-entries.php:811
+#: includes/class-entries.php:827
 msgid "No form"
 msgstr ""
 
-#: includes/class-entries.php:871
+#: includes/class-entries.php:887
 msgid "Entry not found."
 msgstr ""
 
-#: includes/class-entries.php:879
+#: includes/class-entries.php:895
 msgid "You do not have permission to delete this entry."
 msgstr ""
 
-#: includes/class-entries.php:889
+#: includes/class-entries.php:905
 #: assets/js/form.js:2
 msgid "Could not delete entry. Please try again."
 msgstr ""
 
-#: includes/class-entries.php:913
+#: includes/class-entries.php:929
 msgid "Exporting entries requires Gutenverse PRO."
 msgstr ""
 
-#: includes/class-entries.php:1266
+#: includes/class-entries.php:1282
 msgid "no-form"
 msgstr ""
 
-#: includes/class-entries.php:1286
+#: includes/class-entries.php:1302
 msgid "Checkbox"
 msgstr ""
 
-#: includes/class-entries.php:1287
+#: includes/class-entries.php:1303
 #: includes/class-form.php:413
 #: lib/framework/assets/js/core.js:2
 msgid "Title"
 msgstr ""
 
-#: includes/class-entries.php:1289
+#: includes/class-entries.php:1305
 msgid "Referral"
 msgstr ""
 
-#: includes/class-entries.php:1290
+#: includes/class-entries.php:1306
 #: includes/class-form.php:416
 msgid "Date"
 msgstr ""
 
-#: includes/class-entries.php:1304
+#: includes/class-entries.php:1320
 #: assets/js/form.js:2
 msgid "Entry"
 msgstr ""
 
 #. translators: 1: form title, 2: entry ID.
-#: includes/class-entries.php:1361
-#: includes/class-entries.php:1383
+#: includes/class-entries.php:1377
+#: includes/class-entries.php:1399
 msgid "%1$s - Entry #%2$d"
 msgstr ""
 
 #. translators: 1: entry title base, 2: entry ID.
-#: includes/class-entries.php:1403
+#: includes/class-entries.php:1419
 msgid "%1$s #%2$d"
 msgstr ""
 
-#: includes/class-entries.php:1486
-#: includes/class-entries.php:1487
-#: includes/class-entries.php:1488
+#: includes/class-entries.php:1502
+#: includes/class-entries.php:1503
+#: includes/class-entries.php:1504
 #: includes/class-form.php:305
 #: includes/class-form.php:306
 #: includes/class-form.php:414
@@ -425,158 +425,158 @@ msgstr ""
 msgid "Entries"
 msgstr ""
 
-#: includes/class-entries.php:1489
+#: includes/class-entries.php:1505
 msgid "New Entries"
 msgstr ""
 
-#: includes/class-entries.php:1490
+#: includes/class-entries.php:1506
 msgid "Create Entry"
 msgstr ""
 
-#: includes/class-entries.php:1491
-#: includes/class-entries.php:1493
+#: includes/class-entries.php:1507
+#: includes/class-entries.php:1509
 msgid "View Entry"
 msgstr ""
 
-#: includes/class-entries.php:1492
+#: includes/class-entries.php:1508
 msgid "New Entry"
 msgstr ""
 
-#: includes/class-entries.php:1494
+#: includes/class-entries.php:1510
 msgid "Search Entry"
 msgstr ""
 
-#: includes/class-entries.php:1495
+#: includes/class-entries.php:1511
 #: includes/class-form.php:560
 msgid "No entry found"
 msgstr ""
 
-#: includes/class-entries.php:1496
+#: includes/class-entries.php:1512
 msgid "No Entry in Trash"
 msgstr ""
 
-#: includes/class-entries.php:1499
+#: includes/class-entries.php:1515
 msgid "Gutenverse Form Entries"
 msgstr ""
 
-#: includes/class-entries.php:1529
+#: includes/class-entries.php:1545
 msgid "Form Info"
 msgstr ""
 
-#: includes/class-entries.php:1539
+#: includes/class-entries.php:1555
 msgid "Entry Info"
 msgstr ""
 
-#: includes/class-entries.php:1549
+#: includes/class-entries.php:1565
 #: includes/class-frontend-toolbar.php:54
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Integrations"
 msgstr ""
 
-#: includes/class-entries.php:1559
+#: includes/class-entries.php:1575
 #: includes/class-mail.php:333
 msgid "Browser Info"
 msgstr ""
 
-#: includes/class-entries.php:1569
+#: includes/class-entries.php:1585
 msgid "Payment Info"
 msgstr ""
 
-#: includes/class-entries.php:1590
+#: includes/class-entries.php:1606
 msgid "Spam Status"
 msgstr ""
 
-#: includes/class-entries.php:1607
+#: includes/class-entries.php:1623
 #: includes/class-mail.php:321
 msgid "Entry ID"
 msgstr ""
 
-#: includes/class-entries.php:1626
+#: includes/class-entries.php:1642
 msgid "Resubmit All"
 msgstr ""
 
-#: includes/class-entries.php:1627
+#: includes/class-entries.php:1643
 msgid "Integrations Triggered"
 msgstr ""
 
-#: includes/class-entries.php:1633
+#: includes/class-entries.php:1649
 msgid "Resend Submission"
 msgstr ""
 
-#: includes/class-entries.php:1641
+#: includes/class-entries.php:1657
 msgid "Integration Logs"
 msgstr ""
 
-#: includes/class-entries.php:1680
+#: includes/class-entries.php:1696
 msgid "No integrations were recorded for this entry."
 msgstr ""
 
-#: includes/class-entries.php:1820
+#: includes/class-entries.php:1836
 msgid "Not spam"
 msgstr ""
 
-#: includes/class-entries.php:1821
+#: includes/class-entries.php:1837
 msgid "Spam"
 msgstr ""
 
-#: includes/class-entries.php:1822
+#: includes/class-entries.php:1838
 msgid "Unknown"
 msgstr ""
 
-#: includes/class-entries.php:1823
+#: includes/class-entries.php:1839
 msgid "Unavailable"
 msgstr ""
 
-#: includes/class-entries.php:1824
-#: includes/class-entries.php:2001
-#: includes/class-entries.php:2002
+#: includes/class-entries.php:1840
+#: includes/class-entries.php:2017
+#: includes/class-entries.php:2018
 #: assets/js/blocks.js:2
 #: lib/framework/assets/js/dashboard.js:2
 msgid "Disabled"
 msgstr ""
 
-#: includes/class-entries.php:1832
+#: includes/class-entries.php:1848
 msgid "Provider"
 msgstr ""
 
-#: includes/class-entries.php:1838
+#: includes/class-entries.php:1854
 msgid "Result"
 msgstr ""
 
-#: includes/class-entries.php:1845
+#: includes/class-entries.php:1861
 msgid "Hint"
 msgstr ""
 
-#: includes/class-entries.php:1855
+#: includes/class-entries.php:1871
 msgid "Checked"
 msgstr ""
 
-#: includes/class-entries.php:1879
+#: includes/class-entries.php:1895
 msgid "Yes"
 msgstr ""
 
-#: includes/class-entries.php:1879
+#: includes/class-entries.php:1895
 msgid "No"
 msgstr ""
 
-#: includes/class-entries.php:1889
+#: includes/class-entries.php:1905
 msgid "Empty"
 msgstr ""
 
-#: includes/class-entries.php:1910
+#: includes/class-entries.php:1926
 msgid "Submitted Field"
 msgstr ""
 
-#: includes/class-entries.php:1986
+#: includes/class-entries.php:2002
 #: includes/class-mail.php:315
 msgid "Form ID"
 msgstr ""
 
-#: includes/class-entries.php:1986
+#: includes/class-entries.php:2002
 msgid "Form is not set"
 msgstr ""
 
-#: includes/class-entries.php:1987
+#: includes/class-entries.php:2003
 #: includes/class-form.php:551
 #: includes/class-form.php:552
 #: includes/class-form.php:553
@@ -584,70 +584,70 @@ msgstr ""
 msgid "Form Action"
 msgstr ""
 
-#: includes/class-entries.php:2001
-#: includes/class-entries.php:2007
+#: includes/class-entries.php:2017
+#: includes/class-entries.php:2023
 msgid "IP Address"
 msgstr ""
 
-#: includes/class-entries.php:2002
-#: includes/class-entries.php:2008
+#: includes/class-entries.php:2018
+#: includes/class-entries.php:2024
 msgid "Browser Data"
 msgstr ""
 
-#: includes/class-entries.php:2022
-#: includes/class-entries.php:2023
+#: includes/class-entries.php:2038
+#: includes/class-entries.php:2039
 msgid "none"
 msgstr ""
 
-#: includes/class-entries.php:2037
+#: includes/class-entries.php:2053
 msgid "Method"
 msgstr ""
 
-#: includes/class-entries.php:2038
+#: includes/class-entries.php:2054
 msgid "Status"
 msgstr ""
 
-#: includes/class-entries.php:2075
+#: includes/class-entries.php:2091
 msgid "Permission denied"
 msgstr ""
 
-#: includes/class-entries.php:2084
+#: includes/class-entries.php:2100
 msgid "Invalid Entry ID"
 msgstr ""
 
-#: includes/class-entries.php:2104
+#: includes/class-entries.php:2120
 msgid "%s retriggered successfully"
 msgstr ""
 
-#: includes/class-entries.php:2106
+#: includes/class-entries.php:2122
 msgid "Integration not found or not support retriggering"
 msgstr ""
 
-#: includes/class-entries.php:2110
+#: includes/class-entries.php:2126
 msgid "All integrations retriggered successfully"
 msgstr ""
 
-#: includes/class-entries.php:2131
+#: includes/class-entries.php:2147
 msgid "Back to entries"
 msgstr ""
 
-#: includes/class-entries.php:2132
+#: includes/class-entries.php:2148
 msgid "All Integation Retriggered Successfully"
 msgstr ""
 
-#: includes/class-entries.php:2133
+#: includes/class-entries.php:2149
 msgid "All Integation Retriggered Failed"
 msgstr ""
 
-#: includes/class-entries.php:2134
+#: includes/class-entries.php:2150
 msgid "Error occurred"
 msgstr ""
 
-#: includes/class-entries.php:2135
+#: includes/class-entries.php:2151
 msgid "AJAX error occurred"
 msgstr ""
 
-#: includes/class-entries.php:2136
+#: includes/class-entries.php:2152
 msgid "Entry title is view only"
 msgstr ""
 
@@ -872,11 +872,11 @@ msgstr ""
 msgid "Forbidden Access"
 msgstr ""
 
-#: lib/framework/includes/block/class-block-abstract.php:363
+#: lib/framework/includes/block/class-block-abstract.php:372
 msgid "This content is password protected. To view it please enter this post password below:"
 msgstr ""
 
-#: lib/framework/includes/block/class-block-abstract.php:366
+#: lib/framework/includes/block/class-block-abstract.php:375
 msgid "Enter"
 msgstr ""
 
@@ -6122,6 +6122,18 @@ msgstr ""
 
 #: lib/framework/assets/js/core.js:2
 msgid "Background Image"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Use Featured Image Fallback"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Featured Image Fallback"
+msgstr ""
+
+#: lib/framework/assets/js/core.js:2
+msgid "Used when the post has no featured image."
 msgstr ""
 
 #: lib/framework/assets/js/core.js:2
